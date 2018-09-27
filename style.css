@@ -1,6 +1,7 @@
 html, body,{
     width: 100%;
     font-family: 'Poppins', sans-serif;
+    background-image: url('./assets/sky-bg.jpg');
 }
 
 h1{
