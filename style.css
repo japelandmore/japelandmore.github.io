@@ -1,10 +1,37 @@
 html, body,{
     width: 100%;
+    height: 100vh;
     font-family: 'Poppins', sans-serif;
-    background-image: url('./assets/sky-bg.jpg');
+    background-color: black;
+    
+}
+
+.contain{
+    background-image: url(./assets/sky-bg.jpg);
+    background-position: center;
+    background-size: cover;
+    color: white;
 }
 
 h1{
     font-family: 'Atomic Age', cursive;
 }
 
+.navbar .navbar-vertical{
+    margin: auto;
+}
+
+.bd-sidebar {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 4rem;
+    z-index: 1000;
+    height: calc(100vh - 4rem);
+}
+
+
+@media (min-width: 1200px){
+    navbar-brand{
+        visibility: hidden;
+    }
+}
