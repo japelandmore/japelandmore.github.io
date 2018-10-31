@@ -1,16 +1,18 @@
 html, body,{
     width: 100%;
     height: 100vh;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Averta', sans-serif;
     background-color: black;
     
 }
 
 .contain{
-    background-image: url(./assets/sky-bg.jpg);
+    background-image:  url(./assets/sky-bg.jpg), linear-gradient(180deg,rgba(0, 0, 0, 0.88),rgba(0, 0, 0, 0.021));
     background-position: center;
     background-size: cover;
+    min-height: 100%;
     color: white;
+    /* background-repeat-y: no-repeat; */
 }
 
 h1{
