@@ -32,6 +32,7 @@ h1{
 
 h2{
     font-family: 'Work Sans', sans-serif;
+    font-size: 4rem;
 }
 
 .navbar .navbar-vertical{
@@ -53,6 +54,11 @@ h2{
 .hero-text{
     position: absolute;
     top: 50%;
+}
+
+.hero-sub{
+    position: relative;
+    top: 25%;
 }
 
 @media (min-width: 1200px){
