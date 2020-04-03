@@ -3,7 +3,6 @@ html, body,{
     height: 100vh;
     font-family: 'Raleway', 'Work Sans', sans-serif;
     /* background-color: black; */
-    
 }
 
 p{
@@ -27,12 +26,12 @@ p{
 
 h1{
     font-family: 'Montserrat', sans-serif;
-    font-size: 3.5rem;
+    font-size: 4rem;
 }
 
 h2{
     font-family: 'Work Sans', sans-serif;
-    font-size: 4rem;
+    font-size: 3.5rem;
 }
 
 .navbar .navbar-vertical{
@@ -67,7 +66,9 @@ h2{
     }
 }
 
-
+#what-i-do{
+  min-height: 600px;
+}
 
 
 
