@@ -70,7 +70,7 @@
     color: var(--main-color2);
     line-height: 27px;
     margin-bottom: 30px;
-    font-size: .89em;
+    font-size: .93em;
 }
 
 .profile .call_to_action{
@@ -127,9 +127,17 @@
     .profile .call_to_action .container button{
         margin-bottom: 15px;
     }
+
+    .profile .call_to_action .container .buttonfont .buttonbold .font_alpha{
+        margin: 0 auto!important;
+    }
 }
 
 @media only screen and (min-width: 768px){
+
+    .landingpage{
+        margin: 10%;
+    }
 
     .profile{
         display: flex;
@@ -183,8 +191,9 @@
 
     .profile .call_to_action .container button{
         margin-right: 20px;
-        padding: 8px 35px;
+        padding: 15px 35px;
         cursor: pointer;
+        font-size: .93em;
     }
 
     .profile .call_to_action .container button .buttonfont{
@@ -195,7 +204,7 @@
     .profile .call_to_action .container .buttonstripe{
         background-color: var(--main-color7);
         border: none;
-        padding: 8px 45px; 
+        padding: 15px 45px; 
     }
 
     .profile .profile_image{

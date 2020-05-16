@@ -64,10 +64,10 @@ const Contact = () => {
 
                             <label for="Subject" className={ContactCss.other_label}>Subject</label>
                             <select name="subject">
-                                <option></option>
-                                <option></option>
-                                <option></option>
-                                <option></option>
+                                <option>Business Analysis</option>
+                                <option>UI/UX Design</option>
+                                <option>Web Design</option>
+                                <option>I just want to say Hi!</option>
                             </select>
                             
 
@@ -109,20 +109,20 @@ const Contact = () => {
                         
                                         <BodyFont fontClass={ContactCss.credit}>Contact Me - 07088884625</BodyFont>
                                         <BodyFont fontClass={ContactCss.credit}>japelandmore@gmail[dot]com</BodyFont>                        
-
+                                        <br/>
                                     </div>
                                         
                                     <div className={ContactCss.soc_icon}>
                     
-                                        <div className={ContactCss.img_container}><img src={social_image2} alt="" className={ContactCss.social_icons}></img></div>
+                                        <div className={ContactCss.img_container}><a target="_blank" href="https://www.linkedin.com/in/jefferya" rel="noopener noreferrer"><img src={social_image2} alt="" className={ContactCss.social_icons}></img></a></div>
                         
-                                        <div className={ContactCss.img_container}><img src={social_image1} alt="" className={ContactCss.social_icons}></img></div>
+                                        <div className={ContactCss.img_container}><a target="_blank" href="https://www.behance.net/jefferya" rel="noopener noreferrer"><img src={social_image1} alt="" className={ContactCss.social_icons}></img></a></div>
                         
-                                        <div className={ContactCss.img_container}><img src={social_image3} alt="" className={ContactCss.social_icons}></img></div>
+                                        <div className={ContactCss.img_container}><a target="_blank" href="https://www.dribbble.com/jefferya" rel="noopener noreferrer"><img src={social_image3} alt="" className={ContactCss.social_icons}></img></a></div>
                         
-                                        <div className={ContactCss.img_container}><img src={social_image3b} alt="" className={ContactCss.social_icons}></img></div>
+                                        <div className={ContactCss.img_container}><a target="_blank" href="https://www.medium.com/japelandmore" rel="noopener noreferrer"><img src={social_image3b} alt="" className={ContactCss.social_icons}></img></a></div>
                         
-                                        <div className={ContactCss.img_container}><img src={social_image4} alt="" className={ContactCss.social_icons}></img></div>
+                                        <div className={ContactCss.img_container}><a target="_blank" href="https://www.twitter.com/_japelandmore_" rel="noopener noreferrer"><img src={social_image4} alt="" className={ContactCss.social_icons}></img></a></div>
                                     
                                     </div>
                                     

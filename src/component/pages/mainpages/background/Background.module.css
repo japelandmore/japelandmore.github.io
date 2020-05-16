@@ -8,8 +8,8 @@
     position: fixed;
     width: 70px;
     right: 0;
-    top:0;
-    height: 80vh;
+    /* top:0; */
+    height: 140vh;
     display: flex;
     align-items: center;
     justify-content: center;
