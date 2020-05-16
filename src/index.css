@@ -1,0 +1,32 @@
+@font-face {
+  font-family: 'encode_sans';
+  src: url('./component/assets/font/encode_sans/EncodeSans-Regular.ttf');
+}
+
+
+body {
+  margin: 0;
+  font-family: 'encode_sans';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: 'encode_sans', monospace;
+}
+
+:root{
+  --main-color : #260590;
+  --main-color2 : #ffffff;
+  --main-color3 : #3B18AD;
+  --main-color4 : #00000029;
+  --main-color5 : #F5F5F5;
+  --main-color6 : #005B8B;
+  --main-color7 : #008B76;
+  --main-color8 : #575757;
+  --main-color9 : #EAEAEA;
+  --main-color10 : #3434349A;
+  --main-color11 : #B39BFF;
+  --main-color12 : #DDDAE6;
+  --main-color13 : #000;
+}

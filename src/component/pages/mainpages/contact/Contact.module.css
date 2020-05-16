@@ -1,0 +1,274 @@
+.contact{
+    width: 100%;
+    margin-top: 50px;
+}
+
+.contact .topheader{
+    display: none;
+}
+
+.contact .container{
+    width: 90%;
+    margin: 50px auto;
+    /* border: 1px solid white; */
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact .container .form_container,
+.contact .container .testimony_container{
+    background: var(--main-color2);
+    width: 100%;
+    margin: 30px auto;
+    /* border-radius: 10px; */
+    padding: 30px 0;
+}
+
+.contact .container .form_container form{
+    /* border: 1px solid black; */
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    overflow: hidden;
+    padding-bottom: 30px;
+}
+
+.contact .container .form_container form .left,
+.contact .container .form_container form .right{
+    width: 100%;
+    /* border: 1px solid black; */
+    padding: 30px 0 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact .container .form_container form .right{
+    padding-top: 0;
+}
+
+.contact .container .form_container form .holder{
+    /* border: 1px solid black; */
+    display: flex;
+    /* flex-direction: column; */
+    height: 50px;
+    width: 100%;
+    position: relative;
+    margin: 15px 0;
+}
+
+.contact .container .form_container form input,
+.contact .container .form_container form select,
+.contact .container .form_container form textarea,
+.contact .container .form_container form button{
+    margin-bottom: 20px;
+    outline: none;
+    width: 100%;
+}
+
+.contact .container .form_container form input{
+    height: 100%;
+    border: none;
+    padding-top: 20px;
+    /* border-bottom: 1px solid var(--main-color10); */
+}
+
+.label_name{
+    /* margin-top: 10px; */
+    font-size: .80em;
+    position: absolute;
+    height: 100%;
+    width: 99%;
+    pointer-events: none;
+    border-bottom: 0.5px solid var(--main-color12);
+    /* border: 1px solid black; */
+}
+
+.label_name::after{
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 101%;
+    border-bottom: 2px solid var(--main-color);
+    left: -1px;
+    bottom: -1px;
+    transform: translateX(-100%);
+    transition: all .3s ease;
+}
+
+.content_name{ 
+    position: absolute;
+    bottom: 5px;
+    left: 0px;
+    transition: all 0.3s ease;
+    color: var(--main-color12);
+}
+
+.contact .container .form_container form select{
+    width: 99%;
+    height: 40px;
+    border: none;
+    border: 0.5px solid var(--main-color12);
+    background: none;
+    border-radius: 5px;
+}
+
+.contact .container .form_container form textarea{
+    width: 100%;
+    height: 150px;
+    border-radius: 5px;
+    padding: 10px;
+    border: 0.5px solid var(--main-color12);
+    resize: none;
+    font-family: 'encode_sans';
+    line-height: 25px;
+}
+
+.contact .container .form_container form button{
+    padding: 15px 20px;
+    border: none;
+    /* border-radius: 5px; */
+    color: var(--main-color2);
+    background: var(--main-color);
+    font-size: .99em;
+}
+
+form input:focus + .label_name .content_name, form input:valid + .label_name .content_name{
+    transform : translateY(-200%);
+    font-size: .80em;
+    color: var(--main-color);
+}
+
+
+form input:focus + .label_name::after, 
+.form input:valid + .label_name::after{
+    transform: translateX(0%);
+}
+
+.other_label{
+    margin: 20px 0 10px;
+    font-size: .80em;
+}
+
+.contact .container .testimony_container .test_bond{
+    /* border: 1px solid black; */
+    width: 80%;
+    margin: 0 auto;
+    padding: 40px 0;
+    overflow: hidden;
+    text-align: center;
+}
+
+.contact .container .testimony_container .test_bond .headermain_title{
+    color: var(--main-color3);
+    font-weight: bold;
+}
+
+.socials{
+    display: block;
+    /* border: 1px solid black; */
+    width: 100%;
+    /* margin: 0 auto; */
+    padding: 0;
+}
+
+.socials .containers{
+    /* border: 1px solid black; */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.socials .containers .soc_icon{
+    display: flex;
+    justify-content: space-evenly;
+    /* border: 1px solid black; */
+    width: 100%;
+}
+
+.socials .containers .soc_icon .img_container{
+    /* border: 1px solid white; */
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    /* margin-right: 15px; */
+    cursor: pointer;
+    border: 1px solid var(--main-color3);
+}
+
+.socials .containers .soc_icon .img_container img{
+    width: 15px;
+}
+
+.socials .containers .text_copy{
+    padding: 10px 0 15px;
+}
+
+.socials .containers .text_copy .credit{
+    /* color: var(--main-color2); */
+    font-size: .80em;
+    margin-bottom: 5px;
+
+}
+
+
+
+@media only screen and (min-width: 768px){
+
+    .contact .topheader{
+        display: flex;
+        /* border: 1px solid white; */
+        width: 85%;
+        margin: 0 auto;
+    }
+
+    .contact .topheader .headfont{
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: var(--main-color2);
+        font-size: 2.5em;
+    }
+
+    .contact .container{
+        width: 85%;
+        flex-direction: row;
+        justify-content: space-between;
+        /* border: 1px solid white; */
+        padding-left:0;
+        padding-right: 0;
+    }
+
+    .contact .container .form_container{
+        width: 55%;
+        margin:0;
+    }
+
+    .contact .container .testimony_container{
+        width: 44%;
+        margin:0;
+    }
+
+    .contact .container .form_container form{
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        padding-bottom: 0px;
+    }
+
+    .contact .container .form_container form .left,
+    .contact .container .form_container form .right{
+        width: 47%;
+        padding: 30px 0
+    }
+
+    .contact .container .testimony_container .test_bond{
+        text-align: left;
+    }
+
+}

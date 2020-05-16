@@ -1,0 +1,76 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+.font_one,
+.font_two,
+.font_three,
+.font_four,
+.font_five,
+.font_six,
+.font_p,
+.font_alpha{
+    font-family: 'encode_sans';
+}
+
+.font_one{
+    font-size: 2em;
+    font-weight: bold;
+    text-size-adjust: inherit;
+    font-size-adjust: inherit;
+    margin: 0;
+}
+
+.font_two{
+    font-size: 1.5em;
+    font-weight: bold;
+    text-size-adjust: inherit;
+    font-size-adjust: inherit;
+    margin: 0;
+}
+
+.font_three{
+    font-size: 1.12em;
+    font-weight: bold;
+    text-size-adjust: inherit;
+    font-size-adjust: inherit;
+    margin: 0;
+}
+
+.font_four{
+    font-size: 1em;
+    font-weight: 400;
+    margin: 0;
+}
+
+.font_five{
+    font-size: .93em;
+    font-weight: 400;
+    text-size-adjust: inherit;
+    font-size-adjust: inherit;
+    margin: 0;
+}
+
+.font_six{
+    font-size: .83em;
+    font-weight: 500;
+    text-size-adjust: inherit;
+    font-size-adjust: inherit;
+    margin: 0;
+}
+
+.font_p{
+    font-size: .93em;
+    text-size-adjust: inherit;
+    font-size-adjust: inherit;
+    margin: 0;
+}
+
+.font_alpha{
+    text-size-adjust: inherit;
+    font-size-adjust: inherit;
+    margin: 0;
+    text-decoration: none;
+    color: inherit;
+}

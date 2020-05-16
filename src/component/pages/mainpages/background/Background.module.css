@@ -1,0 +1,282 @@
+
+.background{
+    width: 100%;
+    margin-top: 50px;
+}
+
+.background .printer_section{
+    position: fixed;
+    width: 70px;
+    right: 0;
+    top:0;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.background .topheader{
+    display: none;
+}
+
+.background .printer_section .image_container{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor:pointer;
+    background: var(--main-color3);
+}
+
+.background .printer_section .image_container:hover{
+    border: 1px solid var(--main-color4);
+}
+
+.background .container{
+    width: 90%;
+    margin: 50px auto;
+    background: var(--main-color2);
+    padding: 20px 0;
+}
+
+.background .container .professional_summary,
+.background .container .area_of_expertise,
+.background .container .work_experience,
+.background .container .education,
+.background .container .certification{
+    padding: 20px 30px;
+    margin: 20px 0;
+}
+
+.background .container .header{
+    border-bottom: 1px solid var(--main-color9);
+    text-align: center;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.background .container .body{
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.background .container .body_item{
+    /* border: 1px solid black; */
+}
+
+.background .container .body_item .body{
+    /* border: 1px solid black; */
+}
+
+.background .container .body_item .body .body_header{
+    /* border: 1px solid black; */
+    padding:20px 0;
+}
+
+.background .container .body_item .body .body_body{
+    /* border: 1px solid black; */
+    padding:20px 0;
+    padding: 0 20px;
+}
+
+.background .container li{
+    /* border: 1px solid black; */
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    list-style-type: none;
+    /* width: max-content; */
+    margin-bottom: 30px;
+}
+
+.background .container .work_header{
+    padding: 20px 0;
+}
+
+.background .container .work_title{
+    color: var(--main-color3);
+    /* margin: 25px 0 10px; */
+    margin-bottom: 10px;
+}
+
+.background .container .work_date{
+    font-size: .80em;
+    font-weight: bold;
+    color: var(--main-color10);
+}
+
+.background .container .company_title{
+    color: var(--main-color8);
+    margin: 20px 0 10px;
+    font-weight: bold;
+}
+
+.background .container .role_header{
+    /* color: var(--main-color10); */
+    color: var(--main-color8);
+    margin: 30px 0;
+    font-weight: bold;
+    font-size: .90em;
+}
+
+.background .container .body_item .body .body_body .body_font{
+    /* margin-bottom: 30px; */
+}
+
+.header_font{
+    color: var(--main-color8);
+    font-weight: bold;
+}
+
+.body_font{
+    line-height: 27px;
+}
+
+.background .container .education .work_header,
+.background .container .certification .work_header{
+    padding: 20px 0 0;
+    /* border: 1px solid black; */
+}
+
+.background .container .education .work_date,
+.background .container .certification .work_date{
+    margin-bottom: 20px;
+}
+
+.background .container .education .body_font,
+.background .container .certification .body_font{
+    /* border: 1px solid black; */
+    margin-bottom: 15px;
+}
+
+@media only screen and (min-width:768px){
+
+    .background .topheader{
+        display: flex;
+        /* border: 1px solid white; */
+        width: 85%;
+        margin: 0 auto;
+    }
+
+    .background .topheader .headfont{
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color: var(--main-color2);
+        font-size: 2.5em;
+    }
+
+    .background .container{
+        width: 85%;
+    }
+
+    .background .printer_section{
+        width: 100px;
+    }
+
+    .background .container .header{
+        text-align: left;
+    }
+
+    .background .container .professional_summary,
+    .background .container .area_of_expertise,
+    .background .container .work_experience,
+    .background .container .education,
+    .background .container .certification{
+        padding: 20px 70px;
+        /* margin: 20px 0; */
+    }
+
+    .background .container .professional_summary .body{
+        /* border: 1px solid black; */
+        padding-left: 22px;
+        padding-right: 22px; 
+    }
+
+    .background .container .area_of_expertise .body_item{
+        /* border: 1px solid black; */
+        /* display: flex; */
+        /* justify-content: space-evenly; */
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .background .container .area_of_expertise .body_item .body{
+        /* border: 1px solid black; */
+        margin-left: 5px;
+        margin-right: 5px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .background .container li{
+        list-style-type:disc ;
+        font-size: .90em;
+    }
+
+    .background .container .area_of_expertise .body_item .image_container,
+    .background .container .area_of_expertise .body_item .body_header,
+    .background .container .area_of_expertise .body_item .body_body{
+        /* border: 1px solid black; */
+        text-align: left;
+        padding-left: 0;
+    }
+
+    .background .container .area_of_expertise .body_item .body .img_container{
+        /* border: 1px solid black; */
+        text-align: left;
+        height: 100px;
+        display: flex;
+        align-items: center;
+    }
+
+    .background .container .work_experience .work_header{
+        /* border: 1px solid black; */
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 0px;
+    }
+
+    .background .container .others{
+        /* border: 1px solid black; */
+        text-align: left;
+        width: 70%;
+    }
+
+    .background .container .education .body_item{
+        /* border: 1px solid black; */
+        display: flex;
+    }
+
+    .background .container .work_header{
+        text-align: left;
+    }
+
+    .background .container .certification .body_item{
+        display: flex;
+        align-items: center;
+    }
+
+    .background .container .certification .body_item .body{
+        margin-right: 30px;
+        width: 32%;
+        /* border: 1px solid black; */
+        text-align: left;
+    }
+
+    .background .container .certification .body_item .body2{
+        width: 37%;
+        /* border: 1px solid black; */
+        /* padding: 0; */
+    }
+}
+
+@media only screen and (max-width: 1024px){
+    .background .container .area_of_expertise .body_item{
+        /* border: 1px solid black; */
+        grid-template-columns: auto auto ;
+    }   
+}
