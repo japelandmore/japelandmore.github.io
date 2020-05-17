@@ -25,8 +25,8 @@ const Six =({fontStyle,fontClass,referral,...props})=>{
     return(<h6 className={`${FontCss.font_six} ${fontClass}`} style={fontStyle} ref={referral}>{props.children}</h6>)
 }
 
-const Para =({fontStyle,fontClass,referral,...props})=>{
-    return(<p className={`${FontCss.font_p} ${fontClass}`} style={fontStyle} ref={referral} >{props.children}</p>)
+const Para =({fontStyle,fontClass,referral,clickk,...props})=>{
+    return(<p className={`${FontCss.font_p} ${fontClass}`} style={fontStyle} ref={referral} onClick={clickk}>{props.children}</p>)
 }
 
 const Alpha =({fontStyle,ahref,fontClass,referral,...props})=>{

@@ -7,6 +7,7 @@ import social_image2 from '../../../assets/image/contact/Icons-1.svg';
 import social_image3 from '../../../assets/image/contact/Icons-2.svg';
 import social_image3b from '../../../assets/image/contact/Icons-4.svg';
 import social_image4 from '../../../assets/image/contact/Icons-3.svg';
+import socialmediaurl from '../../../framework/socialmediaurl';
 
 const Contact = () => {
 
@@ -64,10 +65,11 @@ const Contact = () => {
 
                             <label for="Subject" className={ContactCss.other_label}>Subject</label>
                             <select name="subject">
-                                <option></option>
-                                <option></option>
-                                <option></option>
-                                <option></option>
+                                <option>Select Option</option>
+                                <option>Business Analysis</option>
+                                <option>UI/UX Design</option>
+                                <option>Web Design</option>
+                                <option>I just want to say Hi!</option>
                             </select>
                             
 
@@ -114,16 +116,26 @@ const Contact = () => {
                                         
                                     <div className={ContactCss.soc_icon}>
                     
-                                        <div className={ContactCss.img_container}><img src={social_image2} alt="" className={ContactCss.social_icons}></img></div>
-                        
-                                        <div className={ContactCss.img_container}><img src={social_image1} alt="" className={ContactCss.social_icons}></img></div>
-                        
-                                        <div className={ContactCss.img_container}><img src={social_image3} alt="" className={ContactCss.social_icons}></img></div>
-                        
-                                        <div className={ContactCss.img_container}><img src={social_image3b} alt="" className={ContactCss.social_icons}></img></div>
-                        
-                                        <div className={ContactCss.img_container}><img src={social_image4} alt="" className={ContactCss.social_icons}></img></div>
-                                    
+                                        <a target="_blank" href={socialmediaurl.LINKEDIN_URL} rel="noopener noreferrer" style={{textDecoration:"none"}}>    
+                                            <div className={ContactCss.img_container}><img src={social_image2} alt="linkedin logo" className={ContactCss.social_icons}></img></div>
+                                        </a>
+
+                                        <a target="_blank" href={socialmediaurl.BEHANCE_URL} rel="noopener noreferrer" style={{textDecoration:"none"}}>    
+                                            <div className={ContactCss.img_container}><img src={social_image1} alt="behance logo" className={ContactCss.social_icons}></img></div>
+                                        </a>
+
+                                        <a target="_blank" href={socialmediaurl.DRIBBLE_URL} rel="noopener noreferrer" style={{textDecoration:"none"}}>    
+                                            <div className={ContactCss.img_container}><img src={social_image3} alt="dribble logo" className={ContactCss.social_icons}></img></div>
+                                        </a>
+
+                                        <a target="_blank" href={socialmediaurl.MEDIUM_URL} rel="noopener noreferrer" style={{textDecoration:"none"}}>    
+                                            <div className={ContactCss.img_container}><img src={social_image3b} alt="medium logo" className={ContactCss.social_icons}></img></div>
+                                        </a>
+
+                                        <a target="_blank" href={socialmediaurl.TWITTER_URL} rel="noopener noreferrer" style={{textDecoration:"none"}}>    
+                                            <div className={ContactCss.img_container}><img src={social_image4} alt="twitter logo" className={ContactCss.social_icons}></img></div>
+                                        </a>
+
                                     </div>
                                     
                                 </div>

@@ -6,12 +6,15 @@ import {Header,Footer,Menu,SideMenu} from './component/pages/navigation'
 import pageurl from './component/framework/pageurl';
 import {createBrowserHistory} from 'history';
 import SwipeEffect from './component/reusable/effect'
+import credit from './component/framework/credit';
+
 
 function App() {
 
   let history = createBrowserHistory();
 
   const sidemenu = React.useRef();
+  const other_credit = React.useRef();
 
   return (
 
@@ -26,7 +29,7 @@ function App() {
 
           <Menu />
 
-            <div className="main_container">
+            <div className={`main_container ${history.location.pathname === "/" ? "landing_page_height_handler" : "other_page_height_handler"}`}>
 
                 <Switch>
 
@@ -42,7 +45,7 @@ function App() {
 
                 </Switch>
 
-                <Footer />
+                <Footer credit_other={other_credit} other_click={()=>credit.creditHandler(other_credit)}/>
             </div>
 
         

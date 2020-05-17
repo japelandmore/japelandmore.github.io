@@ -92,7 +92,7 @@
     padding: 10px 25px;
     font-family: encode_sans;
     font-size: 1em;
-    font-weight: bold;
+    font-family:'encode_sans_bold';
     background: var(--main-color7);
     border: none;
     color: var(--main-color2);

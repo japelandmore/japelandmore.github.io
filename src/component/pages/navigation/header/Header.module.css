@@ -108,6 +108,7 @@
 
     .nav ul .alpha li .four{
         color: var(--main-color2);
+        font-family: 'encode_sans_bold';
     }
 
 }

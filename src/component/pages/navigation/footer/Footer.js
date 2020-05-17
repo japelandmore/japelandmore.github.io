@@ -6,9 +6,9 @@ import social_image3 from '../../../assets/image/introduction/Icons-2.svg';
 import social_image3b from '../../../assets/image/introduction/Iconsb.svg';
 import social_image4 from '../../../assets/image/introduction/Icons-3.svg';
 import {Para as BodyFont} from '../../../reusable/fonts';
+import socialmediaurl from '../../../framework/socialmediaurl';
 
-
-const Footer = () => {
+const Footer = ({credit_other,other_click}) => {
 
     return(
         <footer className={FooterCss.footer}>
@@ -18,17 +18,27 @@ const Footer = () => {
                     <div className={FooterCss.container}>
                         
                         <div className={FooterCss.soc_icon}>
-        
-                            <div className={FooterCss.img_container}><img src={social_image2} alt="" className={FooterCss.social_icons}></img></div>
-            
-                            <div className={FooterCss.img_container}><img src={social_image1} alt="" className={FooterCss.social_icons}></img></div>
-            
-                            <div className={FooterCss.img_container}><img src={social_image3} alt="" className={FooterCss.social_icons}></img></div>
-            
-                            <div className={FooterCss.img_container}><img src={social_image3b} alt="" className={FooterCss.social_icons}></img></div>
-            
-                            <div className={FooterCss.img_container}><img src={social_image4} alt="" className={FooterCss.social_icons}></img></div>
-                        
+
+                            <a target="_blank" href={socialmediaurl.LINKEDIN_URL} rel="noopener noreferrer" style={{textDecoration:"none"}}>    
+                                <div className={FooterCss.img_container}><img src={social_image2} alt="linkedin logo" className={FooterCss.social_icons}></img></div>
+                            </a>
+
+                            <a target="_blank" href={socialmediaurl.BEHANCE_URL} rel="noopener noreferrer" style={{textDecoration:"none"}}>    
+                                <div className={FooterCss.img_container}><img src={social_image1} alt="behance logo" className={FooterCss.social_icons}></img></div>
+                            </a>
+
+                            <a target="_blank" href={socialmediaurl.DRIBBLE_URL} rel="noopener noreferrer" style={{textDecoration:"none"}}>    
+                                <div className={FooterCss.img_container}><img src={social_image3} alt="dribble logo" className={FooterCss.social_icons}></img></div>
+                            </a>
+
+                            <a target="_blank" href={socialmediaurl.MEDIUM_URL} rel="noopener noreferrer" style={{textDecoration:"none"}}>    
+                                <div className={FooterCss.img_container}><img src={social_image3b} alt="medium logo" className={FooterCss.social_icons}></img></div>
+                            </a>
+
+                            <a target="_blank" href={socialmediaurl.TWITTER_URL} rel="noopener noreferrer" style={{textDecoration:"none"}}>    
+                                <div className={FooterCss.img_container}><img src={social_image4} alt="twitter logo" className={FooterCss.social_icons}></img></div>
+                            </a>
+
                         </div>
                         
                         <div className={FooterCss.text_copy}>
@@ -38,7 +48,7 @@ const Footer = () => {
                             <a target="_blank" href="https://www.linkedin.com/in/frank-edekobi-500062129" rel="noopener noreferrer"
                             style={{textDecoration:"none"}}>
 
-                                <BodyFont fontClass={FooterCss.credit} fontStyle={{fontSize:".75em",marginTop:"10px",color:"#b39bff"}}>
+                                <BodyFont fontClass={FooterCss.credit} fontStyle={{fontSize:".75em",marginTop:"10px",color:"#b39bff"}} referral={credit_other} clickk={other_click}>
                                     Coded by Frank
                                 </BodyFont>
 
@@ -49,20 +59,6 @@ const Footer = () => {
                     </div>
 
             </section>
-
-            {/* <section className={FooterCss.dev}>
-                
-                <div className={FooterCss.text_copy}>
-                
-                    <a target="_blank" href="https://www.linkedin.com/in/frank-edekobi-500062129" rel="noopener noreferrer">
-
-                        <BodyFont fontClass={FooterCss.credit}>Coded by Frank</BodyFont>
-
-                    </a>                        
-
-                </div>
-
-            </section> */}
         
         </footer>
     )

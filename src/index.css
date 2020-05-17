@@ -3,6 +3,22 @@
   src: url('./component/assets/font/encode_sans/EncodeSans-Regular.ttf');
 }
 
+@font-face {
+  font-family: 'encode_sans_semi_bold';
+  src: url('./component/assets/font/encode_sans/EncodeSans-SemiBold.ttf');
+}
+
+@font-face {
+  font-family: 'encode_sans_bold';
+  src: url('./component/assets/font/encode_sans/EncodeSans-Bold.ttf');
+}
+
+
+@font-face {
+  font-family: 'encode_sans_medium';
+  src: url('./component/assets/font/encode_sans/EncodeSans-Medium.ttf');
+}
+
 
 body {
   margin: 0;

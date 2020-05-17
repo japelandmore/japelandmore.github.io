@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import HeaderCss from './Header.module.css';
 import {Alpha,Six as Fur} from '../../../reusable/fonts';
 import pageurl from '../../../framework/pageurl'
-
+import mainlogo from '../../../assets/image/edited/JXI.png'
 
 const Header = ({url,clickmenu}) => {
 
@@ -38,7 +38,7 @@ const Header = ({url,clickmenu}) => {
             <div className={HeaderCss.container}>
 
                 <div className={HeaderCss.logo}>
-                    <img src="" alt="Company Logo" ></img>
+                    <img src={mainlogo} alt="Company Logo" ></img>
                 </div>
 
                 <div className={HeaderCss.menu_ham}>

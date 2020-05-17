@@ -114,6 +114,11 @@
     border: 0.5px solid var(--main-color12);
     background: none;
     border-radius: 5px;
+    padding: 10px;
+}
+
+.contact .container .form_container form select option{
+    margin: 25px 0;
 }
 
 .contact .container .form_container form textarea{
@@ -134,6 +139,7 @@
     color: var(--main-color2);
     background: var(--main-color);
     font-size: .99em;
+    font-family:'encode_sans_bold';
 }
 
 form input:focus + .label_name .content_name, form input:valid + .label_name .content_name{

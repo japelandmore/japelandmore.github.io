@@ -40,8 +40,8 @@ const LandingPage = () => {
                         {/* Body */}
                         <div className={LandingPageCss.body}>
                             <BodyFont fontClass={LandingPageCss.bodyfont}>
-                                My name is Jeffery Abdulateef, I'm a <span style={{fontWeight:"bolder"}}>UI/UX Developer</span> 
-                                (last 4 years),and I now double as a software <span style={{fontWeight:"bolder"}}>Business Analyst</span>.
+                                My name is Jeffery Abdulateef, I'm a <span style={{fontFamily:"encode_sans_bold"}}>UI/UX Developer</span> 
+                                (last 4 years),and I now double as a software <span style={{fontFamily:"encode_sans_bold"}}>Business Analyst</span>.
                             </BodyFont>
 
                             <BodyFont fontClass={LandingPageCss.bodyfont}>
@@ -53,7 +53,7 @@ const LandingPage = () => {
 
                             <BodyFont fontClass={LandingPageCss.bodyfont}>
 
-                                <span style={{fontWeight:"bolder"}}>
+                                <span style={{fontFamily:"encode_sans_bold"}}>
                                     Right now, I'm in Lagos, working at FlexiP Group Technologies to build an awesome
                                     product design team.
                                 </span>
