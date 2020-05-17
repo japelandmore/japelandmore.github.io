@@ -24,7 +24,7 @@ const Contact = () => {
 
                 <div className={ContactCss.form_container}>
 
-                    <form autoComplete="off">
+                    <form autoComplete="off" id="contact" onSubmit={this.handleSubmit.bind(this)} method="POST">
 
                         {/* left */}
                         <section className={ContactCss.left}>

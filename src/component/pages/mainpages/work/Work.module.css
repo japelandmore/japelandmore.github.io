@@ -24,7 +24,7 @@
     height: 600px;
     /* z-index: 1; */
     top: 50px;
-    background: var(--main-color12);
+    background: var(--main-color);
 }
 
 .work .container .my_services,
@@ -79,7 +79,7 @@
 }
 
 .work .container .my_projects .body_item .body .img_container{
-    height: 200px;
+    height: auto;
 }
 
 .work .container .body_item .body .img_container img{
@@ -89,6 +89,7 @@
 
 .hire_btn{
     margin-top: 20px;
+    margin-bottom: 20px;
     padding: 10px 25px;
     font-family: encode_sans;
     font-size: 1em;
