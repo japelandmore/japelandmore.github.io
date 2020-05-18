@@ -16,10 +16,10 @@ import uximg from '../../../assets/image/work/new/web-design.svg';
 import branding from '../../../assets/image/work/new/artistic.svg';
 import MyServiceRole from './MyServicesRole';
 
-import bahov from '../../../assets/image/work/new/hover/file.png';
-import webhov from '../../../assets/image/work/new/hover/computer coding.png';
-import uxhov from '../../../assets/image/work/new/hover/web-design.png';
-import brandhov from '../../../assets/image/work/new/hover/artistic.png';
+import bahov from '../../../assets/image/work/new/hover/file.svg';
+import webhov from '../../../assets/image/work/new/hover/computer coding.svg';
+import uxhov from '../../../assets/image/work/new/hover/web-design.svg';
+import brandhov from '../../../assets/image/work/new/hover/artistic.svg';
 import MyServicesRole from './MyServicesRole';
 
 const Work = () => {
