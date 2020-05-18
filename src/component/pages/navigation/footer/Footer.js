@@ -8,7 +8,7 @@ import social_image4 from '../../../assets/image/introduction/Icons-3.svg';
 import {Para as BodyFont} from '../../../reusable/fonts';
 import socialmediaurl from '../../../framework/socialmediaurl';
 
-const Footer = ({credit_other,other_click}) => {
+const Footer = ({other_click}) => {
 
     return(
         <footer className={FooterCss.footer}>
@@ -45,14 +45,14 @@ const Footer = ({credit_other,other_click}) => {
         
                             <BodyFont fontClass={FooterCss.credit}>Jeffery Abdulateef &copy; 2020 </BodyFont>                        
                             
-                            <a target="_blank" href="https://www.linkedin.com/in/frank-edekobi-500062129" rel="noopener noreferrer"
-                            style={{textDecoration:"none"}}>
+                            {/* <a target="_blank" href="https://www.linkedin.com/in/frank-edekobi-500062129" rel="noopener noreferrer" */}
+                            {/* style={{textDecoration:"none"}}> */}
 
-                                <BodyFont fontClass={FooterCss.credit} fontStyle={{fontSize:".75em",marginTop:"10px",color:"#b39bff"}} referral={credit_other} clickk={other_click}>
+                                <BodyFont fontClass={FooterCss.credit} fontStyle={{fontSize:".75em",marginTop:"10px",color:"#b39bff",cursor:"pointer"}} clickk={other_click}>
                                     Coded by Frank
                                 </BodyFont>
 
-                            </a>                        
+                            {/* </a>                         */}
         
                         </div>
         

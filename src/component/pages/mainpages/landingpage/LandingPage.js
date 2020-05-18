@@ -1,6 +1,6 @@
 import React from 'react';
 import LandingPageCss from './LandingPage.module.css';
-import {One as HeaderFont,Para as BodyFont,Alpha} from '../../../reusable/fonts';
+import {One as HeaderFont,Four as BodyFont,Alpha} from '../../../reusable/fonts';
 import profile_image from '../../../assets/image/introduction/avatar@2x.png';
 import pageurl from '../../../framework/pageurl'
 
@@ -41,7 +41,7 @@ const LandingPage = () => {
                         <div className={LandingPageCss.body}>
                             <BodyFont fontClass={LandingPageCss.bodyfont}>
                                 My name is Jeffery Abdulateef, I'm a <span style={{fontFamily:"encode_sans_bold"}}>UI/UX Developer</span> 
-                                (last 4 years),and I now double as a software <span style={{fontFamily:"encode_sans_bold"}}>Business Analyst</span>.
+                                (last 4 years), and I now double as a software <span style={{fontFamily:"encode_sans_bold"}}>Business Analyst</span>.
                             </BodyFont>
 
                             <BodyFont fontClass={LandingPageCss.bodyfont}>

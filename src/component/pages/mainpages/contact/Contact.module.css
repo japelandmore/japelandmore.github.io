@@ -115,6 +115,8 @@
     background: none;
     border-radius: 5px;
     padding: 10px;
+    font-family: 'encode_sans';
+    font-size: .80em;
 }
 
 .contact .container .form_container form select option{
@@ -140,6 +142,7 @@
     background: var(--main-color);
     font-size: .99em;
     font-family:'encode_sans_bold';
+    cursor: pointer;
 }
 
 form input:focus + .label_name .content_name, form input:valid + .label_name .content_name{
@@ -170,7 +173,7 @@ form input:focus + .label_name::after,
 
 .contact .container .testimony_container .test_bond .headermain_title{
     color: var(--main-color3);
-    font-weight: bold;
+    font-family: 'encode_sans_bold';
 }
 
 .socials{

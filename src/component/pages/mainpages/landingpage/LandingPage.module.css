@@ -74,7 +74,7 @@
     color: var(--main-color2);
     line-height: 27px;
     margin-bottom: 30px;
-    font-size: .89em;
+    /* font-size: .89em; */
 }
 
 .profile .call_to_action{
@@ -94,7 +94,7 @@
 .profile .call_to_action .container button{
     border: none;
     margin: 0;
-    padding: 18px 32px;
+    padding: 18px 30px;
 }
 
 .profile .call_to_action .container button .buttonfont{
@@ -104,6 +104,7 @@
 
 .profile .call_to_action .container .buttonbold{
     background: var(--main-color2);
+    border: 1px solid var(--main-color2);
 }
 
 .profile .call_to_action .container .buttonbold .buttonfont{
@@ -204,6 +205,7 @@
         background-color: var(--main-color7);
         border: none;
         padding: 8px 45px; 
+        border: 1px solid var(--main-color7);
     }
 
     .profile .profile_image{

@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import HeaderCss from './Header.module.css';
-import {Alpha,Six as Fur} from '../../../reusable/fonts';
+import {Alpha,Five as Fur} from '../../../reusable/fonts';
 import pageurl from '../../../framework/pageurl'
 import mainlogo from '../../../assets/image/edited/JXI.png'
 

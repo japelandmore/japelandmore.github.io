@@ -14,7 +14,6 @@ function App() {
   let history = createBrowserHistory();
 
   const sidemenu = React.useRef();
-  const other_credit = React.useRef();
 
   return (
 
@@ -45,7 +44,8 @@ function App() {
 
                 </Switch>
 
-                <Footer credit_other={other_credit} other_click={()=>credit.creditHandler(other_credit)}/>
+                <Footer other_click={()=>credit.creditHandler()}/>
+
             </div>
 
         

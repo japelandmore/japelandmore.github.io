@@ -17,8 +17,8 @@ const Four =({fontStyle,fontClass,referral,...props})=>{
     return(<h4 className={`${FontCss.font_four} ${fontClass}`} style={fontStyle} ref={referral}>{props.children}</h4>)
 }
 
-const Five =({fontStyle,fontClass,referral,...props})=>{
-    return(<h5 className={`${FontCss.font_five} ${fontClass}`} style={fontStyle} ref={referral}>{props.children}</h5>)
+const Five =({fontStyle,fontClass,referral,fid,...props})=>{
+    return(<h5 className={`${FontCss.font_five} ${fontClass}`} style={fontStyle} ref={referral} id={fid}>{props.children}</h5>)
 }
 
 const Six =({fontStyle,fontClass,referral,...props})=>{

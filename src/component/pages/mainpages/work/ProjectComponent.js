@@ -1,5 +1,5 @@
 import React from 'react';
-import {Alpha,Five,Para} from '../../../reusable/fonts'
+import {Alpha,Five,Para,Six} from '../../../reusable/fonts'
 import readmore from '../../../assets/image/icons/icon.svg';
 import readless from '../../../assets/image/icons/show-less-fold-button.svg';
 
@@ -39,7 +39,7 @@ const ProjectComponent = ({WorkCss,img,project,project_type,company,year,project
                                                 
                                                     <Para fontClass={WorkCss.header_company}>{company}</Para>
                                                 
-                                                    <Para fontClass={WorkCss.header_year}>{year}</Para>
+                                                    <Six fontClass={WorkCss.header_year}>{year}</Six>
                                                 
                                                 </div>
                                             

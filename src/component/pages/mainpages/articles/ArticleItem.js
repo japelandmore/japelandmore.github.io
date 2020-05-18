@@ -28,17 +28,21 @@ const ArticleItem = ({ArticleCss,header,date,article_img,article_title,external_
 
                 <div className={ArticleCss.txt}>
 
-                    <Five fontClass={ArticleCss.five}>
+                    <a target="_blank" href={external_link} rel="noopener noreferrer" style={{cursor:"pointer",textDecoration:"none"}}>
+
+                        <Five fontClass={ArticleCss.five}>
+                        
+                            {article_title}
+                        
+                        </Five>
                     
-                        {article_title}
-                    
-                    </Five>
+                    </a>
 
                 </div>
 
                 <div className={ArticleCss.link}>
 
-                <a target="_blank" href={external_link} rel="noopener noreferrer">
+                <a target="_blank" href={external_link} rel="noopener noreferrer" style={{cursor:"pointer"}}>
 
                     <img src={linkimg} alt="external link icon" ></img>
 

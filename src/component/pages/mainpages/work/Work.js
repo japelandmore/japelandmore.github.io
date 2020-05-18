@@ -1,8 +1,6 @@
 import React from 'react';
 import WorkCss from './Work.module.css';
 import {One as HeaderFont,Five,Para} from '../../../reusable/fonts'
-// import ReactDOM from 'react-dom';
-
 import konnectore from '../../../assets/image/edited/Konnectore Presentation.png';
 import paymonthly from '../../../assets/image/work/Paymonthly - Presentation@2x.png';
 import xela from '../../../assets/image/work/Xela - Presentation@2x.png';
@@ -10,7 +8,19 @@ import fpgwebsite from '../../../assets/image/edited/FPG Website - Presentation.
 import udux from '../../../assets/image/edited/udux presentation.png';
 import ProjectComponent from './ProjectComponent';
 import TestimonialSlider from './testimonial/TestimonialSlider';
+import MyServices from './MyServices';
 
+import businessanalysysimg from '../../../assets/image/work/new/file (3).svg';
+import webdesignimg from '../../../assets/image/work/new/computer coding.svg';
+import uximg from '../../../assets/image/work/new/web-design.svg';
+import branding from '../../../assets/image/work/new/artistic.svg';
+import MyServiceRole from './MyServicesRole';
+
+import bahov from '../../../assets/image/work/new/hover/file.png';
+import webhov from '../../../assets/image/work/new/hover/computer coding.png';
+import uxhov from '../../../assets/image/work/new/hover/web-design.png';
+import brandhov from '../../../assets/image/work/new/hover/artistic.png';
+import MyServicesRole from './MyServicesRole';
 
 const Work = () => {
 
@@ -37,7 +47,6 @@ const Work = () => {
         }
 
     }
-
 
     return(
 
@@ -67,88 +76,25 @@ const Work = () => {
                     <div className={WorkCss.body_item}>
 
                         {/* body */}
-                        <div className={WorkCss.body}>
-                                
-                                {/* Image container */}
-                                <div className={WorkCss.img_container}>
+                        <MyServices WorkCss={WorkCss} imgcirc={businessanalysysimg} imghov={bahov}
+                            imgalt={"business analysis icon"} title={"Business Analysis"}>
+                                {MyServiceRole.BusinessAnalysis()}
+                        </MyServices>
 
-                                    {/* <img src={userresearch} alt="user research icon" /> */}
-                                    <div className={WorkCss.circle_icon}>
-
-                                    </div>
-
-                                </div>
-
-                                <div className={WorkCss.body_header}>
-                                
-                                    <Five fontClass={WorkCss.header_font}>Business Analysis</Five>
-                                
-                                </div>
-
-                        </div>
-
-                        {/* body */}
-                        <div className={WorkCss.body}>
-                                
-                                {/* Image container */}
-                                <div className={WorkCss.img_container}>
-
-                                    {/* <img src={userresearch} alt="user research icon" /> */}
-                                    <div className={WorkCss.circle_icon}>
-
-                                    </div>
-
-                                </div>
-
-                                <div className={WorkCss.body_header}>
-                                
-                                    <Five fontClass={WorkCss.header_font}>Web Design</Five>
-                                
-                                </div>
-
-                        </div>
-
-                        {/* body */}
-                        <div className={WorkCss.body}>
-                                
-                                {/* Image container */}
-                                <div className={WorkCss.img_container}>
-
-                                    {/* <img src={userresearch} alt="user research icon" /> */}
-                                    <div className={WorkCss.circle_icon}>
-
-                                    </div>
-
-                                </div>
-
-                                <div className={WorkCss.body_header}>
-                                
-                                    <Five fontClass={WorkCss.header_font}>UI/UX Design</Five>
-                                
-                                </div>
-
-                        </div>
-
-                        {/* body */}
-                        <div className={WorkCss.body}>
-                                
-                                {/* Image container */}
-                                <div className={WorkCss.img_container}>
-
-                                    {/* <img src={userresearch} alt="user research icon" /> */}
-                                    <div className={WorkCss.circle_icon}>
-
-                                    </div>
-
-                                </div>
-
-                                <div className={WorkCss.body_header}>
-                                
-                                    <Five fontClass={WorkCss.header_font}>Branding</Five>
-                                
-                                </div>
-
-                        </div>
+                        <MyServices WorkCss={WorkCss} imgcirc={webdesignimg} imghov={webhov}
+                            imgalt={"web design icon"} title={"Web Design"} >
+                                {MyServicesRole.WebDesign()}
+                        </MyServices>
+                        
+                        <MyServices WorkCss={WorkCss} imgcirc={uximg} imghov={uxhov}
+                            imgalt={"ui / ux icon"} title={"UI/UX Design"} >
+                                {MyServicesRole.UX()}
+                        </MyServices>
+                        
+                        <MyServices WorkCss={WorkCss} imgcirc={branding} imghov={brandhov}
+                            imgalt={"painting icon"} title={"Branding"} >
+                                {MyServicesRole.Branding()}
+                        </MyServices>
 
                     </div>
 
@@ -182,27 +128,37 @@ const Work = () => {
                         <div className={WorkCss.tab_section}>
                             
                             <div className={WorkCss.tab_item} onClick={()=>handleProjectSelection("all")}>
-                                <Para fontClass={WorkCss.tab_font}>All</Para>
+                                <Para fontClass={WorkCss.tab_font} 
+                                      fontStyle={{color: projectCategories.all ? "#260590" : "inherit",
+                                      fontFamily: projectCategories.all ? "encode_sans_bold" : "encode_sans"}}>All</Para>
                                 <span className={projectCategories.all && WorkCss.line}></span>
                             </div>
 
                             <div className={WorkCss.tab_item} onClick={()=>handleProjectSelection("uiux")}>
-                                <Para fontClass={WorkCss.tab_font}>UI/UX Design</Para>
+                                <Para fontClass={WorkCss.tab_font}
+                                      fontStyle={{color: projectCategories.uiux ? "#260590" : "inherit",
+                                      fontFamily: projectCategories.uiux ? "encode_sans_bold" : "encode_sans"}}>UI/UX Design</Para>
                                 <span className={projectCategories.uiux && WorkCss.line}></span>
                             </div>
 
                             <div className={WorkCss.tab_item} onClick={()=>handleProjectSelection("branding")}>
-                                <Para fontClass={WorkCss.tab_font}>Branding</Para>
+                                <Para fontClass={WorkCss.tab_font}
+                                      fontStyle={{color: projectCategories.branding ? "#260590" : "inherit",
+                                      fontFamily: projectCategories.branding ? "encode_sans_bold" : "encode_sans"}}>Branding</Para>
                                 <span className={projectCategories.branding && WorkCss.line}></span>
                             </div>
 
                             <div className={WorkCss.tab_item} onClick={()=>handleProjectSelection("webdesign")}>
-                                <Para fontClass={WorkCss.tab_font}>Web Design</Para>
+                                <Para fontClass={WorkCss.tab_font}
+                                      fontStyle={{color: projectCategories.webdesign ? "#260590" : "inherit",
+                                      fontFamily: projectCategories.webdesign ? "encode_sans_bold" : "encode_sans"}}>Web Design</Para>
                                 <span className={projectCategories.webdesign && WorkCss.line}></span>
                             </div>
 
                             <div className={WorkCss.tab_item} onClick={()=>handleProjectSelection("businessanalysis")}>
-                                <Para fontClass={WorkCss.tab_font}>Business Analysis</Para>
+                                <Para fontClass={WorkCss.tab_font}
+                                      fontStyle={{color: projectCategories.businessanalysis ? "#260590" : "inherit",
+                                      fontFamily: projectCategories.businessanalysis ? "encode_sans_bold" : "encode_sans"}}>Business Analysis</Para>
                                 <span className={projectCategories.businessanalysis && WorkCss.line}></span>
                             </div>
 
@@ -391,7 +347,4 @@ const Work = () => {
     )
 }
 
-
-
 export default Work;
-
