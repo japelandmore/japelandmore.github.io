@@ -25,7 +25,7 @@ const Footer = () => {
             
                             <div className={FooterCss.img_container}><a target="_blank" href="https://www.dribbble.com/jefferya" rel="noopener noreferrer"><img src={social_image3} alt="" className={FooterCss.social_icons}></img></a></div>
             
-                            <div className={FooterCss.img_container}><a target="_blank" href="https://www.medium.com/japelandmore" rel="noopener noreferrer"><img src={social_image3b} alt="" className={FooterCss.social_icons}></img></a></div>
+                            <div className={FooterCss.img_container}><a target="_blank" href="https://medium.com/@adogajeffery" rel="noopener noreferrer"><img src={social_image3b} alt="" className={FooterCss.social_icons}></img></a></div>
             
                             <div className={FooterCss.img_container}><a target="_blank" href="https://www.twitter.com/_japelandmore_" rel="noopener noreferrer"><img src={social_image4} alt="" className={FooterCss.social_icons}></img></a></div>
                         

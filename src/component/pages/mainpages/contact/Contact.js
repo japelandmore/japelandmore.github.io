@@ -24,7 +24,7 @@ const Contact = () => {
 
                 <div className={ContactCss.form_container}>
 
-                    <form autoComplete="off" id="contact" onSubmit={this.handleSubmit.bind(this)} method="POST">
+                    <form autoComplete="off">
 
                         {/* left */}
                         <section className={ContactCss.left}>
@@ -120,7 +120,7 @@ const Contact = () => {
                         
                                         <div className={ContactCss.img_container}><a target="_blank" href="https://www.dribbble.com/jefferya" rel="noopener noreferrer"><img src={social_image3} alt="" className={ContactCss.social_icons}></img></a></div>
                         
-                                        <div className={ContactCss.img_container}><a target="_blank" href="https://www.medium.com/japelandmore" rel="noopener noreferrer"><img src={social_image3b} alt="" className={ContactCss.social_icons}></img></a></div>
+                                        <div className={ContactCss.img_container}><a target="_blank" href="https://medium.com/@adogajeffery" rel="noopener noreferrer"><img src={social_image3b} alt="" className={ContactCss.social_icons}></img></a></div>
                         
                                         <div className={ContactCss.img_container}><a target="_blank" href="https://www.twitter.com/_japelandmore_" rel="noopener noreferrer"><img src={social_image4} alt="" className={ContactCss.social_icons}></img></a></div>
                                     
