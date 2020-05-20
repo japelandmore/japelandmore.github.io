@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/japelandmore.github.io/static/css/main.f866117e.chunk.css",
-    "main.js": "/japelandmore.github.io/static/js/main.c37b8cf6.chunk.js",
-    "main.js.map": "/japelandmore.github.io/static/js/main.c37b8cf6.chunk.js.map",
+    "main.css": "/japelandmore.github.io/static/css/main.d88b1a2f.chunk.css",
+    "main.js": "/japelandmore.github.io/static/js/main.83129f5f.chunk.js",
+    "main.js.map": "/japelandmore.github.io/static/js/main.83129f5f.chunk.js.map",
     "runtime-main.js": "/japelandmore.github.io/static/js/runtime-main.1059f5f9.js",
     "runtime-main.js.map": "/japelandmore.github.io/static/js/runtime-main.1059f5f9.js.map",
-    "static/js/2.83dbe97d.chunk.js": "/japelandmore.github.io/static/js/2.83dbe97d.chunk.js",
-    "static/js/2.83dbe97d.chunk.js.map": "/japelandmore.github.io/static/js/2.83dbe97d.chunk.js.map",
+    "static/js/2.bae15ed7.chunk.js": "/japelandmore.github.io/static/js/2.bae15ed7.chunk.js",
+    "static/js/2.bae15ed7.chunk.js.map": "/japelandmore.github.io/static/js/2.bae15ed7.chunk.js.map",
     "index.html": "/japelandmore.github.io/index.html",
-    "precache-manifest.2424faa0b4422ec5e71e5f99ff5b8156.js": "/japelandmore.github.io/precache-manifest.2424faa0b4422ec5e71e5f99ff5b8156.js",
+    "precache-manifest.d474474a7b42f8203d31e3b66a5da3dd.js": "/japelandmore.github.io/precache-manifest.d474474a7b42f8203d31e3b66a5da3dd.js",
     "service-worker.js": "/japelandmore.github.io/service-worker.js",
-    "static/css/main.f866117e.chunk.css.map": "/japelandmore.github.io/static/css/main.f866117e.chunk.css.map",
-    "static/js/2.83dbe97d.chunk.js.LICENSE.txt": "/japelandmore.github.io/static/js/2.83dbe97d.chunk.js.LICENSE.txt",
+    "static/css/main.d88b1a2f.chunk.css.map": "/japelandmore.github.io/static/css/main.d88b1a2f.chunk.css.map",
+    "static/js/2.bae15ed7.chunk.js.LICENSE.txt": "/japelandmore.github.io/static/js/2.bae15ed7.chunk.js.LICENSE.txt",
     "static/media/0-1@2x.png": "/japelandmore.github.io/static/media/0-1@2x.d8c1eae0.png",
     "static/media/2561375-printer.svg": "/japelandmore.github.io/static/media/2561375-printer.6f901ba1.svg",
     "static/media/index.css": "/japelandmore.github.io/static/media/EncodeSans-Regular.2c9c2202.ttf",
@@ -23,6 +23,7 @@
     "static/media/Icons-4.svg": "/japelandmore.github.io/static/media/Icons-4.407219e7.svg",
     "static/media/Icons.svg": "/japelandmore.github.io/static/media/Icons.a8e73230.svg",
     "static/media/Iconsb.svg": "/japelandmore.github.io/static/media/Iconsb.1b078eff.svg",
+    "static/media/JXI.png": "/japelandmore.github.io/static/media/JXI.a06a458d.png",
     "static/media/Konnectore Presentation.png": "/japelandmore.github.io/static/media/Konnectore Presentation.6dc1e8d6.png",
     "static/media/Paymonthly - Presentation@2x.png": "/japelandmore.github.io/static/media/Paymonthly - Presentation@2x.22e69e64.png",
     "static/media/Uber Offline Concept@2x.png": "/japelandmore.github.io/static/media/Uber Offline Concept@2x.1b8e1c4a.png",
@@ -39,8 +40,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.1059f5f9.js",
-    "static/js/2.83dbe97d.chunk.js",
-    "static/css/main.f866117e.chunk.css",
-    "static/js/main.c37b8cf6.chunk.js"
+    "static/js/2.bae15ed7.chunk.js",
+    "static/css/main.d88b1a2f.chunk.css",
+    "static/js/main.83129f5f.chunk.js"
   ]
 }

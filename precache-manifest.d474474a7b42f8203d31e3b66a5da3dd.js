@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b6ea138416e766bc3ea07e2a1ee41d77",
+    "revision": "2628401ad8a5ed7a461f9d6ad88131b2",
     "url": "/japelandmore.github.io/index.html"
   },
   {
-    "revision": "ee84a903fbb98738f970",
-    "url": "/japelandmore.github.io/static/css/main.f866117e.chunk.css"
+    "revision": "bc86a54da58372030f50",
+    "url": "/japelandmore.github.io/static/css/main.d88b1a2f.chunk.css"
   },
   {
-    "revision": "8a5755c370e7278ff901",
-    "url": "/japelandmore.github.io/static/js/2.83dbe97d.chunk.js"
+    "revision": "c4a58afd678033c7b1b6",
+    "url": "/japelandmore.github.io/static/js/2.bae15ed7.chunk.js"
   },
   {
     "revision": "c64c486544348f10a6d6c716950bc223",
-    "url": "/japelandmore.github.io/static/js/2.83dbe97d.chunk.js.LICENSE.txt"
+    "url": "/japelandmore.github.io/static/js/2.bae15ed7.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "ee84a903fbb98738f970",
-    "url": "/japelandmore.github.io/static/js/main.c37b8cf6.chunk.js"
+    "revision": "bc86a54da58372030f50",
+    "url": "/japelandmore.github.io/static/js/main.83129f5f.chunk.js"
   },
   {
     "revision": "2cc9949c08251f9a0fde",
@@ -82,6 +82,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "1b078eff6739b3d2af4efda421bb969d",
     "url": "/japelandmore.github.io/static/media/Iconsb.1b078eff.svg"
+  },
+  {
+    "revision": "a06a458d93ae3935c10dbb1194b91a34",
+    "url": "/japelandmore.github.io/static/media/JXI.a06a458d.png"
   },
   {
     "revision": "6dc1e8d6ccda247eb826d13a9f6ef587",
