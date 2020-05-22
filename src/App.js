@@ -3,7 +3,7 @@ import './App.css';
 import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
 import {Articles,Background,Contact,LandingPage,Work} from './component/pages/mainpages';
 import {Header,Footer,Menu,SideMenu} from './component/pages/navigation'
-import pageurl from './component/framework/pageurl';
+import pageurl from './component/framework/url/pageurl';
 import {createBrowserHistory} from 'history';
 import SwipeEffect from './component/reusable/effect'
 import credit from './component/framework/credit';

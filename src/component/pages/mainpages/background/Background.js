@@ -11,6 +11,8 @@ import CompanyDescription from './CompanyDescription';
 import AreaOfExpertise from './AreaOfExpertise';
 import WorkExperienceRolePoints from './WorkExperienceRolePoints';
 import AreaOfExpertiseRolePoints from './AreaOfExpertiseRolePoints';
+import cv from '../../../assets/document/pdf/Portfolio (Abdulateef Jeffery).pdf';
+
 
 const Background = () => {
 
@@ -18,13 +20,15 @@ const Background = () => {
 
         <div className={Backgroundcss.background}>
             
-            <div className={Backgroundcss.printer_section} onClick={()=>window.print()}>
-    
-                <div className={Backgroundcss.image_container}>
-                    <img src={printer} alt="printer icon" />
-                </div>
+            <a href={cv} target="_blank" rel="noopener noreferrer" download >
+                <div className={Backgroundcss.printer_section}>
+        
+                    <div className={Backgroundcss.image_container}>
+                        <img src={printer} alt="printer icon" />
+                    </div>
 
-            </div>
+                </div>
+            </a>
 
             <div className={Backgroundcss.topheader}>
                 

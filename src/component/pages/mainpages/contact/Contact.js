@@ -7,7 +7,7 @@ import social_image2 from '../../../assets/image/contact/Icons-1.svg';
 import social_image3 from '../../../assets/image/contact/Icons-2.svg';
 import social_image3b from '../../../assets/image/contact/Icons-4.svg';
 import social_image4 from '../../../assets/image/contact/Icons-3.svg';
-import socialmediaurl from '../../../framework/socialmediaurl';
+import socialmediaurl from '../../../framework/url/socialmediaurl';
 
 const Contact = () => {
 

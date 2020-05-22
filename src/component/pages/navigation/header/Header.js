@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import HeaderCss from './Header.module.css';
 import {Alpha,Five as Fur} from '../../../reusable/fonts';
-import pageurl from '../../../framework/pageurl'
+import pageurl from '../../../framework/url/pageurl'
 import mainlogo from '../../../assets/image/edited/JXI.png'
 
 const Header = ({url,clickmenu}) => {

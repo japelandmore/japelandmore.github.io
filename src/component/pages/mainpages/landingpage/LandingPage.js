@@ -2,7 +2,7 @@ import React from 'react';
 import LandingPageCss from './LandingPage.module.css';
 import {One as HeaderFont,Four as BodyFont,Alpha} from '../../../reusable/fonts';
 import profile_image from '../../../assets/image/introduction/avatar@2x.png';
-import pageurl from '../../../framework/pageurl'
+import pageurl from '../../../framework/url/pageurl'
 
 const LandingPage = () => {
 

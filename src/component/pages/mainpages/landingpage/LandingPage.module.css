@@ -47,6 +47,22 @@
     border-radius: 50%;
     width: 200px;
     height: 200px;
+    transition: 4s ease-in-out;
+    animation: bounce 4s infinite;
+    /* animation-fill-mode: forwards; */
+}
+
+
+@keyframes bounce {
+    0%{
+        transform : translateY(0%);
+    }
+    50%{
+        transform : translateY(5%);
+    }
+    100%{
+        transform : translateY(0%);
+    }
 }
 
 .profile .profile_description{
@@ -97,11 +113,6 @@
     padding: 18px 30px;
 }
 
-.profile .call_to_action .container button .buttonfont{
-    font-size: 1.2em;
-    font-family: 'encode_sans_bold';
-}
-
 .profile .call_to_action .container .buttonbold{
     background: var(--main-color2);
     border: 1px solid var(--main-color2);
@@ -109,6 +120,7 @@
 
 .profile .call_to_action .container .buttonbold .buttonfont{
     color: var(--main-color);
+    font-family: 'encode_sans_bold';
 }
 
 .profile .call_to_action .container .buttonstripe{
@@ -118,6 +130,7 @@
 
 .profile .call_to_action .container .buttonstripe .buttonfont{
     color: var(--main-color2);
+    font-family: 'encode_sans_bold';
 }
 
 .landingpage .social{
@@ -178,7 +191,6 @@
 
     .profile .profile_description .header .headfont{
         font-size: 3em;
-
     }
 
     .profile .call_to_action {
@@ -192,19 +204,14 @@
 
     .profile .call_to_action .container button{
         margin-right: 20px;
-        padding: 8px 35px;
+        padding: 12px 36px;
         cursor: pointer;
-    }
-
-    .profile .call_to_action .container button .buttonfont{
-        font-size: 1em;
-        font-weight: bold;
     }
 
     .profile .call_to_action .container .buttonstripe{
         background-color: var(--main-color7);
         border: none;
-        padding: 8px 45px; 
+        /* padding: 8px 45px;  */
         border: 1px solid var(--main-color7);
     }
 

@@ -4,7 +4,7 @@ import {One as HeaderFont} from '../../../reusable/fonts'
 import article1 from '../../../assets/image/article/0-1@2x.png';
 import article2 from '../../../assets/image/article/Uber Offline Concept@2x.png';
 import ArticleItem from './ArticleItem.js';
-import articleurl from '../../../framework/articleurl';
+import articleurl from '../../../framework/url/articleurl';
 
 
 const Articles = () => {

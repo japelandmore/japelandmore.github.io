@@ -6,7 +6,7 @@ import social_image3 from '../../../assets/image/introduction/Icons-2.svg';
 import social_image3b from '../../../assets/image/introduction/Iconsb.svg';
 import social_image4 from '../../../assets/image/introduction/Icons-3.svg';
 import {Para as BodyFont} from '../../../reusable/fonts';
-import socialmediaurl from '../../../framework/socialmediaurl';
+import socialmediaurl from '../../../framework/url/socialmediaurl';
 
 const Footer = ({other_click}) => {
 

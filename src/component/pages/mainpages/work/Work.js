@@ -141,7 +141,7 @@ const Work = () => {
                                 <span className={projectCategories.uiux && WorkCss.line}></span>
                             </div>
 
-                            <div className={WorkCss.tab_item} onClick={()=>handleProjectSelection("branding")}>
+                            <div className={WorkCss.tab_item} onClick={()=>handleProjectSelection("branding")} >
                                 <Para fontClass={WorkCss.tab_font}
                                       fontStyle={{color: projectCategories.branding ? "#260590" : "inherit",
                                       fontFamily: projectCategories.branding ? "encode_sans_bold" : "encode_sans"}}>Branding</Para>
