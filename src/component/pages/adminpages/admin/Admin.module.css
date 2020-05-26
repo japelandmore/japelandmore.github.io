@@ -1,0 +1,90 @@
+.admin{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin .container{
+    width: 85%;
+    padding: 50px 0 90px;
+    background: var(--main-color2);
+    margin: 50px 0px;
+}
+
+.admin .container .mheader,
+.admin .container .mbody{
+    width: 100%;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.admin .container .mheader .one{
+    color: var(--main-color);
+    margin-bottom: 5px;
+}
+
+.admin .container .mheader .para{
+    color: var(--main-color11);
+}
+
+.admin .container .mbody .project,
+.admin .container .mbody .article{
+    border-bottom: 1px solid var(--main-color12);
+    width: 90%;
+    margin: 50px auto;
+}
+
+.admin .container .mbody .project .header,
+.admin .container .mbody .article .header{
+    width: 100%;
+    padding: 20px 0px;
+    text-align: left;
+    
+}
+
+.admin .container .mbody .project .body,
+.admin .container .mbody .article .body{
+    width: 100%;
+    padding: 20px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin .container .mbody .project .body button,
+.admin .container .mbody .article .body button{
+    padding: 10px 17px;
+    border: none;
+    border-radius: 3px;
+    background: var(--main-color);
+    color: var(--main-color2);
+    font-family: 'encode_sans_medium';
+    cursor: pointer;
+    margin: 20px 0px;
+}
+
+
+@media only screen and (min-width: 768px){
+    .admin .container{
+        width: 85%;
+    }
+
+    .admin .container .mbody .project,
+    .admin .container .mbody .article{
+        width: 70%;
+    }
+
+    .admin .container .mbody .project .body,
+    .admin .container .mbody .article .body{
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+}
