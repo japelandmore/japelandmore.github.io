@@ -9,44 +9,47 @@ function handleLoad(setProject,projectCategories,WorkCss,ProjectComponent){
 
     ref.on("value", function(snapshot){
 
-        var arr = Object.values(snapshot.val());
-        
-        var m = arr.map((p)=>{
-            return Object.values(p);
-        })
+        if(snapshot.val()){
 
-        let baddo = [];
+            var arr = Object.values(snapshot.val());
+            
+            var m = arr.map((p)=>{
+                return Object.values(p);
+            })
 
-        m.forEach((s)=>{
-            for(let i = 0; i < s.length; i++){
-                baddo.push(
-                    <ProjectComponent
+            let baddo = [];
 
-                        WorkCss={WorkCss}
-                        img={Object.values(s)[i].imageurl}
-                        image_description={Object.values(s)[i].image_description}
-                        showComponent={projectCategories === 'All' ? true : projectCategories === Object.values(s)[i].project_category ? true : false} 
-                        project={Object.values(s)[i].project} 
-                        project_type={Object.values(s)[i].project_category} 
-                        company={Object.values(s)[i].company} 
-                        year={Object.values(s)[i].year} 
-                        // project_link={""}
+            m.forEach((s)=>{
+                for(let i = 0; i < s.length; i++){
+                    baddo.push(
+                        <ProjectComponent
 
-                        key={Object.values(s)[i].id}
-                    
-                    >
+                            WorkCss={WorkCss}
+                            img={Object.values(s)[i].imageurl}
+                            image_description={Object.values(s)[i].image_description}
+                            showComponent={projectCategories === 'All' ? true : projectCategories === Object.values(s)[i].project_category ? true : false} 
+                            project={Object.values(s)[i].project} 
+                            project_type={Object.values(s)[i].project_category} 
+                            company={Object.values(s)[i].company} 
+                            year={Object.values(s)[i].year} 
+                            // project_link={""}
 
-                        <Para fontClass={WorkCss.story}>
-                            {Object.values(s)[i].paragraph}
-                        </Para>
+                            key={Object.values(s)[i].id}
+                        
+                        >
 
-                    </ProjectComponent>
-                    
-                );
-            }
-        });
+                            <Para fontClass={WorkCss.story}>
+                                {Object.values(s)[i].paragraph}
+                            </Para>
 
-        setProject(baddo)
+                        </ProjectComponent>
+                        
+                    );
+                }
+            });
+
+            setProject(baddo)
+        }
         
     },function(errorObject){
 

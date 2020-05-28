@@ -4,17 +4,19 @@ import Dexie from 'dexie';
 
 
 function handleForm(projectObject,setProjectObject,setProjectObjectError,setFirstFormValidated) {
-
+        //validate form - UNDONE
         setFirstFormValidated(true);
 
 };
 
-function handleUpload(imageUpload,projectObject,setProjectObject,setSecondFormValidated){
+function handleUpload(imageUpload,projectObject,setProjectObject,setSecondFormValidated,setUploadProgress){
 
     const uploadTask = storage.ref(`projects/images/${projectObject.project_name}`).put(imageUpload.image_upload);
+    
     uploadTask.on('state_changed', 
     (snapshot)=>{
-
+        const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+        setUploadProgress(progress);
     },
     (error)=>{
         console.log(error);
@@ -55,31 +57,6 @@ function uploadData(projectObject,setProjectStatus,setProjectUploaded){
 }
 
 
-function queryDB(query_category,query_project_name) {
-    
-    var ref = db.ref('projects');
-
-    ref.on("value", function(snapshot){
-
-        var arr = snapshot.val();
-
-        // project category
-        for(let i=0; i < Object.values(arr[query_category]).length;i++){
-            
-            if(Object.values(arr[query_category])[i].project === query_project_name){
-                // console.log(Object.keys(arr[query_category])[i]); 
-                
-                var projectObject = Object.values(arr[query_category])[i]
-
-                savetoDB(projectObject);
-            }
-       
-        }
-       
-    },function(errorObject){
-        console.log("The read failed " + errorObject.code);
-    });
-}
 
 
 
@@ -95,36 +72,27 @@ async function readData(setProjectObject){
 
 }
 
-function savetoDB(projectObject){
+// function savetoDB(projectObject){
     
     //save to browser db - DONE
 
         // join projectObject Keys to form a string.
-        var keyString = Object.keys(projectObject).join();
+        // var keyString = Object.keys(projectObject).join();
     
         // create table and pass keyString values (Keys) as columns in the table
-        var db = indexdbevent.createObjectStore('project_form',{
-            input_form: keyString,
-        });
+        // var db = indexdbevent.createObjectStore('project_form',{
+            // input_form: keyString,
+        // });
 
         //update table with projectObjectValues
-        Promise.all([indexdbevent.updateObjectStore(db,db.input_form,projectObject)]);
-}
-
-
-function deleteData(query_category,query_project_name){
-
-    db.ref(`projects/${query_category}`).child(query_project_name).remove();
-
-}
+        // Promise.all([indexdbevent.updateObjectStore(db,db.input_form,projectObject)]);
+// }
 
 const ProjectController = {
     handleForm,
     handleUpload,
     uploadData,
-    readData,
-    queryDB,
-    deleteData
+    readData
 }
 
 export default ProjectController;

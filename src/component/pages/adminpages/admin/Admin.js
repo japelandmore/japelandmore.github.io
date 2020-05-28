@@ -2,9 +2,9 @@ import React from 'react';
 import AdminCss from './Admin.module.css';
 import {One,Three,Para,Alpha} from '../../../reusable/fonts'
 import pageurl from '../../../framework/url/pageurl';
+import { withRouter } from 'react-router-dom'
 
-
-const Admin = () => {
+const Admin = ({...props}) => {
     return(
         <div className={AdminCss.admin}>
 
@@ -38,13 +38,15 @@ const Admin = () => {
                                 <button>Add Project</button>
                             </Alpha>
                             
-                            <Alpha ahref={pageurl.UPDATE_POST_URL}>
-                                <button>Update Project</button>
-                            </Alpha>
+                            {/* <Alpha ahref={pageurl.UPDATE_POST_URL}> */}
+                                <button onClick={()=>props.history.push({pathname:pageurl.UPDATE_POST_URL,
+                                                                     state:{page:'project',action:'update'}})}>Update Project</button>
+                            {/* </Alpha> */}
                             
-                            <Alpha ahref={pageurl.UPDATE_POST_URL}>
-                                <button>Delete Project</button>
-                            </Alpha>
+                            {/* <Alpha ahref={pageurl.UPDATE_POST_URL}> */}
+                                <button onClick={()=>props.history.push({pathname:pageurl.UPDATE_POST_URL,
+                                                                     state:{page:'project',action:'delete'}})}>Delete Project</button>
+                            {/* </Alpha> */}
                             
                         </div>
                         
@@ -64,13 +66,15 @@ const Admin = () => {
                                 <button>Add Article</button>
                             </Alpha>
 
-                            <Alpha ahref={pageurl.UPDATE_POST_URL}>
-                                <button>Update Article</button>
-                            </Alpha>
+                            {/* <Alpha ahref={pageurl.UPDATE_POST_URL}> */}
+                                <button onClick={()=>props.history.push({pathname:pageurl.UPDATE_POST_URL,
+                                                                     state:{page:'article',action:'update'}})}>Update Article</button>
+                            {/* </Alpha> */}
                             
-                            <Alpha ahref={pageurl.UPDATE_POST_URL}>
-                                <button>Delete Article</button>    
-                            </Alpha>
+                            {/* <Alpha ahref={pageurl.UPDATE_POST_URL}> */}
+                                <button onClick={()=>props.history.push({pathname:pageurl.UPDATE_POST_URL,
+                                                                     state:{page:'article',action:'delete'}})}>Delete Article</button>    
+                            {/* </Alpha> */}
                             
                         </div>
 
@@ -84,4 +88,4 @@ const Admin = () => {
     )
 }
 
-export default Admin;
+export default withRouter(Admin);

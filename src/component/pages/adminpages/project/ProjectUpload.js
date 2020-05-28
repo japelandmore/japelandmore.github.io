@@ -1,8 +1,12 @@
 import React from 'react';
 import ProjectCss from './ProjectUpload.module.css';
 import ProjectController from '../../../framework/controllers/ProjectController';
-import { One,Six,Para } from '../../../reusable/fonts';
-import UploadStatus from './UploadStatus'
+import { One,Six} from '../../../reusable/fonts';
+import Status from '../component/status';
+import ProjectForm from '../component/projectform';
+import ImageUploadForm from '../component/imageform';
+import pageurl from '../../../framework/url/pageurl/pageurl';
+import {withRouter} from 'react-router-dom'
 
 const ProjectUpload = () =>{
 
@@ -24,6 +28,8 @@ const ProjectUpload = () =>{
     const [imageUpload, setImageUpload] = React.useState({
         image_upload : null
     })
+
+    const [uploadButton, setUploadButton] = React.useState(false)
 
     const [projectObjectError, setProjectObjectError] = React.useState({
         project_nameError :  "",
@@ -48,18 +54,27 @@ const ProjectUpload = () =>{
 
     const [projectUploaded,setProjectUploaded] = React.useState(false);
 
+    const [uploadProgress,setUploadProgress] = React.useState({
+        progress : 0
+    })
+
+    // console.log(uploadProgress);
+
     function handleSubmit(e) {
+       
         if(!firstFormValidated){
             ProjectController.handleForm(projectObject,setProjectObject,setProjectObjectError,setFirstFormValidated);
         }else{
-            ProjectController.handleUpload(imageUpload,projectObject,setProjectObject,setSecondFormValidated);
+            // if(imageUpload.image_upload){
+                ProjectController.handleUpload(imageUpload,projectObject,setProjectObject,setSecondFormValidated,setUploadProgress);
+            // }
         }
     }
 
     function handleFormSubmit(){
-        if(secondFormValidated){
+        // if(secondFormValidated){
             ProjectController.uploadData(projectObject,setProjectStatus,setProjectUploaded);
-        }
+        // }
     }
 
     // handle onchange input event for updating projectObject
@@ -69,29 +84,26 @@ const ProjectUpload = () =>{
 
     // handle image upload to firebase
     function handleUpload(e){
-        const image = e.target.files[0];
-        setImageUpload({...imageUpload,image_upload:image});
-        setSecondFormValidated(false);
-    }
-
-    React.useEffect(()=>{
-        function get(){
-            setTimeout(()=>{
-                (!projectObject.project && !projectObject.company && 
-                    !projectObject.image_description && !projectObject.paragraph &&
-                    !projectObject.project_category && !projectObject.year && !projectObject.project_name) &&
-                    ProjectController.readData(setProjectObject);
-            },1000);
+        try{
+            const image = e.target.files[0];
+            setImageUpload({...imageUpload,image_upload:image});
+            setSecondFormValidated(false);
+            if(image.name){
+                setUploadButton(true);
+            }
+        }catch(error){
+            console.log(error.message);
         }
-
-        get();
-    });
+    }
 
     return(
     
         <div className={ProjectCss.projectupload}>
 
-            { projectStatus && <UploadStatus ProjectCss={ProjectCss} projectUploaded={projectUploaded}/> }
+            { projectStatus && <Status status={projectUploaded} 
+                            success={'Project Saved Successfully'} failure={'Project Not Saved'} 
+                            land={pageurl.ADMIN_URL} try_again={pageurl.PROJECT_POST_URL} 
+                            new_project={pageurl.PROJECT_POST_URL} /> }
             
             <div className={ProjectCss.container}>
 
@@ -118,7 +130,6 @@ const ProjectUpload = () =>{
                                             &nbsp;&nbsp;'Upload Button '
                                         </span>.
                                     </Six>
-                                
 
                         }
 
@@ -130,143 +141,15 @@ const ProjectUpload = () =>{
 
             {!firstFormValidated ?
 
-                <div className={ProjectCss.form}>
-                    
-                    {/* image name */}
-                    <input type="text" placeholder="project name" name="project_name" required 
-                            onChange={(e)=>handleInput(e)} 
-                            value={projectObject.project_name}></input>    
-                    {
-                        projectObjectError.project_nameError !== "" ? 
-                        <Para fontClass={ProjectCss.error}>
-                            {projectObjectError.project_nameError}
-                        </Para>
-                        : <div style={{height: "20px"}}/>
-                    }
-                    
-                    {/* image description */}
-                    <input type="text" placeholder="project description" name="image_description" required
-                            onChange={(e)=>handleInput(e)} 
-                            value={projectObject.image_description}></input>    
-                    {
-                        projectObjectError.image_descriptionError !== "" ?
-                        <Para fontClass={ProjectCss.error}>
-                            {projectObjectError.image_descriptionError}
-                        </Para>
-                        : <div style={{height: "20px"}}/>
-                    }
-                    
-                    {/* product name */}
-                    <input type="text" placeholder="product name" name="project" required 
-                            onChange={(e)=>handleInput(e)} 
-                            value={projectObject.project}></input>    
-                    {
-                        projectObjectError.projectError !== "" ?
-                        <Para fontClass={ProjectCss.error}>
-                            {projectObjectError.projectError}
-                        </Para>
-                        : <div style={{height: "20px"}}/>
-                    }
-
-                    {/* product category */}
-                    <select required
-                        onChange={(e)=>handleInput(e)} 
-                        value={projectObject.project_category} 
-                        name="project_category">
-                            <option>Select Option</option>
-                            <option>UI-UX Design</option>
-                            <option>Branding</option>
-                            <option>Web Design</option>
-                            <option>Business Analysis</option>
-                    </select>
-                    {
-                        projectObjectError.project_categoryError !== "" ?
-                        <Para fontClass={ProjectCss.error}>
-                            {projectObjectError.project_categoryError}
-                        </Para>
-                        : <div style={{height: "20px"}}/>
-                    }
-
-                    {/* company name */}
-                    <input type="text" placeholder="company name" name="company" required
-                            onChange={(e)=>handleInput(e)} 
-                            value={projectObject.company} ></input>    
-                    {
-                        projectObjectError.companyError !== "" ? 
-                        <Para fontClass={ProjectCss.error}>
-                            {projectObjectError.companyError}
-                        </Para>
-                        : <div style={{height: "20px"}}/>
-                    }
-                    
-                    {/* project year */}
-                    <input type="text" placeholder="project year" name="year" required
-                            onChange={(e)=>handleInput(e)} 
-                            value={projectObject.year} ></input>    
-                    {
-                        projectObjectError.yearError !== "" ? 
-                        <Para fontClass={ProjectCss.error}>
-                            {projectObjectError.yearError}
-                        </Para>
-                        : <div style={{height: "20px"}}/>
-                    }
-                    
-
-                    {/* about project */}
-                    <textarea placeholder="about project" name="paragraph" required
-                            onChange={(e)=>handleInput(e)} 
-                            value={projectObject.paragraph}></textarea>
-                    {
-                        projectObjectError.paragraphError !== "" ?
-                        <Para fontClass={ProjectCss.error}>
-                            {projectObjectError.paragraphError}
-                        </Para>
-                        : <div style={{height: "20px"}}/>
-                    }
-                    <button onClick={(e)=>handleSubmit(e)}>CONTINUE</button>
-
-                </div>    
+                <ProjectForm handleInput={handleInput} projectObject={projectObject} 
+                             projectObjectError={projectObjectError} handleSubmit={handleSubmit} />
 
                 :
 
-                <div className={ProjectCss.form}>
-
-                    {/* uploaded image */}
-                    {   projectObject.imageurl &&
-                            <span className={ProjectCss.image_container}>
-                                <img src={projectObject.imageurl} alt={projectObject.image_description}></img>
-                            </span>
-                    }
-                    
-                    {/* image upload */} 
-                    <input type="file" placeholder="Upload Image" name="image_upload" accept="image/*" required
-                            onChange={(e)=>handleUpload(e)}></input>    
-                    {
-                        projectObject.image_uploadError !== "" ?
-                        <Para fontClass={ProjectCss.error}>
-                            {projectObject.image_uploadError}
-                        </Para>
-                        : <div style={{height: "20px"}}/>
-                    }
-
-                    {
-                        !secondFormValidated ? 
-                            
-                            <button onClick={(e)=>handleSubmit(e)}>UPLOAD</button>
-
-                            :
-
-                            <button onClick={(e)=>handleFormSubmit(e)}>SUBMIT</button>
-                    
-                    }
-                    
-                    
-                    <span style={{display:"block",width:"max-content",margin:"0 auto",padding:"30px 0",fontFamily:"encode_sans",
-                                  color:"#fff",textAlign:"center",cursor:"pointer"}} onClick={()=>{setFirstFormValidated(false)}}>
-                        Previous Page
-                    </span>
-
-                </div>
+                <ImageUploadForm projectObject={projectObject} handleUpload={handleUpload} secondFormValidated={secondFormValidated}
+                                 setFirstFormValidated={setFirstFormValidated} handleSubmit={handleSubmit} 
+                                 handleFormSubmit={handleFormSubmit} uploadButton={uploadButton}
+                                 progressbar={uploadProgress}/>
             
             }
 
@@ -278,4 +161,4 @@ const ProjectUpload = () =>{
 
 }
 
-export default ProjectUpload;
+export default withRouter(ProjectUpload);

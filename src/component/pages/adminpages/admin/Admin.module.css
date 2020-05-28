@@ -44,7 +44,7 @@
 .admin .container .mbody .article .header{
     width: 100%;
     padding: 20px 0px;
-    text-align: left;
+    text-align: center;
     
 }
 
@@ -80,6 +80,12 @@
     .admin .container .mbody .article{
         width: 70%;
     }
+
+    .admin .container .mbody .project .header,
+    .admin .container .mbody .article .header{
+        text-align: left;
+    }
+
 
     .admin .container .mbody .project .body,
     .admin .container .mbody .article .body{

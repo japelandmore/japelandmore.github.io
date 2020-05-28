@@ -18,6 +18,7 @@
     width: 80%;
     margin: 0 auto;
     padding: 20px 0px;
+    /* border: 1px solid black; */
 }
 
 .update .container .mheader{
@@ -26,22 +27,42 @@
 
 .update .container .mheader .one{
     text-align: center;
-    margin-bottom: 5px;
-    color: var(--main-color);
-}
-
-.update .container .mheader .para{
+    margin-bottom: 15px;
     color: var(--main-color11);
 }
 
+.update .container .mheader .para{
+    color: var(--main-color);
+    font-family: 'encode_sans_bold';
+}
+
 .update .container .mbody .query .form,
-.update .container .mbody .update_section .delete_Section{
+.update .container .mbody .update_section .updateformsection{
     width: 90%;
     /* border: 1px solid black; */
     margin: 0 auto;
     padding: 30px 0px;
     display: flex;
     flex-direction: column;
+}
+
+.update .container .mbody .update_section .updateformsection{
+    margin: 30px auto;
+    padding: 20px 0;
+    text-align: center;
+    /* border: 0.5px solid var(--main-color); */
+}
+
+.update .container .mbody .update_section .updateformsection .input{
+    color: red !important;
+}
+
+.update .container .mbody .update_section .updateformsection .formheader{
+    margin: 30px 0px 0px;
+}
+
+.update .container .mbody .update_section .updateformsection .formheader .paraupdate{
+    font-family: 'encode_sans_medium';
 }
 
 .update .container .mbody .query .form label{
@@ -68,8 +89,7 @@
     padding-left: 10px;
 }
 
-.update .container .mbody .query .form button,
-.update .container .mbody .update_section .delete_Section button{
+.update .container .mbody .query .form button{
     padding: 10px 17px;
     border: none;
     border-radius: 3px;
@@ -78,21 +98,18 @@
     font-family: 'encode_sans_medium';
     cursor: pointer;
     /* margin: 20px 0px; */
+    outline: none;
 }
 
-.update .container .mbody .update_section .delete_Section .header{
+.searchmsg{
+    color: red;
+    font-family: 'encode_sans_medium';
     width: 100%;
-    padding: 30px 0;
+    text-align: center;
+    margin-top: 20px;
+    transition: .2s ease-in-out;
+    display: none;   
 }
-
-.update .container .mbody .update_section .delete_Section .body{
-    width: 100%;
-}
-
-.update .container .mbody .update_section .delete_Section .body button{
-    margin-right: 20px;
-}
-
 
 @media only screen and (min-width: 768px){
  
@@ -101,7 +118,7 @@
     }
 
     .update .container .mbody .query .form,
-    .update .container .mbody .update_section .delete_Section{
+    .update .container .mbody .update_section .updateformsection{
         width: 45%;
     }
 

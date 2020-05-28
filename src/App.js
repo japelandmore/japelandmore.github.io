@@ -7,7 +7,7 @@ import pageurl from './component/framework/url/pageurl';
 import {createBrowserHistory} from 'history';
 import SwipeEffect from './component/reusable/effect'
 import credit from './component/framework/credit';
-import {Admin,ProjectUpload,Update} from './component/pages/adminpages';
+import {ControlPanel} from './component/pages/adminpages';
 
 function App() {
 
@@ -42,11 +42,7 @@ function App() {
                     
                     <Route exact path={pageurl.CONTACT_ME_URL} component={Contact} />
 
-                    <Route exact path={pageurl.ADMIN_URL} component={Admin} />
-
-                    <Route exact path={pageurl.PROJECT_POST_URL} component={ProjectUpload} />
-
-                    <Route exact path={pageurl.UPDATE_POST_URL} component={Update} />
+                    <ControlPanel Route={Route}/>
 
                 </Switch>
 
