@@ -12,50 +12,44 @@ function handleLoad(setProject,projectCategories,WorkCss,ProjectComponent){
         if(snapshot.val()){
 
             var arr = Object.values(snapshot.val());
-            
-            var m = arr.map((p)=>{
-                return Object.values(p);
-            })
 
             let baddo = [];
+            
+            for(let i = 0; i < arr.length; i++){
+            
+                baddo.push(
 
-            m.forEach((s)=>{
-                for(let i = 0; i < s.length; i++){
-                    baddo.push(
                         <ProjectComponent
 
                             WorkCss={WorkCss}
-                            img={Object.values(s)[i].imageurl}
-                            image_description={Object.values(s)[i].image_description}
-                            showComponent={projectCategories === 'All' ? true : projectCategories === Object.values(s)[i].project_category ? true : false} 
-                            project={Object.values(s)[i].project} 
-                            project_type={Object.values(s)[i].project_category} 
-                            company={Object.values(s)[i].company} 
-                            year={Object.values(s)[i].year} 
+                            img={Object.values(arr)[i].imageurl}
+                            image_description={Object.values(arr)[i].description}
+                            showComponent={projectCategories === 'All' ? true : projectCategories === Object.values(arr)[i].category ? true : false} 
+                            project={Object.values(arr)[i].title} 
+                            project_type={Object.values(arr)[i].category} 
+                            company={Object.values(arr)[i].company} 
+                            year={Object.values(arr)[i].year} 
                             // project_link={""}
 
-                            key={Object.values(s)[i].id}
+                            key={Object.values(arr)[i].id}
                         
                         >
 
                             <Para fontClass={WorkCss.story}>
-                                {Object.values(s)[i].paragraph}
+                                {Object.values(arr)[i].paragraph}
                             </Para>
 
                         </ProjectComponent>
                         
                     );
                 }
-            });
-
+            
             setProject(baddo)
         }
         
     },function(errorObject){
 
-
         console.log("The read failed " + errorObject.code);
-
 
     });
 

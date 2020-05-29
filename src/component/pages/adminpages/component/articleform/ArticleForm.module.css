@@ -1,21 +1,17 @@
-
-.projectform .form{
+.article_form .form{
     width: 100%;
-    padding: 40px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    padding: 50px 0px;
 }
 
-.projectform .form label{
+.article_form .form label{
     width: 100%;
     color: var(--main-color2);
     margin: 25px 0 0;
     font-size : .75em;
+    text-align: left;
 }
 
-.projectform .form input{
+.article_form .form input{
     width: 100%;
     height: 50px;
     margin: 20px 0px 3px;
@@ -28,33 +24,19 @@
     font-size: .99em;
 }
 
-.projectform .form select{
+.article_form .form select{
     width: 100%;
     height: 50px;
     margin: 20px 0;
     background: none;
-    border: 0.5px solid var(--main-color2);
+    border: 0.5px solid var(--main-color11);
     border-radius: 5px;
     outline: none;
     padding-left: 15px;
     color: var(--main-color11);
 }
 
-.projectform .form textarea{
-    width: 100%;
-    height: 150px;
-    border-radius: 5px;
-    border: 0.5px solid var(--main-color2);
-    outline: none;
-    color: var(--main-color2);
-    font-family: 'encode_sans';
-    margin: 20px 0;
-    background: none;
-    padding: 15px;
-    resize: none;
-}
-
-.projectform .form button{
+.article_form .form button{
     width: 100%;
     height: 50px;
     font-family: 'encode_sans_bold';
@@ -68,10 +50,11 @@
     transition: .2s ease-in-out;
 }
 
-.projectform .form button:hover{
+.article_form .form button:hover{
     color: var(--main-color11);
     border: 1px solid var(--main-color11);
 }
+
 
 ::placeholder{
     font-family: 'encode_sans';
@@ -84,5 +67,6 @@
     font-size: .75em;
     width: 100%;
     padding-left: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 30px !important;
 }
+

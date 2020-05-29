@@ -1,6 +1,6 @@
 import {storage,db} from '../services/DATATRANSFER/FIREBASE'
 
-function handleForm(projectObject,setProjectObject,setProjectObjectError,setFirstFormValidated) {
+function handleForm(object,setObject,setObjectError,setFirstFormValidated) {
 
     //validate form - UNDONE
 
@@ -8,9 +8,11 @@ function handleForm(projectObject,setProjectObject,setProjectObjectError,setFirs
 
 };
 
-function handleUpload(imageUpload,projectObject,setProjectObject,setSecondFormValidated,setUploadProgress){
+function handleUpload(url,imageUpload,object,setObject,setSecondFormValidated,setUploadProgress){
 
-    const uploadTask = storage.ref(`projects/images/${projectObject.project_name}`).put(imageUpload.image_upload);
+    var image_name = object.id.toString();
+
+    const uploadTask = storage.ref(`${url}/images/${image_name}`).put(imageUpload.image_upload);
     
     uploadTask.on('state_changed', 
     (snapshot)=>{
@@ -18,14 +20,14 @@ function handleUpload(imageUpload,projectObject,setProjectObject,setSecondFormVa
         setUploadProgress(progress);
     },
     (error)=>{
-        console.log(error);
+        console.log(error,'baddest');
     },
     ()=>{
-        storage.ref('projects/images').child(projectObject.project_name).getDownloadURL().then(url => {
+        storage.ref(`${url}/images`).child(image_name).getDownloadURL().then(url => {
 
             const imageurl = url;
             
-            setProjectObject({...projectObject,imageurl})
+            setObject({...object,imageurl})
 
             setSecondFormValidated(true);
 
@@ -35,54 +37,35 @@ function handleUpload(imageUpload,projectObject,setProjectObject,setSecondFormVa
 
 }
 
-function queryDB(projectItemQuery,setUpdateFormSection,updateSectionRef,setProjectObject,searchmsgRef) {
+function queryDBProject(projectItemQuery,setUpdateFormSection,updateSectionRef,setProjectObject,searchmsgRef) {    
     
     var ref = db.ref('projects');
 
     ref.on("value", function(snapshot){
-
+    
         var arr = snapshot.val();
-
-        // console.log(arr);
-
+        
         if(arr){
-
             var name = projectItemQuery && projectItemQuery.project_name;
-            
             var category = projectItemQuery && projectItemQuery.project_category;
-
-            // project category
             if(name && category){
-
-                if(arr[category]){
-
-                    for(let i=0; i < Object.values(arr[category]).length;i++){
-                        
-                        if(Object.values(arr[category])[i].project === name){
-                            
-                            var projectObject = Object.values(arr[category])[i]
-
+                    for(let i=0; i < Object.values(arr).length;i++){
+                        if(Object.values(arr)[i].title === name && Object.values(arr)[i].category === category){
+                            var projectObject = Object.values(arr)[i]
                             setProjectObject(projectObject);
                             getUpdateSection(updateSectionRef);
                             setUpdateFormSection(true);
-                                
                         }else{
                             setUpdateFormSection(false);
+                            searchmsgRef.current && (searchmsgRef.current.style.display = "block");
+                            setTimeout(()=>{
+                                searchmsgRef.current && (searchmsgRef.current.style.display = "none");
+                            },5000);
                         }
-                
                     }
-                }else{
-                    searchmsgRef.current && (searchmsgRef.current.style.display = "block");
-                    setTimeout(()=>{
-                        searchmsgRef.current && (searchmsgRef.current.style.display = "none");
-                    },5000);
-                }
-
             }
-
         }else{
             searchmsgRef.current && (searchmsgRef.current.style.display = "block");
-            
             setTimeout(()=>{
                 searchmsgRef.current && (searchmsgRef.current.style.display = "none");
             },5000);
@@ -94,21 +77,58 @@ function queryDB(projectItemQuery,setUpdateFormSection,updateSectionRef,setProje
 
 }
 
-function uploadData(projectObject,setProjectStatus,setProjectUploaded){
+function queryDBArticle(articleItemQuery,setUpdateFormSection,updateSectionRef,setArticleObject,searchmsgRef) {    
     
-    const directoryName = projectObject.id;
+    var ref = db.ref('articles');
+
+    ref.on("value", function(snapshot){
     
-    const category = projectObject.project_category;
-    
-    const uploadObject = db.ref(`projects/${category}`).child(directoryName);    
-    
-    uploadObject.set({...projectObject},(error)=>{
-        if(error){
-            setProjectStatus(true);
-            setProjectUploaded(false);
+        var arr = snapshot.val();
+        
+        if(arr){
+            var name = articleItemQuery && articleItemQuery.article_title;
+            if(name){
+                    for(let i=0; i < Object.values(arr).length;i++){
+                        if(Object.values(arr)[i].title === name){
+                            var articleObject = Object.values(arr)[i]
+                            setArticleObject(articleObject);
+                            getUpdateSection(updateSectionRef);
+                            setUpdateFormSection(true);
+                        }else{
+                            setUpdateFormSection(false);
+                            searchmsgRef.current && (searchmsgRef.current.style.display = "block");
+                            setTimeout(()=>{
+                                searchmsgRef.current && (searchmsgRef.current.style.display = "none");
+                            },5000);
+                        }
+                    }
+            }
         }else{
-            setProjectStatus(true);
-            setProjectUploaded(true);
+            searchmsgRef.current && (searchmsgRef.current.style.display = "block");
+            setTimeout(()=>{
+                searchmsgRef.current && (searchmsgRef.current.style.display = "none");
+            },5000);
+        }
+       
+    },function(errorObject){
+        console.log("The read failed " + errorObject.code);
+    },)
+
+}
+
+function uploadData(url,object,setStatus,setUploaded){
+    
+    const directoryName = object.id.toString();
+    
+    const uploadObject = db.ref(`${url}`).child(directoryName);    
+    
+    uploadObject.set({...object},(error)=>{
+        if(error){
+            setStatus(true);
+            setUploaded(false);
+        }else{
+            setStatus(true);
+            setUploaded(true);
         }
     });
 
@@ -119,14 +139,12 @@ function getUpdateSection(updateSectionRef){
     window.scrollTo({top : yposition-100,behavior: 'smooth'});
 }
 
-function deleteData(object,status,deleteStatus){
+function deleteData(url,object,status,deleteStatus){
 
-    var id = object && object.id;
+    var id = object && object.id.toString();
             
-    var category = object && object.project_category;
-
     try{
-        db.ref(`projects/${category}`).child(id).remove()
+        db.ref(`${url}`).child(id).remove()
         .then(function() {
             status(true);
             deleteStatus(true);
@@ -142,7 +160,8 @@ function deleteData(object,status,deleteStatus){
 }
 
 const UpdateController = {
-    queryDB,
+    queryDBProject,
+    queryDBArticle,
     uploadData,
     getUpdateSection,
     handleForm,

@@ -7,7 +7,7 @@ const CONTACT_ME_URL = "/contact-me";
 // ADMIN
 const ADMIN_URL = "/admin"
 const PROJECT_POST_URL = "/project-upload";
-const ARTICLE_POST_URL = "article-upload";
+const ARTICLE_POST_URL = "/article-upload";
 const UPDATE_POST_URL = "/admin-update";
 
 const pageurl = {

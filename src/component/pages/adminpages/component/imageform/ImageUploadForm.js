@@ -2,9 +2,9 @@ import React from 'react'
 import ImageUploadFormCss from './ImageUploadForm.module.css';
 import {Para} from '../../../../reusable/fonts'
 
-const ImageUploadForm = ({projectObject,handleUpload,secondFormValidated,setFirstFormValidated,handleSubmit,
+const ImageUploadForm = ({object,handleUpload,secondFormValidated,setFirstFormValidated,handleSubmit,
                           handleFormSubmit,inputstyle,buttonstyle,InputExternalStyle,uploadButton,
-                          progressbar}) => {
+                          progressbar,previousPageColor}) => {
     return (
 
         <div className={ImageUploadFormCss.imageupload}>
@@ -12,9 +12,9 @@ const ImageUploadForm = ({projectObject,handleUpload,secondFormValidated,setFirs
                 <div className={ImageUploadFormCss.form}>
 
                     {/* uploaded image */}
-                    {   projectObject.imageurl &&
+                    {   object.imageurl &&
                             <span className={ImageUploadFormCss.image_container}>
-                                <img src={projectObject.imageurl} alt={projectObject.image_description}></img>
+                                <img src={object.imageurl} alt={object.description}></img>
                             </span>
                     }
                     
@@ -23,9 +23,9 @@ const ImageUploadForm = ({projectObject,handleUpload,secondFormValidated,setFirs
                     <input type="file" placeholder="Upload Image" name="image_upload" accept="image/*" required
                             onChange={(e)=>handleUpload(e)} style={inputstyle} className={InputExternalStyle}></input>    
                     {
-                        projectObject.image_uploadError !== "" ?
+                        object.image_uploadError !== "" ?
                         <Para fontClass={ImageUploadFormCss.error}>
-                            {projectObject.image_uploadError}
+                            {object.image_uploadError}
                         </Para>
                         : <div style={{height: "20px"}}/>
                     }
@@ -42,7 +42,7 @@ const ImageUploadForm = ({projectObject,handleUpload,secondFormValidated,setFirs
                     {/* } */}
                     
                     <span style={{display:"block",width:"max-content",margin:"0 auto",padding:"30px 0",fontFamily:"encode_sans",
-                                  color:"#000",textAlign:"center",cursor:"pointer",fontSize:".90em"}} onClick={()=>{setFirstFormValidated(false)}}>
+                                  color:previousPageColor,textAlign:"center",cursor:"pointer",fontSize:".90em"}} onClick={()=>{setFirstFormValidated(false)}}>
                         Previous Page
                     </span>
 

@@ -3,7 +3,7 @@ import {Two,Para,Alpha} from '../../../../reusable/fonts/Font'
 import StatusCss from './Status.module.css';
 import {withRouter} from 'react-router-dom'
 
-const UploadSuccess = ({status,success,failure,land,try_again,new_project,...props}) => {
+const Status = ({status,success,failure,land,try_again,new_action,buttonText,...props}) => {
 
     return(
 
@@ -37,8 +37,9 @@ const UploadSuccess = ({status,success,failure,land,try_again,new_project,...pro
                         <div className={StatusCss.main_option}>
                             {
                                 status  ?
-                                    <Alpha ahref={new_project}>
-                                        <button >Add New Project</button>
+
+                                    <Alpha ahref={new_action}>
+                                        <button >{buttonText}</button>
                                     </Alpha>
                                 :
                                     <button onClick={()=>{props.history.push(try_again)}}>Try Again</button>   
@@ -61,4 +62,4 @@ const UploadSuccess = ({status,success,failure,land,try_again,new_project,...pro
     )
 }
 
-export default withRouter(UploadSuccess);
+export default withRouter(Status);

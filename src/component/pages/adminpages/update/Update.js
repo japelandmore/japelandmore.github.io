@@ -8,8 +8,11 @@ import { withRouter } from 'react-router-dom'
 import Status from '../component/status';
 import pageurl from '../../../framework/url/pageurl';
 import DeleteForm from '../component/deleteform';
+import ArticleForm from '../component/articleform';
 
 const Update = ({...props}) => {
+
+    var d = new Date();
 
     const searchmsgRef = React.useRef();
 
@@ -18,20 +21,37 @@ const Update = ({...props}) => {
     
     const [projectObject, setProjectObject] = React.useState({
         id: "",
-        project_name :  "",
-        image_description : "",
+        title :  "",
+        description : "",
         imageurl : "",
-        project : "",
         company : "",
         year : "",
-        project_category : "",
+        category : "",
         paragraph : "",
-        date_created : ""
+        date_created : "",
+        last_modified : `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`
     });
 
-    const [articleObject, setArticleObject] = React.useState({});
+    const [articleObject, setArticleObject] = React.useState({
+        id: "",
+        title : "",
+        description : "",
+        release_month : "",
+        release_year : "",
+        article_link : "",
+        imageurl : "",
+        date_created : "",
+        last_modified : `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`
+    });
 
-    // const [articleObjectError, setArticleObjectError] = React.useState({})
+    const [articleObjectError, setArticleObjectError] = React.useState({
+        titleError : "",
+        descriptionError : "",
+        release_monthError : "",
+        release_yearError : "",
+        dateError : "",
+        article_linkError : "",
+    })
 
     const [imageUpload, setImageUpload] = React.useState({
         image_upload : null
@@ -78,7 +98,6 @@ const Update = ({...props}) => {
 
     const [formSection,setFormSection] = React.useState(false);
 
-
     const [uploadButton, setUploadButton] = React.useState(false)
 
 
@@ -87,15 +106,11 @@ const Update = ({...props}) => {
     })
 
     function projectQuery(){
-        if(action==="update"){
-            UpdateController.queryDB( projectItemQuery,setFormSection,updateSectionRef,setProjectObject,searchmsgRef);
-        }else if(action==="delete"){
-            UpdateController.queryDB( projectItemQuery,setFormSection,updateSectionRef,setProjectObject,searchmsgRef);
-        }
+        UpdateController.queryDBProject( projectItemQuery,setFormSection,updateSectionRef,setProjectObject,searchmsgRef);
     }
 
     function articleQuery(){
-        
+        UpdateController.queryDBArticle( articleItemQuery,setFormSection,updateSectionRef,setArticleObject,searchmsgRef);
     }
 
     function handleProjectInput(e){
@@ -124,11 +139,18 @@ const Update = ({...props}) => {
             case 'project' :
                 if(!firstFormValidated){
                     UpdateController.handleForm(projectObject,setProjectObject,setProjectObjectError,setFirstFormValidated);
-                }else{
-                    UpdateController.handleUpload(imageUpload,projectObject,setProjectObject,setSecondFormValidated,setUploadProgress);
+                }else{   
+                    const url = 'projects';              
+                    UpdateController.handleUpload(url,imageUpload,projectObject,setProjectObject,setSecondFormValidated,setUploadProgress);
                 }
                 break;
             case 'article' :
+                if(!firstFormValidated){
+                    UpdateController.handleForm(articleObject,setArticleObject,setArticleObjectError,setFirstFormValidated);
+                }else{   
+                    const urllela = 'articles';              
+                    UpdateController.handleUpload(urllela,imageUpload,articleObject,setArticleObject,setSecondFormValidated,setUploadProgress);
+                }
                 break;
             default : break;
         }
@@ -151,10 +173,12 @@ const Update = ({...props}) => {
     function handleDelete(){
         switch(filetype){
             case 'project' :
-                UpdateController.deleteData(projectObject,setProjectStatus,setProjectDeleted);
+                const url = "projects";
+                UpdateController.deleteData(url,projectObject,setProjectStatus,setProjectDeleted);
                 break;
             case 'article' :
-                UpdateController.deleteData(articleObject,setArticleStatus,setArticleDeleted);
+                const urllella = "articles";
+                UpdateController.deleteData(urllella,articleObject,setArticleStatus,setArticleDeleted);
                 break;
             default : break;
         }
@@ -163,10 +187,12 @@ const Update = ({...props}) => {
     function handleFormSubmit(){
         switch(filetype){
             case 'project' :
-                UpdateController.uploadData(projectObject,setProjectStatus,setProjectUploaded);
+                const url = 'projects';
+                UpdateController.uploadData(url,projectObject,setProjectStatus,setProjectUploaded);
                 break;
             case 'article' :
-                UpdateController.uploadData(projectObject,setArticleStatus,setArticleUploaded);
+                const urlella = 'articles';
+                UpdateController.uploadData(urlella,articleObject,setArticleStatus,setArticleUploaded);
                 break;
             default :
                 break;
@@ -179,19 +205,23 @@ const Update = ({...props}) => {
 
             { filetype==="project" && action==="update" && projectStatus && <Status status={projectUploaded} 
                 success={'Project Updated Successfully'} failure={'Project Not Saved'} 
-                land={pageurl.ADMIN_URL} try_again={pageurl.PROJECT_POST_URL} new_project={pageurl.PROJECT_POST_URL} /> }
+                land={pageurl.ADMIN_URL} try_again={pageurl.PROJECT_POST_URL} 
+                new_action={pageurl.PROJECT_POST_URL} buttonText={"Add New Project"} /> }
 
             { filetype==="project" && action==="delete" && projectStatus && <Status status={projectDeleted} 
                 success={'Project Deleted Successfully'} failure={'Project Not Deleted'} 
-                land={pageurl.ADMIN_URL} try_again={pageurl.PROJECT_POST_URL} new_project={pageurl.PROJECT_POST_URL} /> }
+                land={pageurl.ADMIN_URL} try_again={pageurl.PROJECT_POST_URL} 
+                new_action={pageurl.PROJECT_POST_URL} buttonText={"Add New Project"} /> }
 
-            { filetype==="artice" && action==="update" && articleStatus && <Status status={articleUploaded} 
+            { filetype==="article" && action==="update" && articleStatus && <Status status={articleUploaded} 
                 success={'Article Updated Successfully'} failure={'Article Not Saved'} 
-                land={pageurl.ADMIN_URL} try_again={pageurl.ARTICLE_POST_URL} new_project={pageurl.ARTICLE_POST_URL} /> }
+                land={pageurl.ADMIN_URL} try_again={pageurl.ARTICLE_POST_URL} 
+                new_action={pageurl.ARTICLE_POST_URL} buttonText={"Add New Article"} /> }
 
             { filetype==="article" && action==="delete" && articleStatus && <Status status={articleDeleted} 
                 success={'Article Deleted Successfully'} failure={'Article Not Deleted'} 
-                land={pageurl.ADMIN_URL} try_again={pageurl.ARTICLE_POST_URL} new_project={pageurl.ARTICLE_POST_URL} /> }
+                land={pageurl.ADMIN_URL} try_again={pageurl.ARTICLE_POST_URL} 
+                new_action={pageurl.ARTICLE_POST_URL} buttonText={"Add New Article"} /> }
             
             <div className={UpdateCss.container}>
 
@@ -215,12 +245,13 @@ const Update = ({...props}) => {
                         
                                 <div className={UpdateCss.form}>
 
-                                    <label >Project Name</label>
+                                    <label>Name</label>
 
-                                    <input type="text" name="project_name" required onChange={(e)=>handleProjectInput(e)}
+                                    <input type="text" name="project_name" required 
+                                        onChange={(e)=>handleProjectInput(e)} placeholder="product name"
                                         value={projectItemQuery.project_name}></input>
                                     
-                                    <label>Project Category</label>
+                                    <label>Category</label>
                                     
                                     <select required
                                     onChange={(e)=>handleProjectInput(e)} 
@@ -243,7 +274,7 @@ const Update = ({...props}) => {
                         }
 
                         {
-                            filetype === 'article' &&
+                            filetype === 'article' && !formSection &&
                         
                                 <div className={UpdateCss.form}>    
 
@@ -264,7 +295,7 @@ const Update = ({...props}) => {
                             action === 'update' && filetype === 'project' && formSection &&
                             <div className={UpdateCss.updateformsection}>
                                 
-                                {!firstFormValidated ?
+                                {!firstFormValidated && filetype === "project" ?
                                     <>
                                         <div className={UpdateCss.formheader}>
                                             <Para fontClass={UpdateCss.paraupdate}>UPDATE PROJECT DETAILS</Para>
@@ -274,7 +305,7 @@ const Update = ({...props}) => {
                                                     inputstyle={{borderBottom:"1px solid #260590",color:"black"}}
                                                     selectstyle={{border:"0.5px solid #B39BFF"}}
                                                     textstyle={{border:"0.5px solid #B39BFF",color:"black"}}
-                                                    buttonstyle={{background:"#260590"}}
+                                                    buttonstyle={{background:"#260590"}} labelColor={"#260590"}
                                                     projectObjectError={projectObjectError} handleSubmit={handleSubmit} />    
 
                                         <div className={UpdateCss.formheader} style={{margin:"0 auto",cursor:"pointer"}} 
@@ -288,14 +319,15 @@ const Update = ({...props}) => {
                                         <div className={UpdateCss.formheader}>
                                             <Para fontClass={UpdateCss.paraupdate}>UPDATE PROJECT IMAGE</Para>
                                         </div>
-                                        <ImageUploadForm projectObject={projectObject} handleUpload={handleUpload} 
+                                        <ImageUploadForm object={projectObject} handleUpload={handleUpload} 
                                                         secondFormValidated={secondFormValidated} 
                                                         setFirstFormValidated={setFirstFormValidated} 
                                                         inputstyle={{color:"0.5px solid #B39BFF"}}
                                                         buttonstyle={{background:"#260590"}}
                                                         InputExternalStyle={UpdateCss.input}
                                                         handleSubmit={handleSubmit} handleFormSubmit={handleFormSubmit}
-                                                        progressbar={uploadProgress} uploadButton={uploadButton} />
+                                                        progressbar={uploadProgress} uploadButton={uploadButton} 
+                                                        previousPageColor={"#000"}/>
                                     </>
                                 }                        
                             </div>
@@ -309,15 +341,49 @@ const Update = ({...props}) => {
                         }
 
                         { 
-                            action === 'update' && filetype === 'article' &&
-                            <>
-                            
-                            </>
+                            action === 'update' && filetype === 'article' && formSection &&
+                            <div className={UpdateCss.updateformsection}>
+                                
+                                {!firstFormValidated && filetype === "article" ?
+                                    <>
+                                        <div className={UpdateCss.formheader}>
+                                            <Para fontClass={UpdateCss.paraupdate}>UPDATE ARTICLE DETAILS</Para>
+                                        </div>
+
+                                        <ArticleForm handleInput={handleInput} articleObject={articleObject} 
+                                                    inputstyle={{borderBottom:"1px solid #260590",color:"black"}}
+                                                    selectstyle={{border:"0.5px solid #B39BFF"}}
+                                                    buttonstyle={{background:"#260590"}} labelColor={"#260590"}
+                                                    articleObjectError={articleObjectError} handleSubmit={handleSubmit} />  
+
+                                        <div className={UpdateCss.formheader} style={{margin:"0 auto",cursor:"pointer"}} 
+                                            onClick={()=>setFormSection(false)}>
+                                            <Para fontClass={UpdateCss.paraupdate}>Go back</Para>
+                                        </div>
+
+                                    </>
+                                                :
+                                    <>
+                                        <div className={UpdateCss.formheader}>
+                                            <Para fontClass={UpdateCss.paraupdate}>UPDATE PROJECT IMAGE</Para>
+                                        </div>
+                                        <ImageUploadForm object={articleObject} handleUpload={handleUpload} 
+                                                        secondFormValidated={secondFormValidated} 
+                                                        setFirstFormValidated={setFirstFormValidated} 
+                                                        inputstyle={{color:"0.5px solid #B39BFF"}}
+                                                        buttonstyle={{background:"#260590"}}
+                                                        InputExternalStyle={UpdateCss.input}
+                                                        handleSubmit={handleSubmit} handleFormSubmit={handleFormSubmit}
+                                                        progressbar={uploadProgress} uploadButton={uploadButton} 
+                                                        previousPageColor={"#000"}/>
+                                    </>
+                                }                        
+                            </div>
                         }
 
                         { 
                             action === 'delete' && filetype === 'article' && formSection && 
-                            <DeleteForm projectObject={projectObject} delete_button_text={"Delete Article"} 
+                            <DeleteForm projectObject={articleObject} delete_button_text={"Delete Article"} 
                                         delete_content={()=>handleDelete()} name_label={"ARTICLE NAME :"} 
                                         description_label={"ARTICLE DESCRIPTION :"}/>
                             

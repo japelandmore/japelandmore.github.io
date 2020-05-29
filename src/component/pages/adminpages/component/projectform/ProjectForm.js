@@ -2,55 +2,46 @@ import React from 'react';
 import ProjectFormCss from './ProjectForm.module.css';
 import {Para} from '../../../../reusable/fonts'
 
-const ProjectForm = ({handleInput,projectObject,projectObjectError,handleSubmit,inputstyle,selectstyle,textstyle,buttonstyle}) => {
+const ProjectForm = ({handleInput,projectObject,projectObjectError,handleSubmit,inputstyle,
+                      selectstyle,textstyle,buttonstyle,labelColor,...props}) => {
 
     return(
 
         <div className={ProjectFormCss.projectform}>
 
-                <div className={ProjectFormCss.form}>
+                <form className={ProjectFormCss.form}>
                     
-                    {/* image name */}
-                    <input type="text" placeholder="project name" name="project_name" required 
+                    {/* name */}
+                    <label for="title" style={{color:labelColor}}>Name</label>
+                    <input type="text" placeholder="product name" name="title" required 
                             onChange={(e)=>handleInput(e)} 
-                            value={projectObject.project_name} style={inputstyle}></input>    
+                            value={projectObject.title} style={inputstyle}></input>    
                     {
-                        projectObjectError.project_nameError !== "" ? 
+                        projectObjectError.titleError !== "" ? 
                         <Para fontClass={ProjectFormCss.error}>
-                            {projectObjectError.project_nameError}
+                            {projectObjectError.titleError}
                         </Para>
                         : <div style={{height: "20px"}}/>
                     }
                     
-                    {/* image description */}
-                    <input type="text" placeholder="project description" name="image_description" required
+                    {/* description */}
+                    <label for="description">Description</label>
+                    <input type="text" placeholder="project description" name="description" required
                             onChange={(e)=>handleInput(e)} 
-                            value={projectObject.image_description} style={inputstyle}></input>    
+                            value={projectObject.description} style={inputstyle}></input>    
                     {
-                        projectObjectError.image_descriptionError !== "" ?
+                        projectObjectError.descriptionError !== "" ?
                         <Para fontClass={ProjectFormCss.error}>
-                            {projectObjectError.image_descriptionError}
+                            {projectObjectError.descriptionError}
                         </Para>
                         : <div style={{height: "20px"}}/>
                     }
                     
-                    {/* product name */}
-                    <input type="text" placeholder="product name" name="project" required 
-                            onChange={(e)=>handleInput(e)} 
-                            value={projectObject.project} style={inputstyle}></input>    
-                    {
-                        projectObjectError.projectError !== "" ?
-                        <Para fontClass={ProjectFormCss.error}>
-                            {projectObjectError.projectError}
-                        </Para>
-                        : <div style={{height: "20px"}}/>
-                    }
-
-                    {/* product category */}
+                    <label for="category">Category</label>
                     <select required
                         onChange={(e)=>handleInput(e)} 
-                        value={projectObject.project_category} 
-                        name="project_category" style={selectstyle}>
+                        value={projectObject.category} 
+                        name="category" style={selectstyle}>
                             <option>Select Option</option>
                             <option>UI-UX Design</option>
                             <option>Branding</option>
@@ -58,14 +49,15 @@ const ProjectForm = ({handleInput,projectObject,projectObjectError,handleSubmit,
                             <option>Business Analysis</option>
                     </select>
                     {
-                        projectObjectError.project_categoryError !== "" ?
+                        projectObjectError.categoryError !== "" ?
                         <Para fontClass={ProjectFormCss.error}>
-                            {projectObjectError.project_categoryError}
+                            {projectObjectError.categoryError}
                         </Para>
                         : <div style={{height: "20px"}}/>
                     }
 
                     {/* company name */}
+                    <label for="company">Company</label>
                     <input type="text" placeholder="company name" name="company" required
                             onChange={(e)=>handleInput(e)} 
                             value={projectObject.company} style={inputstyle}></input>    
@@ -78,6 +70,7 @@ const ProjectForm = ({handleInput,projectObject,projectObjectError,handleSubmit,
                     }
                     
                     {/* project year */}
+                    <label for="year">Year</label>
                     <input type="text" placeholder="project year" name="year" required
                             onChange={(e)=>handleInput(e)} 
                             value={projectObject.year} style={inputstyle}></input>    
@@ -91,6 +84,7 @@ const ProjectForm = ({handleInput,projectObject,projectObjectError,handleSubmit,
                     
 
                     {/* about project */}
+                    <label for="paragraph">About Project</label>
                     <textarea placeholder="about project" name="paragraph" required
                             onChange={(e)=>handleInput(e)} 
                             value={projectObject.paragraph} style={textstyle}></textarea>
@@ -103,7 +97,7 @@ const ProjectForm = ({handleInput,projectObject,projectObjectError,handleSubmit,
                     }
                     <button onClick={(e)=>handleSubmit(e)} style={buttonstyle}>CONTINUE</button>
 
-                </div>
+                </form>
 
         </div>
         

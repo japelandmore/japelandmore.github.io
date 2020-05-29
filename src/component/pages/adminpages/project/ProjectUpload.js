@@ -1,6 +1,6 @@
 import React from 'react';
 import ProjectCss from './ProjectUpload.module.css';
-import ProjectController from '../../../framework/controllers/ProjectController';
+import UploadController from '../../../framework/controllers/UploadController';
 import { One,Six} from '../../../reusable/fonts';
 import Status from '../component/status';
 import ProjectForm from '../component/projectform';
@@ -14,15 +14,15 @@ const ProjectUpload = () =>{
     
     const [projectObject, setProjectObject] = React.useState({
         id: Math.floor(Date.now() / 1000),
-        project_name :  "",
-        image_description : "",
+        title :  "",
+        description : "",
         imageurl : "",
-        project : "",
         company : "",
         year : "",
-        project_category : "",
+        category : "",
         paragraph : "",
-        date_created : `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`
+        date_created : `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`,
+        last_modified : `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`
     });
 
     const [imageUpload, setImageUpload] = React.useState({
@@ -32,14 +32,13 @@ const ProjectUpload = () =>{
     const [uploadButton, setUploadButton] = React.useState(false)
 
     const [projectObjectError, setProjectObjectError] = React.useState({
-        project_nameError :  "",
-        image_descriptionError : "",
-        projectError : "",
+        titleError :  "",
+        descriptionError : "",
+        imageurlError : "",
         companyError : "",
         yearError : "",
         project_categoryError : "",
         paragraphError : "",
-        
     })
 
     // const [imageUploadError, setImageUploadError] = React.useState({
@@ -58,23 +57,18 @@ const ProjectUpload = () =>{
         progress : 0
     })
 
-    // console.log(uploadProgress);
-
     function handleSubmit(e) {
-       
         if(!firstFormValidated){
-            ProjectController.handleForm(projectObject,setProjectObject,setProjectObjectError,setFirstFormValidated);
+            UploadController.handleForm(projectObject,setProjectObject,setProjectObjectError,setFirstFormValidated);
         }else{
-            // if(imageUpload.image_upload){
-                ProjectController.handleUpload(imageUpload,projectObject,setProjectObject,setSecondFormValidated,setUploadProgress);
-            // }
+            const url = 'projects';
+            UploadController.handleUpload(url,imageUpload,projectObject,setProjectObject,setSecondFormValidated,setUploadProgress);
         }
     }
 
     function handleFormSubmit(){
-        // if(secondFormValidated){
-            ProjectController.uploadData(projectObject,setProjectStatus,setProjectUploaded);
-        // }
+        const url = 'projects';
+        UploadController.uploadData(url,projectObject,setProjectStatus,setProjectUploaded);
     }
 
     // handle onchange input event for updating projectObject
@@ -103,14 +97,14 @@ const ProjectUpload = () =>{
             { projectStatus && <Status status={projectUploaded} 
                             success={'Project Saved Successfully'} failure={'Project Not Saved'} 
                             land={pageurl.ADMIN_URL} try_again={pageurl.PROJECT_POST_URL} 
-                            new_project={pageurl.PROJECT_POST_URL} /> }
+                            new_action={pageurl.PROJECT_POST_URL} buttonText={"Add New Project"} /> }
             
             <div className={ProjectCss.container}>
 
                 <div className={ProjectCss.header}>
 
                     <One fontClass={ProjectCss.one}>
-                        Add Portfolio Project
+                        Add Project
                     </One>
                     
                         {
@@ -146,10 +140,10 @@ const ProjectUpload = () =>{
 
                 :
 
-                <ImageUploadForm projectObject={projectObject} handleUpload={handleUpload} secondFormValidated={secondFormValidated}
+                <ImageUploadForm object={projectObject} handleUpload={handleUpload} secondFormValidated={secondFormValidated}
                                  setFirstFormValidated={setFirstFormValidated} handleSubmit={handleSubmit} 
                                  handleFormSubmit={handleFormSubmit} uploadButton={uploadButton}
-                                 progressbar={uploadProgress}/>
+                                 progressbar={uploadProgress} previousPageColor={"#fff"}/>
             
             }
 

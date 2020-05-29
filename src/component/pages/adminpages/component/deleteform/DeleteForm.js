@@ -19,12 +19,12 @@ const DeleteForm = ({projectObject,delete_content,delete_button_text,name_label,
                 
                     <span>
                         <Para fontClass={DeleteFormCss.para}>{name_label}&nbsp;</Para>
-                        <Para fontClass={DeleteFormCss.three}>{projectObject.project_name}</Para>
+                        <Para fontClass={DeleteFormCss.three}>{projectObject.title}</Para>
                     </span>
                 
                     <span>
                         <Para fontClass={DeleteFormCss.para}>{description_label}&nbsp;</Para>
-                        <Para fontClass={DeleteFormCss.three}>{projectObject.image_description}</Para>
+                        <Para fontClass={DeleteFormCss.three}>{projectObject.description}</Para>
                     </span>
                                             
                 </div>
