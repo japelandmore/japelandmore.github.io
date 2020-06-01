@@ -100,11 +100,11 @@
     }
 
     .nav ul .alpha:hover{
-        border-bottom: 1px solid white;
+        border-bottom: 0.1px solid var(--main-color2);
     }
     
     .alpha_underline{
-        border-bottom: 1px solid white;
+        border-bottom: 1px solid var(--main-color2);
         cursor: default;
     }
 
@@ -114,6 +114,7 @@
 
     .nav ul .alpha li .four{
         color: var(--main-color2);
+        font-family: 'encode_sans_bold';
     }
 
 }

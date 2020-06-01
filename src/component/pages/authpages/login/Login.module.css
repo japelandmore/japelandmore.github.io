@@ -1,0 +1,119 @@
+.login{
+    width: 100%;
+    min-height: 100vh;
+}
+
+.login .container{
+    background: var(--main-color2);
+    width: 90%;
+    margin: 50px auto;
+    padding: 50px 0;
+}
+
+.login .container .form{
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.login .container .form .header{
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.login .container .form .header .three{
+    font-family: 'encode_sans_bold';
+    color: var(--main-color11);
+    margin-bottom: 10px;
+}
+
+.login .container .form .header .para{
+    font-family: 'encode_sans_bold';
+    color: var(--main-color);
+}
+
+.login .container .form .body{
+    width: 100%;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.login .container .form .body label{
+    width: 100%;
+    text-align: left;
+    font-size: .80em;
+    font-family: 'encode_sans_medium';
+    margin: 10px 0;
+}
+
+.login .container .form .body input{
+    width: 100%;
+    height: 40px;
+    padding-left: 15px;
+    background: none;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid var(--main-color);
+    margin: 10px 0 3px;
+    font-family: 'encode_sans';
+    font-size: .90em;
+}
+
+::placeholder{
+    color: var(--main-color11);
+}
+
+.login .container .form .body button{
+    width: 100%;
+    height: 40px;
+    border: none;
+    background: var(--main-color);
+    color: var(--main-color2);
+    margin-bottom: 40px;
+    font-family: 'encode_sans_bold';
+    font-size: .85em;
+    outline: none;
+    cursor: pointer;
+}
+
+
+.login .container .form .other{
+    width: 100%;
+    padding : 0px 0px 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.login .container .form .other .para{
+    margin: 0 15px;
+}
+
+.login .container .form .other .link{
+    font-family: 'encode_sans_bold';
+    color: var(--main-color);
+    cursor: pointer;
+}
+
+.error{
+    color: red;
+    font-family: 'encode_sans';
+    font-size: .70em;
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding-left: 15px;
+    margin-bottom: 30px;
+}
+
+@media only screen and (min-width:768px){
+    .login .container{
+        width: 85%;
+    }
+
+    .login .container .form{
+        width: 45%;
+    }
+}

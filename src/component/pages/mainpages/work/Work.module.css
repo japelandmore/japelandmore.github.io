@@ -44,12 +44,18 @@
 
 .work .header_font{
     color: var(--main-color8);
-    font-weight: bold;
+    font-family: 'encode_sans_bold';
 }
 
 .work .container .body{
     text-align: center;
     padding-bottom: 20px;
+    /* border: 1px solid black; */
+}
+
+.work .container .my_services .body_item .body{
+    margin-bottom: 30px;
+    /* border: 1px solid black; */
 }
 
 .work .container .body_item .body .body_header{
@@ -63,6 +69,16 @@
     border-radius: 50%;
     background: var(--main-color11);
     margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.work .container .body_item .body .circle_icon img{
+    max-width: 35px;
+    width: 35px;
+    height: 35px;
+    max-height: 35px;
 }
 
 .work .container .body_item .body .img_container{
@@ -93,7 +109,7 @@
     padding: 10px 25px;
     font-family: encode_sans;
     font-size: 1em;
-    font-weight: bold;
+    font-family:'encode_sans_bold';
     background: var(--main-color7);
     border: none;
     color: var(--main-color2);
@@ -246,7 +262,7 @@
 .work .container .header_title .header_font{
     color: var(--main-color13);
     margin-bottom: 10px;
-    font-weight: bold;
+    font-family: 'encode_sans_bold';
 }
 
 .work .container .header_project{
@@ -256,7 +272,7 @@
 }
 
 .work .container .header_company{
-    font-weight: bold;
+    font-family: 'encode_sans_semi_bold';
     font-style: italic;
     margin-bottom: 5px;
 }
@@ -264,7 +280,7 @@
 
 .work .container .header_year{
     font-size: .80em;
-    font-weight: bold;
+    font-family: 'encode_sans_bold';
     color: var(--main-color10);
 }
 
@@ -344,11 +360,79 @@
     
 
     .work .container .my_services .body_item{
+       display: flex;
+        justify-content: center;       
+        height: 285px;
+        margin: 50px 0 20px;
         /* border: 1px solid black; */
+    }
+
+    .work .container .my_services .body_item .body{
+        /* border: 1px solid black; */
+        width: 240px;
+        height: 100%;
         display: flex;
-        align-items: center;
-        justify-content: space-evenly;       
-        margin-top: 100px;
+        flex-direction: column;
+        justify-content: flex-end;
+        transition: all .2s ease-in-out;
+        margin: 0;
+    }
+
+    #roid{
+        padding: 0px 30px 5px;
+        /* display: none; */
+        transform: translateY(150%);
+        height: 0;
+        z-index: -20;
+    }
+
+    #roid .para{
+        /* border: 1px solid black; */
+        font-size: .67em;
+        line-height: 16px;
+        font-family: 'encode_sans_semi_bold';
+        opacity: 0;
+        color: var(--main-color2);
+        transition: all .4s ease-in-out;
+    }
+    
+    .work .container .my_services .body_item .body:hover{
+        background: var(--main-color11);
+        border-radius: 10px;
+    }
+
+    #fid{
+        transition: all .2s ease-in;
+    }
+
+    #boid:hover  #roid, #boid:hover  #roid .para{
+        animation: moveup .4s ease-in-out;
+        animation-fill-mode: forwards;
+    }
+
+    #boid:hover  #fid{
+        color: var(--main-color2);
+    }
+
+    @keyframes moveup {
+        from{
+            opacity: 0;
+            display: block;
+            height: 0;
+            transform: translateY(150%);
+            z-index: 1;
+        }
+        to{
+            opacity: 1;
+            display: block;
+            height: 33%;
+            transform: translateY(0);
+            z-index: 1;
+        }
+    }
+
+    #boid:hover #circleid{
+        background: var(--main-color2);
     }
 
     .work .container .my_projects .nav_sect{
@@ -361,6 +445,7 @@
         width: 100%;
     }
 
+    
     .work .container .my_projects .tab_section .tab_item .tab_font{
         font-size: .80em;
     }
@@ -374,11 +459,11 @@
     }
 
     .work .container .body_item .body .img_container{
-        /* border: 1px solid black; */
-        /* text-align: center;
-        width: 100%;
-        height: 100px; */
         width: 30%;
+    }
+
+    .work .container .my_services .body_item .body .img_container{
+        width: 100%;
     }
 
 
@@ -430,6 +515,7 @@
 
     .work .container .header_title .header_font{
         margin: 0;
+        font-family: 'encode_sans_bold';
     }
 
     .work .container .header_description{

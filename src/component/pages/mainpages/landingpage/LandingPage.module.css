@@ -1,6 +1,10 @@
 
 .landingpage{
     width: 100%;
+    /* border: 1px solid black; */
+    margin: 0;
+    display: flex;
+    align-items: center;
 }
 
 .container{
@@ -43,6 +47,22 @@
     border-radius: 50%;
     width: 200px;
     height: 200px;
+    transition: 4s ease-in-out;
+    animation: bounce 4s infinite;
+    /* animation-fill-mode: forwards; */
+}
+
+
+@keyframes bounce {
+    0%{
+        transform : translateY(0%);
+    }
+    50%{
+        transform : translateY(5%);
+    }
+    100%{
+        transform : translateY(0%);
+    }
 }
 
 .profile .profile_description{
@@ -70,7 +90,7 @@
     color: var(--main-color2);
     line-height: 27px;
     margin-bottom: 30px;
-    font-size: .93em;
+    /* font-size: .89em; */
 }
 
 .profile .call_to_action{
@@ -90,20 +110,17 @@
 .profile .call_to_action .container button{
     border: none;
     margin: 0;
-    padding: 18px 32px;
-}
-
-.profile .call_to_action .container button .buttonfont{
-    font-size: 1.2em;
-    font-weight: bolder;
+    padding: 18px 30px;
 }
 
 .profile .call_to_action .container .buttonbold{
     background: var(--main-color2);
+    border: 1px solid var(--main-color2);
 }
 
 .profile .call_to_action .container .buttonbold .buttonfont{
     color: var(--main-color);
+    font-family: 'encode_sans_bold';
 }
 
 .profile .call_to_action .container .buttonstripe{
@@ -113,6 +130,7 @@
 
 .profile .call_to_action .container .buttonstripe .buttonfont{
     color: var(--main-color2);
+    font-family: 'encode_sans_bold';
 }
 
 .landingpage .social{
@@ -136,7 +154,7 @@
 @media only screen and (min-width: 768px){
 
     .landingpage{
-        margin: 10%;
+        height: 100%;
     }
 
     .profile{
@@ -144,7 +162,7 @@
         flex-direction: row-reverse;
         /* border: 1px solid white; */
         width: 85%;
-        padding: 60px 0 0;
+        /* padding: 60px 0 0; */
         margin: 0 auto;
     }
     
@@ -177,7 +195,6 @@
 
     .profile .profile_description .header .headfont{
         font-size: 3em;
-
     }
 
     .profile .call_to_action {
@@ -191,20 +208,16 @@
 
     .profile .call_to_action .container button{
         margin-right: 20px;
-        padding: 15px 35px;
+        padding: 12px 36px;
         cursor: pointer;
         font-size: .93em;
-    }
-
-    .profile .call_to_action .container button .buttonfont{
-        font-size: 1em;
-        font-weight: bold;
     }
 
     .profile .call_to_action .container .buttonstripe{
         background-color: var(--main-color7);
         border: none;
-        padding: 15px 45px; 
+        /* padding: 8px 45px;  */
+        border: 1px solid var(--main-color7);
     }
 
     .profile .profile_image{

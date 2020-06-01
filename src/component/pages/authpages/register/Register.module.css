@@ -1,0 +1,118 @@
+.register{
+    width: 100%;
+    min-height: 100vh;
+}
+
+.register .container{
+    background: var(--main-color2);
+    width: 90%;
+    margin: 50px auto;
+    padding: 50px 0;
+}
+
+.register .container .form{
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.register .container .form .header{
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.register .container .form .header .three{
+    font-family: 'encode_sans_bold';
+    color: var(--main-color11);
+    margin-bottom: 10px;
+}
+
+.register .container .form .header .para{
+    font-family: 'encode_sans_bold';
+    color: var(--main-color);
+}
+
+.register .container .form .body{
+    width: 100%;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.register .container .form .body label{
+    width: 100%;
+    text-align: left;
+    font-size: .80em;
+    font-family: 'encode_sans_medium';
+    margin: 10px 0;
+}
+
+.register .container .form .body input{
+    width: 100%;
+    height: 40px;
+    padding-left: 15px;
+    background: none;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid var(--main-color);
+    margin: 10px 0 3px;
+    font-family: 'encode_sans';
+    font-size: .90em;
+}
+
+::placeholder{
+    color: var(--main-color11);
+}
+
+.register .container .form .body button{
+    width: 100%;
+    height: 40px;
+    border: none;
+    background: var(--main-color);
+    color: var(--main-color2);
+    margin-bottom: 40px;
+    font-family: 'encode_sans_bold';
+    font-size: .85em;
+    outline: none;
+    cursor: pointer;
+}
+
+.register .container .form .other{
+    width: 100%;
+    padding : 0px 0px 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.register .container .form .other .para{
+    margin: 0 15px;
+}
+
+.register .container .form .other .link{
+    font-family: 'encode_sans_bold';
+    color: var(--main-color);
+    cursor: pointer;
+}
+
+.error{
+    color: red;
+    font-family: 'encode_sans';
+    font-size: .70em;
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding-left: 15px;
+    margin-bottom: 30px;
+}
+
+@media only screen and (min-width:768px){
+    .register .container{
+        width: 85%;
+    }
+
+    .register .container .form{
+        width: 45%;
+    }
+}

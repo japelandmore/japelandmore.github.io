@@ -1,0 +1,16 @@
+
+
+const ARTICLE_WIREFRAMING_CURED_MY_UX_MIGRANES = "";
+const TRADITIONAL_RIDE_HAILING_FOR_UBER = "";
+
+
+
+
+
+
+const articleurl = {
+    ARTICLE_WIREFRAMING_CURED_MY_UX_MIGRANES,
+    TRADITIONAL_RIDE_HAILING_FOR_UBER
+}
+
+export default articleurl;
