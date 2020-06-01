@@ -1,4 +1,5 @@
-import {storage,db} from '../services/DATATRANSFER/FIREBASE'
+import firebase,{storage,db} from '../services/DATATRANSFER/FIREBASE'
+
 
 function handleForm(object,setObject,setObjectError,setFirstFormValidated) {
 
@@ -48,6 +49,7 @@ function queryDBProject(projectItemQuery,setUpdateFormSection,updateSectionRef,s
         if(arr){
             var name = projectItemQuery && projectItemQuery.project_name;
             var category = projectItemQuery && projectItemQuery.project_category;
+            let status = false;
             if(name && category){
                     for(let i=0; i < Object.values(arr).length;i++){
                         if(Object.values(arr)[i].title === name && Object.values(arr)[i].category === category){
@@ -55,13 +57,15 @@ function queryDBProject(projectItemQuery,setUpdateFormSection,updateSectionRef,s
                             setProjectObject(projectObject);
                             getUpdateSection(updateSectionRef);
                             setUpdateFormSection(true);
-                        }else{
-                            setUpdateFormSection(false);
-                            searchmsgRef.current && (searchmsgRef.current.style.display = "block");
-                            setTimeout(()=>{
-                                searchmsgRef.current && (searchmsgRef.current.style.display = "none");
-                            },5000);
+                            status = true;
                         }
+                    }
+                    if(!status){
+                        setUpdateFormSection(false);
+                        searchmsgRef.current && (searchmsgRef.current.style.display = "block");
+                        setTimeout(()=>{
+                            searchmsgRef.current && (searchmsgRef.current.style.display = "none");
+                        },5000);
                     }
             }
         }else{
@@ -116,8 +120,17 @@ function queryDBArticle(articleItemQuery,setUpdateFormSection,updateSectionRef,s
 
 }
 
-function uploadData(url,object,setStatus,setUploaded){
+function uploadData(url,object,setStatus,setUploaded,setUserDetails){
     
+    var user = firebase.auth().currentUser;
+
+    if(user !== null){
+        console.log(user);
+        setUserDetails({
+            emailVerified : user.emailVerified
+        })
+    }
+
     const directoryName = object.id.toString();
     
     const uploadObject = db.ref(`${url}`).child(directoryName);    
@@ -139,7 +152,16 @@ function getUpdateSection(updateSectionRef){
     window.scrollTo({top : yposition-100,behavior: 'smooth'});
 }
 
-function deleteData(url,object,status,deleteStatus){
+function deleteData(url,object,status,deleteStatus,setUserDetails){
+
+    var user = firebase.auth().currentUser;
+
+    if(user !== null){
+        console.log(user);
+        setUserDetails({
+            emailVerified : user.emailVerified
+        })
+    }
 
     var id = object && object.id.toString();
             

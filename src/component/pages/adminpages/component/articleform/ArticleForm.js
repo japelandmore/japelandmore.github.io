@@ -1,6 +1,6 @@
 import React from 'react';
 import ArticleFormCss from './ArticleForm.module.css'
-import {Para} from '../../../../reusable/fonts'
+import {Four,Para} from '../../../../reusable/fonts'
 
 const ArticleForm = ({handleInput,handleSubmit,articleObject,articleObjectError,inputstyle,
                        selectstyle,buttonstyle,labelColor}) => {
@@ -9,7 +9,7 @@ const ArticleForm = ({handleInput,handleSubmit,articleObject,articleObjectError,
 
         <div className={ArticleFormCss.article_form}>
 
-            <form className={ArticleFormCss.form}>
+            <div className={ArticleFormCss.form}>
 
                 <label style={{color:labelColor}}>Title</label>
                 <input type="text" placeholder="article title" name="title" onChange={(e)=>handleInput(e)}
@@ -73,8 +73,8 @@ const ArticleForm = ({handleInput,handleSubmit,articleObject,articleObjectError,
                     : <div style={{height: "30px"}} />
                 }
 
-                <label style={{color:labelColor}}>Link</label>
-                <input type="text" placeholder="article url" name="article_link"
+                <label style={{color:labelColor}}>Article Link</label>
+                <input type="text" placeholder="www.artice-link.com" name="article_link"
                 onChange={(e)=>handleInput(e)}
                     value={articleObject.article_link} style={inputstyle}></input>
                 {
@@ -87,7 +87,12 @@ const ArticleForm = ({handleInput,handleSubmit,articleObject,articleObjectError,
 
                 <button onClick={(e)=>handleSubmit(e)} style={buttonstyle}>Continue</button>
 
-            </form>
+                {articleObjectError.titleError !== "" && 
+                        <Four fontClass={ArticleFormCss.four}>
+                            {articleObjectError.titleError}
+                        </Four>}
+
+            </div>
 
         </div>
 

@@ -27,6 +27,7 @@ const Update = ({...props}) => {
         company : "",
         year : "",
         category : "",
+        pass : "",
         paragraph : "",
         date_created : "",
         last_modified : `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`
@@ -40,6 +41,7 @@ const Update = ({...props}) => {
         release_year : "",
         article_link : "",
         imageurl : "",
+        pass : "",
         date_created : "",
         last_modified : `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`
     });
@@ -56,6 +58,10 @@ const Update = ({...props}) => {
     const [imageUpload, setImageUpload] = React.useState({
         image_upload : null
     })
+
+    const[userDetails,setUserDetails] = React.useState({
+        emailVerified : ""
+    });
 
     const [projectObjectError, setProjectObjectError] = React.useState({
         project_nameError :  "",
@@ -174,11 +180,11 @@ const Update = ({...props}) => {
         switch(filetype){
             case 'project' :
                 const url = "projects";
-                UpdateController.deleteData(url,projectObject,setProjectStatus,setProjectDeleted);
+                UpdateController.deleteData(url,projectObject,setProjectStatus,setProjectDeleted,setUserDetails);
                 break;
             case 'article' :
                 const urllella = "articles";
-                UpdateController.deleteData(urllella,articleObject,setArticleStatus,setArticleDeleted);
+                UpdateController.deleteData(urllella,articleObject,setArticleStatus,setArticleDeleted,setUserDetails);
                 break;
             default : break;
         }
@@ -188,11 +194,11 @@ const Update = ({...props}) => {
         switch(filetype){
             case 'project' :
                 const url = 'projects';
-                UpdateController.uploadData(url,projectObject,setProjectStatus,setProjectUploaded);
+                UpdateController.uploadData(url,projectObject,setProjectStatus,setProjectUploaded,setUserDetails);
                 break;
             case 'article' :
                 const urlella = 'articles';
-                UpdateController.uploadData(urlella,articleObject,setArticleStatus,setArticleUploaded);
+                UpdateController.uploadData(urlella,articleObject,setArticleStatus,setArticleUploaded,setUserDetails);
                 break;
             default :
                 break;
@@ -203,25 +209,49 @@ const Update = ({...props}) => {
 
         <div className={UpdateCss.update}>
 
-            { filetype==="project" && action==="update" && projectStatus && <Status status={projectUploaded} 
-                success={'Project Updated Successfully'} failure={'Project Not Saved'} 
-                land={pageurl.ADMIN_URL} try_again={pageurl.PROJECT_POST_URL} 
-                new_action={pageurl.PROJECT_POST_URL} buttonText={"Add New Project"} /> }
+            { filetype==="project" && action==="update" && projectStatus && 
+                    <Status status={projectUploaded} 
+                            success={'Project Updated Successfully'} 
+                            failure={'Project Not Saved'} 
+                            land={pageurl.ADMIN_URL} 
+                            try_again={pageurl.PROJECT_POST_URL} 
+                            new_action={pageurl.PROJECT_POST_URL} 
+                            verifiedUser={userDetails.emailVerified} 
+                            buttonText={"Add New Project"} 
+                            bottomAction={"Back to Main Menu"}/> }
 
-            { filetype==="project" && action==="delete" && projectStatus && <Status status={projectDeleted} 
-                success={'Project Deleted Successfully'} failure={'Project Not Deleted'} 
-                land={pageurl.ADMIN_URL} try_again={pageurl.PROJECT_POST_URL} 
-                new_action={pageurl.PROJECT_POST_URL} buttonText={"Add New Project"} /> }
+            { filetype==="project" && action==="delete" && projectStatus && 
+                    <Status status={projectDeleted} 
+                            success={'Project Deleted Successfully'} 
+                            failure={'Project Not Deleted'} 
+                            land={pageurl.ADMIN_URL} 
+                            try_again={pageurl.PROJECT_POST_URL} 
+                            new_action={pageurl.PROJECT_POST_URL} 
+                            verifiedUser={userDetails.emailVerified} 
+                            buttonText={"Add New Project"} 
+                            bottomAction={"Back to Main Menu"}/> }
+                            
 
-            { filetype==="article" && action==="update" && articleStatus && <Status status={articleUploaded} 
-                success={'Article Updated Successfully'} failure={'Article Not Saved'} 
-                land={pageurl.ADMIN_URL} try_again={pageurl.ARTICLE_POST_URL} 
-                new_action={pageurl.ARTICLE_POST_URL} buttonText={"Add New Article"} /> }
+            { filetype==="article" && action==="update" && articleStatus && 
+                    <Status status={articleUploaded} 
+                            success={'Article Updated Successfully'} 
+                            failure={'Article Not Saved'} 
+                            land={pageurl.ADMIN_URL} 
+                            try_again={pageurl.ARTICLE_POST_URL} 
+                            new_action={pageurl.ARTICLE_POST_URL} 
+                            verifiedUser={userDetails.emailVerified} 
+                            buttonText={"Add New Article"} 
+                            bottomAction={"Back to Main Menu"}/> }
 
-            { filetype==="article" && action==="delete" && articleStatus && <Status status={articleDeleted} 
-                success={'Article Deleted Successfully'} failure={'Article Not Deleted'} 
-                land={pageurl.ADMIN_URL} try_again={pageurl.ARTICLE_POST_URL} 
-                new_action={pageurl.ARTICLE_POST_URL} buttonText={"Add New Article"} /> }
+            { filetype==="article" && action==="delete" && articleStatus && 
+                    <Status status={articleDeleted} 
+                            success={'Article Deleted Successfully'} 
+                            failure={'Article Not Deleted'} 
+                            land={pageurl.ADMIN_URL} 
+                            try_again={pageurl.ARTICLE_POST_URL} 
+                            new_action={pageurl.ARTICLE_POST_URL} 
+                            buttonText={"Add New Article"} 
+                            bottomAction={"Back to Main Menu"}/> }
             
             <div className={UpdateCss.container}>
 

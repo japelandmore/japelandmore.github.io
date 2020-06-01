@@ -86,3 +86,10 @@
     padding-left: 20px;
     margin-bottom: 30px;
 }
+.four{
+    width: 100%;
+    text-align: center;
+    color: red;
+    font-family: 'encode_sans_medium';
+    margin-top: 20px;
+}

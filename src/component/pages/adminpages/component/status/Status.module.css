@@ -32,6 +32,14 @@
     text-align: center;
 }
 
+.modal .container .header .two{
+    margin-bottom: 15px;
+}
+
+.modal .container .header .para{
+    line-height: 25px;
+}
+
 .modal .container .body{
     width: 100%;
     padding: 20px 0;

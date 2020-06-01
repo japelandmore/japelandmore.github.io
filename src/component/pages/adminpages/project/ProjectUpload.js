@@ -21,6 +21,7 @@ const ProjectUpload = () =>{
         year : "",
         category : "",
         paragraph : "",
+        // pass : "",
         date_created : `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`,
         last_modified : `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`
     });
@@ -45,6 +46,10 @@ const ProjectUpload = () =>{
     //     image_uploadError : ""
     // })
 
+    const[userDetails,setUserDetails] = React.useState({
+        emailVerified : ""
+    });
+
     const [firstFormValidated,setFirstFormValidated] = React.useState(false);
 
     const [secondFormValidated,setSecondFormValidated] = React.useState(false);
@@ -57,9 +62,11 @@ const ProjectUpload = () =>{
         progress : 0
     })
 
-    function handleSubmit(e) {
+    function handleSubmit() {
+        // e.preventDefault();
         if(!firstFormValidated){
-            UploadController.handleForm(projectObject,setProjectObject,setProjectObjectError,setFirstFormValidated);
+            const fileType = "projects";
+            UploadController.handleForm(projectObject,fileType,projectObjectError,setProjectObjectError,setFirstFormValidated);
         }else{
             const url = 'projects';
             UploadController.handleUpload(url,imageUpload,projectObject,setProjectObject,setSecondFormValidated,setUploadProgress);
@@ -68,7 +75,7 @@ const ProjectUpload = () =>{
 
     function handleFormSubmit(){
         const url = 'projects';
-        UploadController.uploadData(url,projectObject,setProjectStatus,setProjectUploaded);
+        UploadController.uploadData(url,projectObject,setProjectStatus,setProjectUploaded,setUserDetails);
     }
 
     // handle onchange input event for updating projectObject
@@ -94,10 +101,15 @@ const ProjectUpload = () =>{
     
         <div className={ProjectCss.projectupload}>
 
-            { projectStatus && <Status status={projectUploaded} 
-                            success={'Project Saved Successfully'} failure={'Project Not Saved'} 
-                            land={pageurl.ADMIN_URL} try_again={pageurl.PROJECT_POST_URL} 
-                            new_action={pageurl.PROJECT_POST_URL} buttonText={"Add New Project"} /> }
+            { projectStatus && < Status status={projectUploaded} 
+                                        success={'Project Saved Successfully'} 
+                                        failure={'Project Not Saved'} 
+                                        land={pageurl.ADMIN_URL} 
+                                        try_again={pageurl.PROJECT_POST_URL} 
+                                        new_action={pageurl.PROJECT_POST_URL}
+                                        verifiedUser={userDetails.emailVerified} 
+                                        buttonText={"Add New Project"} 
+                                        bottomAction={"Back to Home Page"} /> }
             
             <div className={ProjectCss.container}>
 

@@ -3,7 +3,9 @@ import {Two,Para,Alpha} from '../../../../reusable/fonts/Font'
 import StatusCss from './Status.module.css';
 import {withRouter} from 'react-router-dom'
 
-const Status = ({status,success,failure,land,try_again,new_action,buttonText,...props}) => {
+const Status = ({status,success,failure,land,try_again,new_action,buttonText,
+                additional_msg,verifiedUser,sendVerification,notBtnText,bottomAction,
+                serverErrAction,serverErrMsg,...props}) => {
 
     return(
 
@@ -17,17 +19,19 @@ const Status = ({status,success,failure,land,try_again,new_action,buttonText,...
 
                         {
                             status  ?
-                        
+                        <>
                             <Two fontClass={StatusCss.two}>
                                 {success}
                             </Two>           
-                            
+                            <Para fontClass={StatusCss.para}>{additional_msg}</Para>
+                        </>  
                             :
-
+                        <>
                             <Two fontClass={StatusCss.two}>
                                 {failure}
                             </Two>           
-
+                            <Para fontClass={StatusCss.para}>{additional_msg}</Para>
+                        </>
                         }
 
                     </div>
@@ -38,17 +42,27 @@ const Status = ({status,success,failure,land,try_again,new_action,buttonText,...
                             {
                                 status  ?
 
-                                    <Alpha ahref={new_action}>
-                                        <button >{buttonText}</button>
-                                    </Alpha>
+                                    verifiedUser ? 
+                                        
+                                        <Alpha ahref={new_action}>
+                                            <button>{buttonText}</button>
+                                        </Alpha>
+                                    :
+
+                                        <button onClick={sendVerification}>{buttonText}</button>
+
                                 :
-                                    <button onClick={()=>{props.history.push(try_again)}}>Try Again</button>   
+                                    serverErrMsg ?
+                                        
+                                        <button onClick={serverErrAction}>{notBtnText}</button>
+                                    :
+                                        <Alpha ahref={try_again}><button>{notBtnText}</button></Alpha>
                             }
                         </div>
                         
                         <div className={StatusCss.other_option}>
                             <Alpha ahref={land}>
-                                <Para fontClass={StatusCss.para} >Back to Main Menu</Para>
+                                <Para fontClass={StatusCss.para} >{bottomAction}</Para>
                             </Alpha>
                         </div>
                         

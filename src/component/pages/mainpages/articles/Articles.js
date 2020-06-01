@@ -1,13 +1,23 @@
 import React from 'react';
 import ArticleCss from './Articles.module.css';
-import {One as HeaderFont} from '../../../reusable/fonts'
-import article1 from '../../../assets/image/article/0-1@2x.png';
-import article2 from '../../../assets/image/article/Uber Offline Concept@2x.png';
+import {One as HeaderFont,Three} from '../../../reusable/fonts'
 import ArticleItem from './ArticleItem.js';
-import articleurl from '../../../framework/url/articleurl';
+import ArticleController from '../../../framework/controllers/ArticleController';
 
 
 const Articles = () => {
+
+    const [article,setArticle] = React.useState([]);
+
+    React.useEffect(()=>{
+
+        function loadArticles(){
+            !article[0] && ArticleController.handleLoad(setArticle,ArticleCss,ArticleItem);
+        }
+
+        loadArticles();
+
+    })
 
     return(
 
@@ -23,26 +33,21 @@ const Articles = () => {
 
                 <div className={ArticleCss.articles}>
 
-                    <ArticleItem ArticleCss={ArticleCss} header={"Case Study"} date={"JUNE, 2019"} article_img={article1} 
-                                article_title={"Wireframing cured my UX migranes"} external_link={articleurl.ARTICLE_WIREFRAMING_CURED_MY_UX_MIGRANES} />
-
-                    <ArticleItem ArticleCss={ArticleCss} header={"Process"} date={"JANUARY, 2019"} article_img={article2} 
-                                article_title={"Traditional Ride Hailing for Uber (offline)"} external_link={articleurl.TRADITIONAL_RIDE_HAILING_FOR_UBER} />
-
-                    <ArticleItem ArticleCss={ArticleCss} header={"Case Study"} date={"JUNE, 2019"} article_img={article1} article_title={"Wireframing cured my UX migranes"} />
-
-                    <ArticleItem ArticleCss={ArticleCss} header={"Process"} date={"JANUARY, 2019"} article_img={article2} article_title={"Traditional Ride Hailing for Uber (offline)"} />
-
-                    <ArticleItem ArticleCss={ArticleCss} header={"Case Study"} date={"JUNE, 2019"} article_img={article1} article_title={"Wireframing cured my UX migranes"} />
-
-                    <ArticleItem ArticleCss={ArticleCss} header={"Process"} date={"JANUARY, 2019"} article_img={article2} article_title={"Traditional Ride Hailing for Uber (offline)"} />
+                     {/* body */}
+                     { 
+                        article[0] ?
+                            article.map((s) => {return s;}) 
+                        :
+                            <div>
+                                <Three fontClass={ArticleCss.three}>NO ARTICLE(S)</Three>
+                            </div>
+                        }
 
                 </div>
 
             </div>
 
         </div>
-
 
     )
 }

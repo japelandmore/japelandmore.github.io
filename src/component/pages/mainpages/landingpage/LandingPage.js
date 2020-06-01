@@ -14,7 +14,7 @@ const LandingPage = () => {
 
                 {/* Image Section */}
                 <section className={LandingPageCss.profile_image}>
-
+                    
                     <div className={LandingPageCss.container}>
 
                         <div className={LandingPageCss.img_container}>

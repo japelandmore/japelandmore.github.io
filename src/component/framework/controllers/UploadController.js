@@ -1,11 +1,41 @@
-import {storage,db} from '../services/DATATRANSFER/FIREBASE'
+import firebase,{storage,db} from '../services/DATATRANSFER/FIREBASE'
 // import {indexdbevent} from '../events/STORAGE'
 // import Dexie from 'dexie';
 
-
-function handleForm(object,setObject,setObjectError,setFirstFormValidated) {
+function handleForm(object,fileType,objectError,setObjectError,setFirstFormValidated) {
     //validate form - UNDONE
-    setFirstFormValidated(true);
+    queryDB(object,fileType,objectError,setObjectError,setFirstFormValidated)
+}
+
+function queryDB(object,fileType,objectError,setObjectError,setFirstFormValidated){
+    
+    var ref = db.ref(fileType);
+    let duplicate = false;
+    
+    ref.on("value", function(snapshot){
+        var arr = snapshot.val();
+        
+        if(arr){
+            var name = object.title;
+            if(name){
+                for(let i=0; i < Object.values(arr).length;i++){
+                    if(Object.values(arr)[i].title === name){
+                        duplicate = true;
+                        var titleError = "TITLE ALREADY EXISTS IN DATABASE!!!";
+                        setObjectError({...objectError,'titleError':titleError}); 
+                    }
+                }
+                if(!duplicate){
+                    setFirstFormValidated(true);
+                }
+            }
+        }else{
+            setFirstFormValidated(true);
+        }
+    },function(errorObject){
+        console.log("The read failed " + errorObject.code);
+    },)
+    return duplicate;
 }
 
 function handleUpload(url,imageUpload,object,setObject,setSecondFormValidated,setUploadProgress){
@@ -37,8 +67,17 @@ function handleUpload(url,imageUpload,object,setObject,setSecondFormValidated,se
 
 }
 
-function uploadData(url,object,setStatus,setUploaded){
-    
+function uploadData(url,object,setStatus,setUploaded,setUserDetails){
+
+    var user = firebase.auth().currentUser;
+
+    if(user !== null){
+        console.log(user);
+        setUserDetails({
+            emailVerified : user.emailVerified
+        })
+    }
+
     const directoryName = object.id;
     
     const uploadObject = db.ref(`${url}`).child(directoryName);    

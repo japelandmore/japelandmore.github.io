@@ -25,7 +25,6 @@ function submenuhandler2(submenuRef,submenuRef2){
     }
 }
 
-
 const ControlPanelController = {
     menuhandler,
     submenuhandler,

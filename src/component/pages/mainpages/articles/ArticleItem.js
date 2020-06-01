@@ -28,7 +28,7 @@ const ArticleItem = ({ArticleCss,header,date,article_img,article_title,external_
 
                 <div className={ArticleCss.txt}>
 
-                    <a target="_blank" href={external_link} rel="noopener noreferrer" style={{cursor:"pointer",textDecoration:"none"}}>
+                    <a target="_blank" href={`http://${external_link}`} rel="noopener noreferrer" style={{cursor:"pointer",textDecoration:"none"}}>
 
                         <Five fontClass={ArticleCss.five}>
                         
@@ -42,7 +42,7 @@ const ArticleItem = ({ArticleCss,header,date,article_img,article_title,external_
 
                 <div className={ArticleCss.link}>
 
-                <a target="_blank" href={external_link} rel="noopener noreferrer" style={{cursor:"pointer"}}>
+                <a target="_blank" href={`http://${external_link}`} rel="noopener noreferrer" style={{cursor:"pointer"}}>
 
                     <img src={linkimg} alt="external link icon" ></img>
 

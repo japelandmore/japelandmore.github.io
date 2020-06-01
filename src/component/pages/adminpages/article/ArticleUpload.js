@@ -20,6 +20,7 @@ const ArticleUpload = () => {
         release_year : "",
         article_link : "",
         imageurl : "",
+        pass : "",
         date_created : `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`,
         last_modified : `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`
     });
@@ -36,6 +37,10 @@ const ArticleUpload = () => {
     const [imageUpload, setImageUpload] = React.useState({
         image_upload : null
     })
+
+    const[userDetails,setUserDetails] = React.useState({
+        emailVerified : ""
+    });
 
     const [uploadButton, setUploadButton] = React.useState(false)
 
@@ -54,7 +59,8 @@ const ArticleUpload = () => {
     function handleSubmit(e) {
        
         if(!firstFormValidated){
-            UploadController.handleForm(articleObject,setArticleObject,setArticleObjectError,setFirstFormValidated);
+            const fileType = "articles";
+            UploadController.handleForm(articleObject,fileType,articleObjectError,setArticleObjectError,setFirstFormValidated);
         }else{
             const url = 'articles';
             UploadController.handleUpload(url,imageUpload,articleObject,setArticleObject,setSecondFormValidated,setUploadProgress);
@@ -63,7 +69,7 @@ const ArticleUpload = () => {
 
     function handleFormSubmit(){
         const url = 'articles';
-        UploadController.uploadData(url,articleObject,setArticleStatus,setArticleUploaded);
+        UploadController.uploadData(url,articleObject,setArticleStatus,setArticleUploaded,setUserDetails);
     }
 
     // handle onchange input event for updating projectObject
@@ -89,9 +95,14 @@ const ArticleUpload = () => {
 
         <div className={ArticleUploadCss.articleupload}>
             { articleStatus && <Status status={articleUploaded} 
-                            success={'Article Saved Successfully'} failure={'Article Not Saved'} 
-                            land={pageurl.ADMIN_URL} try_again={pageurl.ARTICLE_POST_URL} 
-                            new_action={pageurl.ARTICLE_POST_URL} buttonText={"Add New Article"} /> }
+                                        success={'Article Saved Successfully'} 
+                                        failure={'Article Not Saved'} 
+                                        land={pageurl.ADMIN_URL} 
+                                        try_again={pageurl.ARTICLE_POST_URL} 
+                                        new_action={pageurl.ARTICLE_POST_URL} 
+                                        verifiedUser={userDetails.emailVerified} 
+                                        buttonText={"Add New Article"} 
+                                        bottomAction={"Back to Home Page"}/> }
 
 
             <div className={ArticleUploadCss.container}>

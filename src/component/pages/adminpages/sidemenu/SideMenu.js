@@ -66,7 +66,7 @@ const SideMenu = ({sidemenuRef,submenuRef,submenuRef2,submenuHandler,submenuHand
                         
                         
                         <div className={SideMenuCss.licon}>
-                            <li onClick={()=>props.history.push(pageurl.LANDING_PAGE_URL)}>Exit</li>
+                            <li onClick={()=>window.open(pageurl.LANDING_PAGE_URL,'_self')}>Exit</li>
                         </div>
 
                     </ul>

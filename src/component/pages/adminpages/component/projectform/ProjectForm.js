@@ -1,6 +1,6 @@
 import React from 'react';
 import ProjectFormCss from './ProjectForm.module.css';
-import {Para} from '../../../../reusable/fonts'
+import {Four,Para} from '../../../../reusable/fonts'
 
 const ProjectForm = ({handleInput,projectObject,projectObjectError,handleSubmit,inputstyle,
                       selectstyle,textstyle,buttonstyle,labelColor,...props}) => {
@@ -9,7 +9,7 @@ const ProjectForm = ({handleInput,projectObject,projectObjectError,handleSubmit,
 
         <div className={ProjectFormCss.projectform}>
 
-                <form className={ProjectFormCss.form}>
+                <div className={ProjectFormCss.form}>
                     
                     {/* name */}
                     <label for="title" style={{color:labelColor}}>Name</label>
@@ -97,7 +97,12 @@ const ProjectForm = ({handleInput,projectObject,projectObjectError,handleSubmit,
                     }
                     <button onClick={(e)=>handleSubmit(e)} style={buttonstyle}>CONTINUE</button>
 
-                </form>
+                    {projectObjectError.titleError !== "" && 
+                        <Four fontClass={ProjectFormCss.four}>
+                            {projectObjectError.titleError}
+                        </Four>}
+
+                </div>
 
         </div>
         
