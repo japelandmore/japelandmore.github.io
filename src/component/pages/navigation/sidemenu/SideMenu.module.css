@@ -1,7 +1,7 @@
 
 .sidemenu{
     width: 100%;
-    min-height: 120vh;
+    height: 100%;
     background: var(--main-color2);
     display: flex;
     align-items: center;
@@ -85,6 +85,10 @@
     list-style-type: none;
     font-weight: bold;
     color: var(--main-color);
+}
+
+.sidemenu .container li:hover,.sidemenu .container li:active{
+    color: var(--main-color6);
 }
 
 .socials{

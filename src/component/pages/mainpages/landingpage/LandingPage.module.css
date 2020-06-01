@@ -145,12 +145,16 @@
     .profile .call_to_action .container button{
         margin-bottom: 15px;
     }
+
+    .profile .call_to_action .container .buttonfont .buttonbold .font_alpha{
+        margin: 0 auto!important;
+    }
 }
 
 @media only screen and (min-width: 768px){
 
     .landingpage{
-        height: 100%; 
+        height: 100%;
     }
 
     .profile{
@@ -206,6 +210,7 @@
         margin-right: 20px;
         padding: 12px 36px;
         cursor: pointer;
+        font-size: .93em;
     }
 
     .profile .call_to_action .container .buttonstripe{

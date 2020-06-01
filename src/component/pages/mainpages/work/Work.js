@@ -166,6 +166,115 @@ const Work = () => {
 
                 </section>
 
+                {/* PROFESSIONAL SUMMARY */}
+                <section className={WorkCss.my_services}>
+
+                    {/* header */}
+                    <div className={WorkCss.header}>
+
+                        <Five fontClass={WorkCss.header_font}>MY SERVICES</Five>
+
+                    </div>
+
+                    <div className={WorkCss.body_item}>
+
+                        {/* body */}
+                        <div className={WorkCss.body}>
+                                
+                                {/* Image container */}
+                                <div className={WorkCss.img_container}>
+
+                                    {/* <img src={userresearch} alt="user research icon" /> */}
+                                    <div className={WorkCss.circle_icon}>
+
+                                    </div>
+
+                                </div>
+
+                                <div className={WorkCss.body_header}>
+                                
+                                    <Five fontClass={WorkCss.header_font}>Business Analysis</Five>
+                                
+                                </div>
+
+                        </div>
+
+                        {/* body */}
+                        <div className={WorkCss.body}>
+                                
+                                {/* Image container */}
+                                <div className={WorkCss.img_container}>
+
+                                    {/* <img src={userresearch} alt="user research icon" /> */}
+                                    <div className={WorkCss.circle_icon}>
+
+                                    </div>
+
+                                </div>
+
+                                <div className={WorkCss.body_header}>
+                                
+                                    <Five fontClass={WorkCss.header_font}>Web Design</Five>
+                                
+                                </div>
+
+                        </div>
+
+                        {/* body */}
+                        <div className={WorkCss.body}>
+                                
+                                {/* Image container */}
+                                <div className={WorkCss.img_container}>
+
+                                    {/* <img src={userresearch} alt="user research icon" /> */}
+                                    <div className={WorkCss.circle_icon}>
+
+                                    </div>
+
+                                </div>
+
+                                <div className={WorkCss.body_header}>
+                                
+                                    <Five fontClass={WorkCss.header_font}>UI/UX Design</Five>
+                                
+                                </div>
+
+                        </div>
+
+                        {/* body */}
+                        <div className={WorkCss.body}>
+                                
+                                {/* Image container */}
+                                <div className={WorkCss.img_container}>
+
+                                    {/* <img src={userresearch} alt="user research icon" /> */}
+                                    <div className={WorkCss.circle_icon}>
+
+                                    </div>
+
+                                </div>
+
+                                <div className={WorkCss.body_header}>
+                                
+                                    <Five fontClass={WorkCss.header_font}>Branding</Five>
+                                
+                                </div>
+
+                        </div>
+
+                    </div>
+
+                    {/* body */}
+                    <div className={WorkCss.body}>
+                        
+                            <button className={WorkCss.hire_btn}>
+                                Hire Me
+                            </button>
+
+                    </div>
+
+                </section>
+
 
                 {/* PROFESSIONAL SUMMARY */}
                 <section className={WorkCss.testimonials}>

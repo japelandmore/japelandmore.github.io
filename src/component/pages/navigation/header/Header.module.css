@@ -1,6 +1,6 @@
 .header{
     width: 100%;
-    height: 90px;
+    height: 65px;
     background: var(--main-color);
     position: fixed;
     top: 0;
@@ -28,7 +28,7 @@
 }
 
 .logo img{
-    width: 80%;
+    width: 60%;
 }
 
 .menu_ham{
@@ -42,12 +42,13 @@
 .ham{
     background: var(--main-color2);
     width: 70px;
-    height: 95%;
+    height: 110%;
     border-radius: 0 0 10px 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 0 3px 1px #00000021;
 }
 
 .nav{
@@ -63,6 +64,11 @@
 
 
 @media only screen and (min-width: 768px){
+
+    .header{
+        /* display: none;
+        visibility: hidden; */
+    }
 
     .container{
         /* border: 1px solid white; */

@@ -111,11 +111,10 @@ const Contact = () => {
                         
                                         <BodyFont fontClass={ContactCss.credit}>Contact Me - 07088884625</BodyFont>
                                         <BodyFont fontClass={ContactCss.credit}>japelandmore@gmail[dot]com</BodyFont>                        
-
+                                        <br/>
                                     </div>
                                         
                                     <div className={ContactCss.soc_icon}>
-                    
                                         <a target="_blank" href={socialmediaurl.LINKEDIN_URL} rel="noopener noreferrer" style={{textDecoration:"none"}}>    
                                             <div className={ContactCss.img_container}><img src={social_image2} alt="linkedin logo" className={ContactCss.social_icons}></img></div>
                                         </a>
@@ -135,7 +134,6 @@ const Contact = () => {
                                         <a target="_blank" href={socialmediaurl.TWITTER_URL} rel="noopener noreferrer" style={{textDecoration:"none"}}>    
                                             <div className={ContactCss.img_container}><img src={social_image4} alt="twitter logo" className={ContactCss.social_icons}></img></div>
                                         </a>
-
                                     </div>
                                     
                                 </div>
