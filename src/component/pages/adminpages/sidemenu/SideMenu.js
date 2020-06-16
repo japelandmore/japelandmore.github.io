@@ -39,8 +39,9 @@ const SideMenu = ({sidemenuRef,submenuRef,submenuRef2,submenuHandler,submenuHand
                                     <li>Add Project</li>
                                 </Alpha>
                                 
-                                <li onClick={()=>props.history.push({pathname:pageurl.UPDATE_POST_URL,
-                                                                     state:{page:'project',action:'update'}})}>Update Project</li>
+                                <Alpha ahref={pageurl.ADMIN_URL} click={()=>{handlePage('project','viewall')}} fontStyle={{width:"100%",display:"block"}}>
+                                    <li>View All Projects</li>
+                                </Alpha>
                              
                             </div>
 
@@ -58,9 +59,10 @@ const SideMenu = ({sidemenuRef,submenuRef,submenuRef2,submenuHandler,submenuHand
                                     <li>Add Article</li>
                                 </Alpha>
 
-                                <li onClick={()=>props.history.push({pathname:pageurl.UPDATE_POST_URL,
-                                                                     state:{page:'article',action:'update'}})}>Update Article</li>
-                             
+                                <Alpha ahref={pageurl.ADMIN_URL} click={()=>{handlePage('article','viewall')}} fontStyle={{width:"100%",display:"block"}}>
+                                    <li>View All Articles</li>
+                                </Alpha>
+
                             </div>
 
                         </div>

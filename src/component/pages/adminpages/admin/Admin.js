@@ -1,9 +1,9 @@
 import React from 'react';
 import AdminCss from './Admin.module.css';
-import {One,Three,Para,Alpha} from '../../../reusable/fonts'
-import pageurl from '../../../framework/url/pageurl';
+import {One,Para} from '../../../reusable/fonts'
 import { withRouter } from 'react-router-dom'
 import AdminPageController from '../../../framework/controllers/AdminPageController'
+import AdminComponent from './AdminComponent';
 
 const Admin = ({...props}) => {
 
@@ -23,57 +23,21 @@ const Admin = ({...props}) => {
                     </One>
 
                     <Para fontClass={AdminCss.para}>
-                        Manage Project and Article content 
+                        Manage all content 
                     </Para>
 
                 </div>
 
                 <div className={AdminCss.mbody}>
-
-                    <div className={AdminCss.all}>
-                        
-                        <div className={AdminCss.header}>
-                            <Three fontClass={AdminCss.three}>
-                                Project
-                            </Three>
-                        </div>
-                        
-                        <div className={AdminCss.body}>
-                            
-                            <Alpha ahref={pageurl.ADMIN_URL} click={()=>{handlePage('project','add')}}>
-                                <button>Add Project</button>
-                            </Alpha>
-                            
-                            <Alpha ahref={pageurl.ADMIN_URL} click={()=>{handlePage('project','update')}}>
-                                <button className={AdminCss.btn}>Edit Project</button>
-                            </Alpha>
-                            
-                        </div>
-                        
-                    </div>
-
-                    <div className={AdminCss.all}>
-
-                        <div className={AdminCss.header}>
-                            <Three fontClass={AdminCss.three}>
-                                Article
-                            </Three>
-                        </div>
-                        
-                        <div className={AdminCss.body}>
-
-                            <Alpha ahref={pageurl.ADMIN_URL} click={()=>{handlePage('article','add')}}>
-                                <button>Add Article</button>
-                            </Alpha>
-
-                            <Alpha ahref={pageurl.ADMIN_URL} click={()=>{handlePage('article','update')}}>
-                                <button className={AdminCss.btn}>Edit Article</button>
-                            </Alpha>
-                            
-                        </div>
-
-                    </div>
-
+                    
+                    {/* PROJECT */}
+                    <AdminComponent title={"Project"} pageType={"project"} pageAction1={"add"} pageAction2={"viewall"} 
+                                    buttonText1={"Add Project"} buttonText2={"View All Projects"} handlePage={handlePage} />
+                    
+                    {/* ARTICLE */}
+                    <AdminComponent title={"Article"} pageType={"article"} pageAction1={"add"} pageAction2={"viewall"} 
+                                    buttonText1={"Add Article"} buttonText2={"View All Articles"} handlePage={handlePage} />
+                    
                 </div>
 
             </div>

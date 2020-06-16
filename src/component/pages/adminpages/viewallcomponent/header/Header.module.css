@@ -1,0 +1,24 @@
+.header{
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.header .one{
+    font-family: 'encode_sans_bold';
+    color: var(--main-color7);
+    margin-bottom: 20px;
+}
+
+.header .para{
+    font-family: 'encode_sans_bold';
+    color: var(--main-color);
+}
+
+@media only screen and ( min-width: 768px ){
+
+    .header{
+        width: 40%;
+    }
+}

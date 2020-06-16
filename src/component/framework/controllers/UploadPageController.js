@@ -5,8 +5,6 @@ import ImageUploadForm from '../../pages/adminpages/uploadcomponent/imageupload'
 import Submit from '../../pages/adminpages/uploadcomponent/submit'
 import {Admin} from '../../pages/adminpages'
 
-// const [object,setObject] = React.useState({})
-
 function getUploadHeader(){    
     let page = "";
     if(window.localStorage.getItem('admin')){
@@ -84,13 +82,11 @@ function getSubmit(){
 
 }
 
-
 const UploadPageController = {
     getUploadHeader,
     getUploadForm,
     getUploadImageForm,
     getSubmit
 }
-
 
 export default UploadPageController;

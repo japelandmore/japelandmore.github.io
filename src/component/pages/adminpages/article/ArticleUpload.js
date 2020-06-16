@@ -65,6 +65,7 @@ const ArticleUpload = () => {
             const url = 'articles';
             UploadController.handleUpload(url,imageUpload,articleObject,setArticleObject,setSecondFormValidated,setUploadProgress);
         }
+
     }
 
     function handleFormSubmit(){

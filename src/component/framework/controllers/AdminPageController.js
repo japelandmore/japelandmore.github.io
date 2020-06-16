@@ -1,5 +1,5 @@
 import React from 'react';
-import {Admin,UploadPage,UpdatePage} from '../../pages/adminpages'
+import {Admin,UploadPage,ViewAllPage} from '../../pages/adminpages'
 
 function setPage(page,action){
     window.localStorage.setItem('admin',JSON.stringify({'pageType':page,"pageAction": action}))
@@ -16,7 +16,7 @@ function getPage(){
         switch(page.pageAction){
             case '' : return <Admin />;
             case 'add' : return <UploadPage />;
-            case 'update' : return <UpdatePage />;
+            case 'viewall' : return <ViewAllPage />;
             default : return <Admin/>;
         }
 
