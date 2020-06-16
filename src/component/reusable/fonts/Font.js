@@ -29,8 +29,8 @@ const Para =({fontStyle,fontClass,referral,clickk,...props})=>{
     return(<p className={`${FontCss.font_p} ${fontClass}`} style={fontStyle} ref={referral} onClick={clickk}>{props.children}</p>)
 }
 
-const Alpha =({fontStyle,ahref,fontClass,referral,...props})=>{
-    return(<a href={ahref} className={`${FontCss.font_alpha} ${fontClass}`} style={fontStyle} ref={referral} >{props.children}</a>)
+const Alpha =({fontStyle,ahref,fontClass,referral,click,...props})=>{
+    return(<a href={ahref} className={`${FontCss.font_alpha} ${fontClass}`} style={fontStyle} ref={referral} onClick={click}>{props.children}</a>)
 }
 
 export {

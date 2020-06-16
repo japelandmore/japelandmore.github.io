@@ -3,8 +3,14 @@ import AdminCss from './Admin.module.css';
 import {One,Three,Para,Alpha} from '../../../reusable/fonts'
 import pageurl from '../../../framework/url/pageurl';
 import { withRouter } from 'react-router-dom'
+import AdminPageController from '../../../framework/controllers/AdminPageController'
 
 const Admin = ({...props}) => {
+
+    function handlePage(page,action){
+        AdminPageController.setPage(page,action)
+    }
+
     return(
         <div className={AdminCss.admin}>
 
@@ -24,7 +30,7 @@ const Admin = ({...props}) => {
 
                 <div className={AdminCss.mbody}>
 
-                    <div className={AdminCss.project}>
+                    <div className={AdminCss.all}>
                         
                         <div className={AdminCss.header}>
                             <Three fontClass={AdminCss.three}>
@@ -34,25 +40,19 @@ const Admin = ({...props}) => {
                         
                         <div className={AdminCss.body}>
                             
-                            <Alpha ahref={pageurl.PROJECT_POST_URL}>
+                            <Alpha ahref={pageurl.ADMIN_URL} click={()=>{handlePage('project','add')}}>
                                 <button>Add Project</button>
                             </Alpha>
                             
-                            {/* <Alpha ahref={pageurl.UPDATE_POST_URL}> */}
-                                <button onClick={()=>props.history.push({pathname:pageurl.UPDATE_POST_URL,
-                                                                     state:{page:'project',action:'update'}})}>Update Project</button>
-                            {/* </Alpha> */}
-                            
-                            {/* <Alpha ahref={pageurl.UPDATE_POST_URL}> */}
-                                <button onClick={()=>props.history.push({pathname:pageurl.UPDATE_POST_URL,
-                                                                     state:{page:'project',action:'delete'}})}>Delete Project</button>
-                            {/* </Alpha> */}
+                            <Alpha ahref={pageurl.ADMIN_URL} click={()=>{handlePage('project','update')}}>
+                                <button className={AdminCss.btn}>Edit Project</button>
+                            </Alpha>
                             
                         </div>
                         
                     </div>
 
-                    <div className={AdminCss.article}>
+                    <div className={AdminCss.all}>
 
                         <div className={AdminCss.header}>
                             <Three fontClass={AdminCss.three}>
@@ -62,19 +62,13 @@ const Admin = ({...props}) => {
                         
                         <div className={AdminCss.body}>
 
-                            <Alpha ahref={pageurl.ARTICLE_POST_URL}>
+                            <Alpha ahref={pageurl.ADMIN_URL} click={()=>{handlePage('article','add')}}>
                                 <button>Add Article</button>
                             </Alpha>
 
-                            {/* <Alpha ahref={pageurl.UPDATE_POST_URL}> */}
-                                <button onClick={()=>props.history.push({pathname:pageurl.UPDATE_POST_URL,
-                                                                     state:{page:'article',action:'update'}})}>Update Article</button>
-                            {/* </Alpha> */}
-                            
-                            {/* <Alpha ahref={pageurl.UPDATE_POST_URL}> */}
-                                <button onClick={()=>props.history.push({pathname:pageurl.UPDATE_POST_URL,
-                                                                     state:{page:'article',action:'delete'}})}>Delete Article</button>    
-                            {/* </Alpha> */}
+                            <Alpha ahref={pageurl.ADMIN_URL} click={()=>{handlePage('article','update')}}>
+                                <button className={AdminCss.btn}>Edit Article</button>
+                            </Alpha>
                             
                         </div>
 

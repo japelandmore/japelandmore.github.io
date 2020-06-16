@@ -1,0 +1,123 @@
+.container{
+    width: 85%;
+    margin: 0 auto;
+}
+
+.imageupload .form{
+    width: 100%;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.imageupload .form .header{
+    width: 100%;
+    padding : 10px 0 30px;
+}
+
+.imageupload .form .header .three{
+    color: var(--main-color7);
+    font-family: 'encode_sans_medium';
+}
+
+.imageupload .image_container{
+    display: block;
+    width: 85%;
+    /* height: 300px; */
+    margin: 20px auto;
+    /* border: 1px solid black; */
+}
+
+.imageupload .image_container img{
+    width: 100%;
+    /* height: 100%; */
+}
+
+
+.imageupload .form input{
+    width: 100%;
+    height: 50px;
+    margin: 20px 0px 3px;
+    padding-left: 20px;
+    background: none;
+    border: none;
+    border-bottom: 1px solid var(--main-color2);
+    outline: none;
+    color: var(--main-color2);
+    font-size: .99em;
+}
+
+.imageupload .form input[type="file"]{
+    border: none;
+}
+
+progress{
+    width:100%;
+    height: 2px;
+    border: none;
+    border-radius: 10px;
+    color: var(--main-color);
+}
+
+progress[value]::-webkit-progress-bar {
+    background-color: var(--main-color);
+    border-radius: 10px;
+}
+
+.imageupload .img_opt_container{
+    /* border-bottom: 1px solid rgba(255,255,255,.1); */
+    width: 100%;
+    padding: 10px 5px;
+    text-align: right;
+}
+
+.imageupload .img_opt_container .img_opt{
+    color: var(--main-color11);
+    transition: .4s ease-in-out;
+    cursor: pointer;
+}
+
+.imageupload .img_opt_container img{
+    width: 30px;
+}
+
+.imageupload .img_opt:hover{
+    color: var(--main-color2)
+}
+
+.imageupload .form button{
+    width: 100%;
+    height: 50px;
+    font-family: 'encode_sans_bold';
+    font-size: .99em;
+    color: var(--main-color2);
+    background: none;
+    border: 1px solid var(--main-color2);
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    transition: .2s ease-in-out;
+    margin: 5px 0;
+}
+
+.imageupload .form button:hover{
+    color: var(--main-color11);
+    border: 1px solid var(--main-color11);
+}
+
+@media only screen and (min-width:768px){
+
+    .container{
+        width: 40%;
+        margin: 0 auto;
+    }
+
+    .imageupload .image_container{
+        width: 400px;
+        height: max-content;
+    }   
+
+}

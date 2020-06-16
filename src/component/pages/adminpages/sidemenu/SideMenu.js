@@ -3,9 +3,14 @@ import SideMenuCss from './SideMenu.module.css';
 import {Alpha} from '../../../reusable/fonts'
 import pageurl from '../../../framework/url/pageurl';
 import {withRouter} from 'react-router-dom'
-
+import AdminPageController from '../../../framework/controllers/AdminPageController'
 
 const SideMenu = ({sidemenuRef,submenuRef,submenuRef2,submenuHandler,submenuHandler2,...props}) => {
+
+    function handlePage(page,action){
+        AdminPageController.setPage(page,action)
+    }
+
     return(
         <div className={SideMenuCss.sidemenu} ref={sidemenuRef}>
 
@@ -17,7 +22,7 @@ const SideMenu = ({sidemenuRef,submenuRef,submenuRef2,submenuHandler,submenuHand
 
                         </div>
                         <div className={SideMenuCss.licon}>
-                            <Alpha ahref={pageurl.ADMIN_URL}>
+                            <Alpha ahref={pageurl.ADMIN_URL} click={()=>{handlePage('main','')}} fontStyle={{width:"100%",display:"block"}}>
                                 <li>Main Menu</li>
                             </Alpha>
                         </div>
@@ -30,15 +35,13 @@ const SideMenu = ({sidemenuRef,submenuRef,submenuRef2,submenuHandler,submenuHand
                             
                             <div className={`${SideMenuCss.licon} ${SideMenuCss.submenu}`}>
 
-                                <Alpha ahref={pageurl.PROJECT_POST_URL} fontStyle={{width:"100%",display:"block"}}>
+                                <Alpha ahref={pageurl.ADMIN_URL} click={()=>{handlePage('project','add')}} fontStyle={{width:"100%",display:"block"}}>
                                     <li>Add Project</li>
                                 </Alpha>
                                 
                                 <li onClick={()=>props.history.push({pathname:pageurl.UPDATE_POST_URL,
                                                                      state:{page:'project',action:'update'}})}>Update Project</li>
-                                <li onClick={()=>props.history.push({pathname:pageurl.UPDATE_POST_URL,
-                                                                     state:{page:'project',action:'delete'}})}>Delete Project</li>
-                            
+                             
                             </div>
 
                         </div>
@@ -51,15 +54,13 @@ const SideMenu = ({sidemenuRef,submenuRef,submenuRef2,submenuHandler,submenuHand
                             
                             <div className={`${SideMenuCss.licon} ${SideMenuCss.submenu}`}>
                                 
-                                <Alpha ahref={pageurl.ARTICLE_POST_URL} fontStyle={{width:"100%",display:"block"}}>
+                                <Alpha ahref={pageurl.ADMIN_URL} click={()=>{handlePage('article','add')}} fontStyle={{width:"100%",display:"block"}}>
                                     <li>Add Article</li>
                                 </Alpha>
 
                                 <li onClick={()=>props.history.push({pathname:pageurl.UPDATE_POST_URL,
                                                                      state:{page:'article',action:'update'}})}>Update Article</li>
-                                <li onClick={()=>props.history.push({pathname:pageurl.UPDATE_POST_URL,
-                                                                     state:{page:'article',action:'delete'}})}>Delete Article</li>
-                            
+                             
                             </div>
 
                         </div>

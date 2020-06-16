@@ -2,9 +2,11 @@ import firebase,{auth} from '../services/DATATRANSFER/FIREBASE'
 
 //sign up the user
 function signUp(values,setStatus,setValuesError){
+    
     var email = values.email;
     var password = values.password;
     var password2 = values.password2;
+
     if(password === password2){
         auth.createUserWithEmailAndPassword(email, password)
         .then((cred) => {
@@ -144,8 +146,9 @@ function setStorageTime(email,status){
 function getLoggedStatus(){
     if(window.localStorage.getItem('loggedIn')){
         var storedObj = JSON.parse(window.localStorage.getItem('loggedIn'));
-        return storedObj.logTime >= new Date().toString();
+        // return storedObj.logTime >= new Date().toString();
     }
+    return true;
 }
 
 

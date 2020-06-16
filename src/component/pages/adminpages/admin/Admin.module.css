@@ -26,30 +26,31 @@
 
 .admin .container .mheader .one{
     color: var(--main-color);
-    margin-bottom: 5px;
+    margin-bottom: 20px;
 }
 
 .admin .container .mheader .para{
     color: var(--main-color11);
 }
 
-.admin .container .mbody .project,
-.admin .container .mbody .article{
+
+.admin .container .mbody .all{
     border-bottom: 1px solid var(--main-color12);
     width: 90%;
     margin: 50px auto;
 }
 
-.admin .container .mbody .project .header,
-.admin .container .mbody .article .header{
+.admin .container .mbody .all .header{
     width: 100%;
     padding: 20px 0px;
     text-align: center;
-    
 }
 
-.admin .container .mbody .project .body,
-.admin .container .mbody .article .body{
+.admin .container .mbody .all .header .three{
+    color: var(--main-color7)
+}
+
+.admin .container .mbody .all .body{
     width: 100%;
     padding: 20px 0px;
     display: flex;
@@ -58,8 +59,7 @@
     justify-content: center;
 }
 
-.admin .container .mbody .project .body button,
-.admin .container .mbody .article .body button{
+.admin .container .mbody .all .body button{
     padding: 10px 17px;
     border: none;
     border-radius: 3px;
@@ -70,27 +70,32 @@
     margin: 20px 0px;
 }
 
+.admin .container .mbody .all .body .btn{
+    background: none;
+    border: 2px solid var(--main-color);
+    color: var(--main-color);
+    font-family: 'encode_sans_bold';
+}
+
 
 @media only screen and (min-width: 768px){
+
     .admin .container{
         width: 85%;
     }
-
-    .admin .container .mbody .project,
-    .admin .container .mbody .article{
+    
+    .admin .container .mbody .all{
         width: 70%;
     }
-
-    .admin .container .mbody .project .header,
-    .admin .container .mbody .article .header{
-        text-align: left;
+    
+    .admin .container .mbody .all .header{
+        text-align: center;
     }
 
-
-    .admin .container .mbody .project .body,
-    .admin .container .mbody .article .body{
+    .admin .container .mbody .all .body{
         flex-direction: row;
         align-items: center;
         justify-content: space-evenly;
     }
+
 }

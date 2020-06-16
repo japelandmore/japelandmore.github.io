@@ -1,0 +1,54 @@
+.submit{
+    width: 100%;
+    padding: 100px 0 150px;
+}
+
+.container{
+    width: 85%;
+    margin: 0 auto 150px;
+}
+
+.submit .button_container{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.submit .button_container button{
+    width: 100%;
+    height: 50px;
+    font-family: 'encode_sans_bold';
+    font-size: .99em;
+    color: var(--main-color2);
+    background: none;
+    border: 1px solid var(--main-color2);
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    transition: .2s ease-in-out;
+    margin: 5px 0;
+}
+
+.submit .button_container button:hover{
+    color: var(--main-color11);
+    border: 1px solid var(--main-color11);
+}
+
+@media only screen and (min-width:768px){
+
+    .container{
+        width: 40%;
+        margin: 0 auto;
+    }
+
+    .submit .button_container .btn1{
+        width: 60%;
+    }
+
+    .submit .button_container .btn2{
+        width: 35%;
+    }
+
+}
