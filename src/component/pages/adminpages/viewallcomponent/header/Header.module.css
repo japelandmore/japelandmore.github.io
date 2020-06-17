@@ -2,12 +2,12 @@
     width: 80%;
     margin: 0 auto;
     text-align: center;
-    padding: 20px 0;
+    padding: 20px 0 100px;
 }
 
 .header .one{
     font-family: 'encode_sans_bold';
-    color: var(--main-color7);
+    color: var(--main-color11);
     margin-bottom: 20px;
 }
 

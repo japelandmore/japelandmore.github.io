@@ -4,6 +4,7 @@ import {Alpha} from '../../../reusable/fonts'
 import pageurl from '../../../framework/url/pageurl';
 import {withRouter} from 'react-router-dom'
 import AdminPageController from '../../../framework/controllers/AdminPageController'
+import SideMenuComponent from './SideMenuComponent'
 
 const SideMenu = ({sidemenuRef,submenuRef,submenuRef2,submenuHandler,submenuHandler2,...props}) => {
 
@@ -18,56 +19,30 @@ const SideMenu = ({sidemenuRef,submenuRef,submenuRef2,submenuHandler,submenuHand
 
                 <nav>
                     <ul>
+
                         <div className={SideMenuCss.icon_container}>
 
                         </div>
+
                         <div className={SideMenuCss.licon}>
                             <Alpha ahref={pageurl.ADMIN_URL} click={()=>{handlePage('main','')}} fontStyle={{width:"100%",display:"block"}}>
                                 <li>Main Menu</li>
                             </Alpha>
                         </div>
 
-                        <div className={SideMenuCss.menu_container} ref={submenuRef}>
 
-                            <div className={SideMenuCss.licon} onClick={submenuHandler}>
-                                <li>Project</li>
-                            </div>
-                            
-                            <div className={`${SideMenuCss.licon} ${SideMenuCss.submenu}`}>
+                        <SideMenuComponent submenuRef={submenuRef} submenuHandler={submenuHandler} 
+                                           handlePage={handlePage} title={"Project"} subtitle1={"Add Project"}
+                                           subtitle2={"View All Projects"} pageType={"project"} 
+                                           pageAction1={"add"} pageAction2={"viewall"} />
 
-                                <Alpha ahref={pageurl.ADMIN_URL} click={()=>{handlePage('project','add')}} fontStyle={{width:"100%",display:"block"}}>
-                                    <li>Add Project</li>
-                                </Alpha>
-                                
-                                <Alpha ahref={pageurl.ADMIN_URL} click={()=>{handlePage('project','viewall')}} fontStyle={{width:"100%",display:"block"}}>
-                                    <li>View All Projects</li>
-                                </Alpha>
-                             
-                            </div>
 
-                        </div>
-
-                        <div className={SideMenuCss.menu_container} ref={submenuRef2}>
-                            
-                            <div className={SideMenuCss.licon} onClick={submenuHandler2}>
-                                <li>Article</li>
-                            </div>
-                            
-                            <div className={`${SideMenuCss.licon} ${SideMenuCss.submenu}`}>
-                                
-                                <Alpha ahref={pageurl.ADMIN_URL} click={()=>{handlePage('article','add')}} fontStyle={{width:"100%",display:"block"}}>
-                                    <li>Add Article</li>
-                                </Alpha>
-
-                                <Alpha ahref={pageurl.ADMIN_URL} click={()=>{handlePage('article','viewall')}} fontStyle={{width:"100%",display:"block"}}>
-                                    <li>View All Articles</li>
-                                </Alpha>
-
-                            </div>
-
-                        </div>
+                        <SideMenuComponent submenuRef={submenuRef} submenuHandler={submenuHandler} 
+                                           handlePage={handlePage} title={"Article"} subtitle1={"Add Article"}
+                                           subtitle2={"View All Articles"} pageType={"article"} 
+                                           pageAction1={"add"} pageAction2={"viewall"} />
                         
-                        
+
                         <div className={SideMenuCss.licon}>
                             <li onClick={()=>window.open(pageurl.LANDING_PAGE_URL,'_self')}>Exit</li>
                         </div>

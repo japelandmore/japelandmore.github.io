@@ -38,87 +38,30 @@ function handleUpload(url,imageUpload,object,setObject,setSecondFormValidated,se
 
 }
 
-function queryDBProject(projectItemQuery,setUpdateFormSection,updateSectionRef,setProjectObject,searchmsgRef) {    
-    
-    var ref = db.ref('projects');
-
-    ref.on("value", function(snapshot){
-    
-        var arr = snapshot.val();
-        
-        if(arr){
-            var name = projectItemQuery && projectItemQuery.project_name;
-            var category = projectItemQuery && projectItemQuery.project_category;
-            let status = false;
-            if(name && category){
-                    for(let i=0; i < Object.values(arr).length;i++){
-                        if(Object.values(arr)[i].title === name && Object.values(arr)[i].category === category){
-                            var projectObject = Object.values(arr)[i]
-                            setProjectObject(projectObject);
-                            getUpdateSection(updateSectionRef);
-                            setUpdateFormSection(true);
-                            status = true;
-                        }
-                    }
-                    if(!status){
-                        setUpdateFormSection(false);
-                        searchmsgRef.current && (searchmsgRef.current.style.display = "block");
-                        setTimeout(()=>{
-                            searchmsgRef.current && (searchmsgRef.current.style.display = "none");
-                        },5000);
-                    }
-            }
-        }else{
-            searchmsgRef.current && (searchmsgRef.current.style.display = "block");
-            setTimeout(()=>{
-                searchmsgRef.current && (searchmsgRef.current.style.display = "none");
-            },5000);
+function queryData(setContent) {    
+    let page = "";
+    let pageType = ""
+    if(window.localStorage.getItem('admin')){
+        page = JSON.parse(window.localStorage.getItem('admin'));
+        switch(page.pageType){
+            case 'project' : pageType = 'projects'; break;
+            case 'article' : pageType = 'articles'; break;
+            default : pageType='';break;
         }
-       
-    },function(errorObject){
-        console.log("The read failed " + errorObject.code);
-    },)
-
+    }
+    if(pageType){
+        var ref = db.ref(pageType);
+        ref.on("value", function(snapshot){
+            var arr = snapshot.val();
+            if(arr){
+                setContent(Object.values(arr));
+            }
+        },function(errorObject){
+            console.log("The read failed " + errorObject.code);
+        },)
+    }
 }
 
-function queryDBArticle(articleItemQuery,setUpdateFormSection,updateSectionRef,setArticleObject,searchmsgRef) {    
-    
-    var ref = db.ref('articles');
-
-    ref.on("value", function(snapshot){
-    
-        var arr = snapshot.val();
-        
-        if(arr){
-            var name = articleItemQuery && articleItemQuery.article_title;
-            if(name){
-                    for(let i=0; i < Object.values(arr).length;i++){
-                        if(Object.values(arr)[i].title === name){
-                            var articleObject = Object.values(arr)[i]
-                            setArticleObject(articleObject);
-                            getUpdateSection(updateSectionRef);
-                            setUpdateFormSection(true);
-                        }else{
-                            setUpdateFormSection(false);
-                            searchmsgRef.current && (searchmsgRef.current.style.display = "block");
-                            setTimeout(()=>{
-                                searchmsgRef.current && (searchmsgRef.current.style.display = "none");
-                            },5000);
-                        }
-                    }
-            }
-        }else{
-            searchmsgRef.current && (searchmsgRef.current.style.display = "block");
-            setTimeout(()=>{
-                searchmsgRef.current && (searchmsgRef.current.style.display = "none");
-            },5000);
-        }
-       
-    },function(errorObject){
-        console.log("The read failed " + errorObject.code);
-    },)
-
-}
 
 function uploadData(url,object,setStatus,setUploaded,setUserDetails){
     
@@ -182,8 +125,7 @@ function deleteData(url,object,status,deleteStatus,setUserDetails){
 }
 
 const UpdateController = {
-    queryDBProject,
-    queryDBArticle,
+    queryData,
     uploadData,
     getUpdateSection,
     handleForm,

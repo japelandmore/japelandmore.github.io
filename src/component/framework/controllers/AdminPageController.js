@@ -20,8 +20,6 @@ function getPage(){
             default : return <Admin/>;
         }
 
-    }else{
-        return <Admin/>        
     }
 
 }
