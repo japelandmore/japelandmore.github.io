@@ -3,13 +3,19 @@ import ImageUploadFormCss from './ImageUploadForm.module.css';
 import {Three,Para} from '../../../../reusable/fonts'
 import UploadController from '../../../../framework/controllers/UploadController'
 import loader from '../../../../assets/image/gif/loader.gif'
+import {storeImageData} from '../../../../../actions'
+import {useDispatch,useSelector} from 'react-redux'
 
 const ImageUploadForm = ({url}) => {
+
+    const dispatch = useDispatch();
 
     const [object,setObject] = React.useState({imageurl:""})
     const [objectUpload,setObjectUpload] = React.useState({})
     const [uploadProgress,setUploadProgress] = React.useState({progress : 0})
 
+    const contentId = useSelector(state => state.FormData.id)
+    
     function handleUpload(e){
         try{
             const image = e.target.files[0];
@@ -19,6 +25,8 @@ const ImageUploadForm = ({url}) => {
         }
     }
 
+    dispatch(storeImageData(object));
+
     function reset(){
         setObject({});
         setObjectUpload({});
@@ -27,9 +35,8 @@ const ImageUploadForm = ({url}) => {
     
     React.useEffect(()=>{
         function handleSubmit(){
-            !object.imageurl && UploadController.handleUpload(url,objectUpload,object,setObject,setUploadProgress);
+            !object.imageurl && UploadController.handleUpload(url,contentId,objectUpload,object,setObject,setUploadProgress);
         }handleSubmit();
-        // console.log(uploadProgress)
     })
 
 

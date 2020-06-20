@@ -146,9 +146,8 @@ function setStorageTime(email,status){
 function getLoggedStatus(){
     if(window.localStorage.getItem('loggedIn')){
         var storedObj = JSON.parse(window.localStorage.getItem('loggedIn'));
-        // return storedObj.logTime >= new Date().toString();
+        return storedObj.logTime >= new Date().toString();
     }
-    return true;
 }
 
 

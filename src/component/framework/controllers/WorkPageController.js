@@ -1,6 +1,4 @@
 import {db} from '../services/DATATRANSFER/FIREBASE';
-// import ProjectComponent from '../../pages/mainpages/work/ProjectComponent';
-import {Para} from '../../reusable/fonts';
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 

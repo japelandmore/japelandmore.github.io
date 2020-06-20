@@ -5,6 +5,7 @@ import ImageUploadForm from '../../pages/adminpages/uploadcomponent/imageupload'
 import Submit from '../../pages/adminpages/uploadcomponent/submit'
 import {Admin} from '../../pages/adminpages'
 
+
 function getUploadHeader(decision){    
         switch(decision){
             case '' : return <Admin />;
@@ -40,8 +41,8 @@ function getSubmit(decision){
 
     switch(decision){
             case '' : return <Admin />;
-            case 'project' : return <Submit buttontext1={"Upload Project"} buttontext2={"Preview"} />;
-            case 'article' : return <Submit buttontext1={"Upload Article"} buttontext2={"Preview"} />;
+            case 'project' : return <Submit url={"projects"} buttontext1={"Upload Project"} buttontext2={"Preview"} />;
+            case 'article' : return <Submit url={"articles"} buttontext1={"Upload Article"} buttontext2={"Preview"} />;
             default : return <Admin/>;
     }
 

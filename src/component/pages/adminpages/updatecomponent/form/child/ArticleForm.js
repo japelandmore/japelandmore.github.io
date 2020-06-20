@@ -10,7 +10,7 @@ const ArticleForm = ({data}) => {
 
     const [object,setObject] = React.useState(data)
 
-    const [objectError,setObjectError] = React.useState({})
+    const [objectError] = React.useState({})
 
     function handleInput(e){
         setObject({...object,[e.target.name]:e.target.value});

@@ -19,7 +19,7 @@ const ProjectForm = ({data}) => {
 
     const [object,setObject] = React.useState(data && data);
 
-    const [objectError,setobjectError] = React.useState({})
+    const [objectError] = React.useState({})
 
     function handleInput(e){
         setObject({...object,[e.target.name]:e.target.value});

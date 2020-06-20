@@ -1,6 +1,6 @@
 import React from 'react'
 import headercss from './header.module.css'
-import {One,Six} from '../../../../reusable/fonts'
+import {One} from '../../../../reusable/fonts'
 
 const Header = ({headerTitle}) => {
 

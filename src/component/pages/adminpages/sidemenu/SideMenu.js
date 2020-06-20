@@ -3,7 +3,6 @@ import SideMenuCss from './SideMenu.module.css';
 import {Alpha} from '../../../reusable/fonts'
 import pageurl from '../../../framework/url/pageurl';
 import {withRouter} from 'react-router-dom'
-import AdminPageController from '../../../framework/controllers/AdminPageController'
 import SideMenuComponent from './SideMenuComponent'
 
 const SideMenu = ({sidemenuRef,submenuRef,submenuRef2,submenuHandler,submenuHandler2,...props}) => {

@@ -3,15 +3,11 @@ import TableCss from './Table.module.css'
 import TableContent from './TableContent'
 import {Three} from '../../../../reusable/fonts'
 import UpdateController from '../../../../framework/controllers/UpdateController'
-import DecisionPageController from '../../../../framework/controllers/DecisionPageController'
-import { useDispatch } from 'react-redux';
-import {storeContent} from '../../../../../actions'
 import pageurl from '../../../../framework/url/pageurl'
 import {withRouter} from 'react-router-dom'
 
 const Table = (props) => {
 
-    const dispatch = useDispatch();
 
     const pageDecision = props.location.state && props.location.state.pageDecision;
 
@@ -19,7 +15,7 @@ const Table = (props) => {
     
     React.useEffect(()=>{
         !content[0] && UpdateController.queryData(setContent,pageDecision)
-    })
+    },[content,pageDecision])
 
     // const [content,setContent] = React.useState([
     //     {   title:'Tales by moon light',

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Admin,UploadPage,ViewAllPage,DecisionPage,UpdatePage,DeletePage} from '../../pages/adminpages'
+import {Admin,UploadPage,ViewAllPage,DecisionPage} from '../../pages/adminpages'
 
 
 function getPage(pageAction){        
