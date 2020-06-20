@@ -81,9 +81,9 @@ function App() {
 
                     {/* <ProtectedRoute exact path={pageurl.EDIT_PAGE_URL} component={UpdatePage} /> */}
 
-                    <ProtectedRoute exact path={pageurl.DECISION_PAGE_URL} component={DecisionPage} />
+                    {/* <ProtectedRoute exact path={pageurl.DECISION_PAGE_URL} component={DecisionPage} /> */}
 
-                    <ProtectedRoute exact path={pageurl.VIEWALL_PAGE_URL} component={ViewAllPage} />
+                    {/* <ProtectedRoute exact path={pageurl.VIEWALL_PAGE_URL} component={ViewAllPage} /> */}
 
                     <Route path="*" component={Page404}/>
                   

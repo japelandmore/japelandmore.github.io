@@ -6,81 +6,47 @@ import Submit from '../../pages/adminpages/updatecomponent/submit'
 import {Admin} from '../../pages/adminpages'
 
 
-function getUpdateHeader(){    
+function getUpdateHeader(decision){    
     
-    let page = "";
-    if(window.localStorage.getItem('admin')){
-        page = JSON.parse(window.localStorage.getItem('admin'));
-        switch(page.pageType){
+        switch(decision){
             case '' : return <Admin />;
             case 'project' : return <Header headerTitle={"Edit Project"} />;
             case 'article' : return <Header headerTitle={"Edit Article"} />;
             default : return <Admin/>;
         }
-    }else{
-        return <Admin/>        
-    }
-}
-
-function getUpdateForm(){
-    
-    let page = "";
-
-    if(window.localStorage.getItem('admin')){
-        
-        page = JSON.parse(window.localStorage.getItem('admin'));
-        
-        switch(page.pageType){
-            case '' : return <Admin />;
-            case 'project' : return <ProjectForm />;
-            case 'article' : return <ArticleForm />;
-            default : return <Admin/>;
-        }
-
-    }else{
-        return <Admin/>        
-    }
-}
-
-function getUpdateImageForm(){
-    
-    let page = "";
-
-    if(window.localStorage.getItem('admin')){
-        
-        page = JSON.parse(window.localStorage.getItem('admin'));
-        
-        switch(page.pageType){
-            case '' : return <Admin />;
-            case 'project' : return <ImageUploadForm />;
-            case 'article' : return <ImageUploadForm />;
-            default : return <Admin/>;
-        }
-
-    }else{
-        return <Admin/>        
-    }
 
 }
 
-function getSubmit(){
+function getUpdateForm(decision, data){
     
-    let page = "";
-
-    if(window.localStorage.getItem('admin')){
-        
-        page = JSON.parse(window.localStorage.getItem('admin'));
-        
-        switch(page.pageType){
+        switch(decision){
             case '' : return <Admin />;
-            case 'project' : return <Submit buttontext1={"Update Project"} buttontext2={"Preview"} />;
-            case 'article' : return <Submit buttontext1={"Update Article"} buttontext2={"Preview"} />;
+            case 'project' : return <ProjectForm data={data} />;
+            case 'article' : return <ArticleForm data={data} />;
             default : return <Admin/>;
         }
 
-    }else{
-        return <Admin/>        
-    }
+}
+
+function getUpdateImageForm(decision,data){
+    
+        switch(decision){
+            case '' : return <Admin />;
+            case 'project' : return <ImageUploadForm url={"projects"} imageurl={data.imageurl} id={data.id} />;
+            case 'article' : return <ImageUploadForm url={"articles"} imageurl={data.imageurl} id={data.id} />;
+            default : return <Admin/>;
+        }
+
+}
+
+function getSubmit(decision){
+    
+        switch(decision){
+            case '' : return <Admin />;
+            case 'project' : return <Submit url={"projects"} buttontext1={"Update Project"} buttontext2={"Preview"} />;
+            case 'article' : return <Submit url={"articles"} buttontext1={"Update Article"} buttontext2={"Preview"} />;
+            default : return <Admin/>;
+        }
 
 }
 

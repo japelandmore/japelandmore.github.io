@@ -26,8 +26,30 @@ const contentReducer = (state="", action) => {
     }
 }
 
+const formdataReducer = (state="", action) => {
+    switch(action.type) {
+        case 'FORMDATA' :
+            console.log(action.payload)
+            return state = action.payload;
+        default :
+            return state;
+    }
+}
+
+const imagedataReducer = (state="", action) => {
+    switch(action.type) {
+        case 'IMAGEDATA' :
+            console.log(action.payload)
+            return state = action.payload;
+        default :
+            return state;
+    }
+}
+
 export {
     editReducer,
     deleteReducer,
-    contentReducer
+    contentReducer,
+    formdataReducer,
+    imagedataReducer
 };

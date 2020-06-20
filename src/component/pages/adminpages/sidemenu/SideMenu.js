@@ -8,8 +8,8 @@ import SideMenuComponent from './SideMenuComponent'
 
 const SideMenu = ({sidemenuRef,submenuRef,submenuRef2,submenuHandler,submenuHandler2,...props}) => {
 
-    function handlePage(page,action){
-        AdminPageController.setPage(page,action)
+    function handlePage(pageAction,pageDecision){
+        props.history.push(pageurl.ADMIN_URL,{pageAction:pageAction,pageDecision:pageDecision});
     }
 
     return(
@@ -20,9 +20,9 @@ const SideMenu = ({sidemenuRef,submenuRef,submenuRef2,submenuHandler,submenuHand
                 <nav>
                     <ul>
 
-                        <div className={SideMenuCss.icon_container}>
+                        {/* <div className={SideMenuCss.icon_container}>
 
-                        </div>
+                        </div> */}
 
                         <div className={SideMenuCss.licon}>
                             <Alpha ahref={pageurl.ADMIN_URL} click={()=>{handlePage('main','')}} fontStyle={{width:"100%",display:"block"}}>
@@ -32,15 +32,21 @@ const SideMenu = ({sidemenuRef,submenuRef,submenuRef2,submenuHandler,submenuHand
 
 
                         <SideMenuComponent submenuRef={submenuRef} submenuHandler={submenuHandler} 
-                                           handlePage={handlePage} title={"Project"} subtitle1={"Add Project"}
-                                           subtitle2={"View All Projects"} pageType={"project"} 
-                                           pageAction1={"add"} pageAction2={"viewall"} />
+                                           title={"Project"} 
+                                           subtitle1={"Add Project"} 
+                                           subtitle2={"View All Projects"} 
+                                           handlePage1={()=>{handlePage('add','project')}} 
+                                           handlePage2={()=>{handlePage('viewall','project')}} 
+                                        />
 
 
                         <SideMenuComponent submenuRef={submenuRef} submenuHandler={submenuHandler} 
-                                           handlePage={handlePage} title={"Article"} subtitle1={"Add Article"}
-                                           subtitle2={"View All Articles"} pageType={"article"} 
-                                           pageAction1={"add"} pageAction2={"viewall"} />
+                                           title={"Article"} 
+                                           subtitle1={"Add Article"}
+                                           subtitle2={"View All Articles"} 
+                                           handlePage1={()=>{handlePage('add','article')}} 
+                                           handlePage2={()=>{handlePage('viewall','article')}} 
+                                        />
                         
 
                         <div className={SideMenuCss.licon}>

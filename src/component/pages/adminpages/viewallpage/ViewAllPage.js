@@ -1,12 +1,15 @@
 import React from 'react'
 import ViewAllCss from './ViewAllPage.module.css'
 import ViewAllPageController from '../../../framework/controllers/ViewAllPageController'
+import {withRouter} from 'react-router-dom'
 
-const ViewAll = () => {
+const ViewAll = (props) => {
 
-    const [header] = React.useState(ViewAllPageController.getViewAllHeader());
-    const [table] = React.useState(ViewAllPageController.getViewAllTable());
-    const [navigation] = React.useState(ViewAllPageController.getViewAllNavigation());
+    const userDecision = props.location.state && props.location.state.pageDecision
+
+    const [header] = React.useState(ViewAllPageController.getViewAllHeader(userDecision));
+    const [table] = React.useState(ViewAllPageController.getViewAllTable(userDecision));
+    const [navigation] = React.useState(ViewAllPageController.getViewAllNavigation(userDecision));
 
     return(
 
@@ -28,4 +31,4 @@ const ViewAll = () => {
 }
 
 
-export default ViewAll;
+export default withRouter(ViewAll);

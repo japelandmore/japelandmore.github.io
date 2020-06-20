@@ -10,7 +10,7 @@
 .decision .container{
     width: 85%;
     padding: 50px 0 90px;
-    background: var(--main-color2);
+    background: var(--main-color);
     margin: 50px 0px;
     /* border: 1px solid black; */
 }

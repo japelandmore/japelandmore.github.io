@@ -8,46 +8,40 @@ function handleForm(object,setObject,setObjectError,setFirstFormValidated) {
 
 };
 
-function handleUpload(url,imageUpload,object,setObject,setSecondFormValidated,setUploadProgress){
+function handleUpload(url,id,objectUpload,object,setObject,setUploadProgress){
 
-    var image_name = object.id.toString();
+    if(objectUpload.imageurl){
 
-    const uploadTask = storage.ref(`${url}/images/${image_name}`).put(imageUpload.image_upload);
-    
-    uploadTask.on('state_changed', 
-    (snapshot)=>{
-        const progress =Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
-        setUploadProgress(progress);
-    },
-    (error)=>{
-        console.log(error,'baddest');
-    },
-    ()=>{
-        storage.ref(`${url}/images`).child(image_name).getDownloadURL().then(url => {
-
-            const imageurl = url;
-            
-            setObject({...object,imageurl})
-
-            setSecondFormValidated(true);
-
+        var image_name = id.toString();
+        
+        const uploadTask = storage.ref(`${url}/images/${image_name}`).put(objectUpload.imageurl);
+        
+        uploadTask.on('state_changed', 
+        (snapshot)=>{
+            const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+            setUploadProgress(progress);
+        },
+        (error)=>{
+            console.log(error);
+        },
+        ()=>{
+            storage.ref(`${url}/images`).child(image_name).getDownloadURL().then(url => {
+                const imageurl = url;
+                setObject({...object,imageurl})
+                // setUploadButton(false);
+            });
         });
-
-    });
-
+    }
 }
 
-function queryData(setContent) {    
-    let page = "";
+function queryData(setContent,decision) {    
     let pageType = ""
-    if(window.localStorage.getItem('admin')){
-        page = JSON.parse(window.localStorage.getItem('admin'));
-        switch(page.pageType){
+    switch(decision){
             case 'project' : pageType = 'projects'; break;
             case 'article' : pageType = 'articles'; break;
             default : pageType='';break;
-        }
     }
+    
     if(pageType){
         var ref = db.ref(pageType);
         ref.on("value", function(snapshot){
@@ -62,30 +56,29 @@ function queryData(setContent) {
 }
 
 
-function uploadData(url,object,setStatus,setUploaded,setUserDetails){
+function uploadData(url,object,setStatus,setUploaded){
     
     var user = firebase.auth().currentUser;
 
     if(user !== null){
-        console.log(user);
-        setUserDetails({
-            emailVerified : user.emailVerified
-        })
+    
+        const directoryName = object.id.toString();
+        
+        const uploadObject = db.ref(`${url}`).child(directoryName);    
+        
+        uploadObject.set({...object},(error)=>{
+            if(error){
+                // setStatus(true);
+                // setUploaded(false);
+                console.log('not successful')
+            }else{
+                // setStatus(true);
+                // setUploaded(true);
+                console.log('successful')
+            }
+        });
+        
     }
-
-    const directoryName = object.id.toString();
-    
-    const uploadObject = db.ref(`${url}`).child(directoryName);    
-    
-    uploadObject.set({...object},(error)=>{
-        if(error){
-            setStatus(true);
-            setUploaded(false);
-        }else{
-            setStatus(true);
-            setUploaded(true);
-        }
-    });
 
 }
 
@@ -94,31 +87,30 @@ function getUpdateSection(updateSectionRef){
     window.scrollTo({top : yposition-100,behavior: 'smooth'});
 }
 
-function deleteData(url,object,status,deleteStatus,setUserDetails){
+function deleteData(url,object,status,deleteStatus){
 
     var user = firebase.auth().currentUser;
 
     if(user !== null){
-        console.log(user);
-        setUserDetails({
-            emailVerified : user.emailVerified
-        })
-    }
-
-    var id = object && object.id.toString();
+    
+        var id = object && object.id.toString();
             
-    try{
-        db.ref(`${url}`).child(id).remove()
-        .then(function() {
-            status(true);
-            deleteStatus(true);
-        })
-        .catch(function(error) {
-            status(true);
-            deleteStatus(false)
-        });
-    }catch(error){
-        console.log(error.message);
+        try{
+            db.ref(`${url}`).child(id).remove()
+            .then(function() {
+                // status(true);
+                // deleteStatus(true);
+                console.log('successful')
+            })
+            .catch(function(error) {
+                // status(true);
+                // deleteStatus(false)
+                console.log('unsuccessful')
+            });
+        }catch(error){
+            console.log(error.message);
+        }
+
     }
 
 }

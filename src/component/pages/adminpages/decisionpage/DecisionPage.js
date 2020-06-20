@@ -1,11 +1,14 @@
 import React from 'react'
 import DecisionCss from './Decision.module.css'
 import DecisionPageController from '../../../framework/controllers/DecisionPageController'
+import {withRouter} from 'react-router-dom'
 
-const DecisionPage = () => {
+const DecisionPage = (props) => {
 
-    const [decision] = React.useState(DecisionPageController.getUserDecision());
+    const userDecision = props.location.state && props.location.state.tableDecision
     
+    const [decision] = React.useState( DecisionPageController.getUserDecision(userDecision));
+
     return(
 
         <div className={DecisionCss.decision}>
@@ -17,9 +20,9 @@ const DecisionPage = () => {
             </div>
 
         </div>
-
+        
     )
 }
 
 
-export default DecisionPage;
+export default withRouter(DecisionPage);

@@ -1,13 +1,18 @@
 import React from 'react'
 import DeletePageController from '../../../framework/controllers/DeletePageController'
+import {withRouter} from 'react-router-dom'
 
-const DeletePage = () => {
+const DeletePage = (props) => {
 
-    const [header] = React.useState(DeletePageController.getDeleteHeader());
-    const [image] = React.useState(DeletePageController.getDeleteImage());
-    const [title] = React.useState(DeletePageController.getDeleteTitle());
-    const [description] = React.useState(DeletePageController.getDeleteDescription());
-    const [deleteAction] = React.useState(DeletePageController.getDeleteAction());
+    const userDecision = props.location.state && props.location.state.pageDecision
+
+    const data = props.location.state && props.location.state.data
+
+    const [header] = React.useState(DeletePageController.getDeleteHeader(userDecision));
+    const [image] = React.useState(DeletePageController.getDeleteImage(userDecision,data));
+    const [title] = React.useState(DeletePageController.getDeleteTitle(userDecision,data));
+    const [description] = React.useState(DeletePageController.getDeleteDescription(userDecision,data));
+    const [deleteAction] = React.useState(DeletePageController.getDeleteAction(userDecision,data));
 
     return(
     
@@ -27,4 +32,4 @@ const DeletePage = () => {
 
 }
 
-export default DeletePage;
+export default withRouter(DeletePage);

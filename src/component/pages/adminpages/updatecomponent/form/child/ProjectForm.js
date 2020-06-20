@@ -1,11 +1,12 @@
 import React from 'react'
 import formcss from '../form.module.css'
 import {Four,Para} from '../../../../../reusable/fonts'
-import {useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
+import {storeFormData} from '../../../../../../actions'
 
-const ProjectForm = () => {
+const ProjectForm = ({data}) => {
 
-    const data = useSelector(state => state.storeContent);
+    // const data = useSelector(state => state.storeContent);
     // var d = new Date();
 
     // const [object,setObject] = React.useState({
@@ -14,9 +15,9 @@ const ProjectForm = () => {
         // last_modified : `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`
     // })
 
-    const [object,setObject] = React.useState(data);
+    const dispatch = useDispatch();
 
-    console.log(data);
+    const [object,setObject] = React.useState(data && data);
 
     const [objectError,setobjectError] = React.useState({})
 
@@ -24,6 +25,8 @@ const ProjectForm = () => {
         setObject({...object,[e.target.name]:e.target.value});
     }
     
+    dispatch(storeFormData(object))
+
     return (
         
         <div className={formcss.main}>

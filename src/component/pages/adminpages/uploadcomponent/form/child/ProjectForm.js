@@ -2,16 +2,23 @@ import React from 'react'
 import formcss from '../form.module.css'
 import {Four,Para} from '../../../../../reusable/fonts'
 import UploadController from '../../../../../framework/controllers/UploadController'
+import {storeFormData} from '../../../../../../actions'
+import {useDispatch} from 'react-redux'
+
 
 const ProjectForm = ({labelColor,inputstyle,selectstyle,textstyle,buttonstyle}) => {
 
     var d = new Date();
 
+    const dispatch = useDispatch();
+
     const [object,setObject] = React.useState({
-        id: UploadController.getObjectID(),
+        id: 0,
         date_created : `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`,
         last_modified : `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`
     })
+
+    dispatch(storeFormData(object));
 
     const [objectError,setobjectError] = React.useState({})
 

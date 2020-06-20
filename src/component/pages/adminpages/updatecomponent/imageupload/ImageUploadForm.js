@@ -1,14 +1,21 @@
 import React from 'react'
 import ImageUploadFormCss from './ImageUploadForm.module.css';
 import {Three,Para} from '../../../../reusable/fonts'
-import UploadController from '../../../../framework/controllers/UploadController'
+import UpdateController from '../../../../framework/controllers/UpdateController'
 import loader from '../../../../assets/image/gif/loader.gif'
+import {storeImageData} from '../../../../../actions'
+import {useDispatch} from 'react-redux'
 
-const ImageUploadForm = ({url}) => {
 
-    const [object,setObject] = React.useState({imageurl:""})
+const ImageUploadForm = ({url,imageurl,id}) => {
+
+    const dispatch = useDispatch();
+
+    const [object,setObject] = React.useState({imageurl:imageurl})
     const [objectUpload,setObjectUpload] = React.useState({})
     const [uploadProgress,setUploadProgress] = React.useState({progress : 0})
+
+    dispatch(storeImageData(object.imageurl));
 
     function handleUpload(e){
         try{
@@ -27,9 +34,10 @@ const ImageUploadForm = ({url}) => {
     
     React.useEffect(()=>{
         function handleSubmit(){
-            !object.imageurl && UploadController.handleUpload(url,objectUpload,object,setObject,setUploadProgress);
+            !object.imageurl && UpdateController.handleUpload(url,id,objectUpload,object,setObject,setUploadProgress);
         }handleSubmit();
-        // console.log(uploadProgress)
+    
+
     })
 
 
@@ -59,15 +67,13 @@ const ImageUploadForm = ({url}) => {
                             {/* image upload */} 
                             <progress value={uploadProgress} max="100" ></progress>
                            
-                            
-                            
                             {
                             !object.imageurl  ?
                                 <input type="file" placeholder="Upload Image" name="image_upload" accept="image/*" required
                                         onChange={(e)=>handleUpload(e)}>
                                 </input>    
                             :
-                                uploadProgress > 99 &&
+                                // uploadProgress > 99 &&
                                 <div className={ImageUploadFormCss.img_opt_container}>
 
                                     <Para fontClass={ImageUploadFormCss.img_opt} clickk={()=>{reset()}}>Choose another image</Para>

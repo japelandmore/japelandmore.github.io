@@ -1,13 +1,17 @@
 import React from 'react'
 import UpdatePageController from '../../../framework/controllers/UpdatePageController'
+import {withRouter} from 'react-router-dom'
 
+const UpdatePage = (props) => {
 
-const UpdatePage = () => {
+    const userDecision = props.location.state && props.location.state.pageDecision
 
-    const [header] = React.useState(UpdatePageController.getUpdateHeader());
-    const [form] = React.useState(UpdatePageController.getUpdateForm());
-    const [imageform] = React.useState(UpdatePageController.getUpdateImageForm());
-    const [submit] = React.useState(UpdatePageController.getSubmit());
+    const data = props.location.state && props.location.state.data
+    
+    const [header] = React.useState(UpdatePageController.getUpdateHeader(userDecision));
+    const [form] = React.useState(UpdatePageController.getUpdateForm(userDecision,data));
+    const [imageform] = React.useState(UpdatePageController.getUpdateImageForm(userDecision,data));
+    const [submit] = React.useState(UpdatePageController.getSubmit(userDecision));
 
     return(
     
@@ -27,4 +31,4 @@ const UpdatePage = () => {
 
 }
 
-export default UpdatePage
+export default withRouter(UpdatePage) 

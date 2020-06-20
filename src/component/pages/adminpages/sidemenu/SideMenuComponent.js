@@ -3,7 +3,7 @@ import SideMenuCss from './SideMenu.module.css'
 import pageurl from '../../../framework/url/pageurl'
 import {Alpha} from '../../../reusable/fonts'
 
-const SideMenuComponent = ({title,subtitle1,subtitle2,pageType,pageAction1,pageAction2,handlePage}) => {
+const SideMenuComponent = ({title,subtitle1,subtitle2,handlePage1,handlePage2}) => {
 
     const [menuAction,setMenuAction] = React.useState(false)
 
@@ -19,11 +19,11 @@ const SideMenuComponent = ({title,subtitle1,subtitle2,pageType,pageAction1,pageA
                             
             <div className={`${SideMenuCss.licon} ${SideMenuCss.submenu}`}>
 
-                <Alpha ahref={pageurl.ADMIN_URL} click={()=>{handlePage(pageType,pageAction1)}} fontStyle={{width:"100%",display:"block"}}>
+                <Alpha ahref={pageurl.ADMIN_URL} click={handlePage1} fontStyle={{width:"100%",display:"block"}} >
                     <li>{subtitle1}</li>
-                </Alpha>
-                                
-                <Alpha ahref={pageurl.ADMIN_URL} click={()=>{handlePage(pageType,pageAction2)}} fontStyle={{width:"100%",display:"block"}}>
+                </Alpha>                
+
+                <Alpha ahref={pageurl.ADMIN_URL} click={handlePage2} fontStyle={{width:"100%",display:"block"}}>
                     <li>{subtitle2}</li>
                 </Alpha>
                              

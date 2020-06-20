@@ -1,5 +1,7 @@
 import React from 'react'
 import TableCss from './Table.module.css'
+import {Alpha} from '../../../../reusable/fonts'
+import pageurl from '../../../../framework/url/pageurl/pageurl'
 
 const TableContent = ({sn,title,category,img,editAction,deleteAction,storeEdit,storeDelete}) =>{
     
@@ -21,13 +23,13 @@ const TableContent = ({sn,title,category,img,editAction,deleteAction,storeEdit,s
                 
                 <div className={TableCss.btn_container}>
                     
-                    {/* <Alpha > */}
-                        <button className={TableCss.edit} onClick={editAction} onTouchStart={storeEdit}>Edit</button>
-                    {/* </Alpha> */}
+                    <Alpha ahref={pageurl.ADMIN_URL} click={editAction}>
+                        <button className={TableCss.edit} >Edit</button>
+                    </Alpha>
                     
-                    {/* <Alpha  > */}
-                        <button className={TableCss.delete} onClick={deleteAction} onTouchStart={storeDelete} >Delete</button>
-                    {/* </Alpha> */}
+                    <Alpha ahref={pageurl.ADMIN_URL} click={deleteAction}>
+                        <button className={TableCss.delete} >Delete</button>
+                    </Alpha>
 
                 </div>
 

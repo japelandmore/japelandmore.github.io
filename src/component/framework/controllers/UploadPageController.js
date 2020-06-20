@@ -5,79 +5,44 @@ import ImageUploadForm from '../../pages/adminpages/uploadcomponent/imageupload'
 import Submit from '../../pages/adminpages/uploadcomponent/submit'
 import {Admin} from '../../pages/adminpages'
 
-function getUploadHeader(){    
-    let page = "";
-    if(window.localStorage.getItem('admin')){
-        page = JSON.parse(window.localStorage.getItem('admin'));
-        switch(page.pageType){
+function getUploadHeader(decision){    
+        switch(decision){
             case '' : return <Admin />;
             case 'project' : return <Header headerTitle={"Add Project"} />;
             case 'article' : return <Header headerTitle={"Add Article"} />;
             default : return <Admin/>;
         }
-    }else{
-        return <Admin/>        
-    }
 }
 
-function getUploadForm(){
+function getUploadForm(decision){
     
-    let page = "";
-
-    if(window.localStorage.getItem('admin')){
-        
-        page = JSON.parse(window.localStorage.getItem('admin'));
-        
-        switch(page.pageType){
+        switch(decision){
             case '' : return <Admin />;
             case 'project' : return <ProjectForm />;
             case 'article' : return <ArticleForm />;
             default : return <Admin/>;
         }
 
-    }else{
-        return <Admin/>        
-    }
 }
 
-function getUploadImageForm(){
+function getUploadImageForm(decision){
     
-    let page = "";
-
-    if(window.localStorage.getItem('admin')){
-        
-        page = JSON.parse(window.localStorage.getItem('admin'));
-        
-        switch(page.pageType){
+        switch(decision){
             case '' : return <Admin />;
             case 'project' : return <ImageUploadForm url={"projects"}/>;
             case 'article' : return <ImageUploadForm url={"articles"} />;
             default : return <Admin/>;
         }
 
-    }else{
-        return <Admin/>        
-    }
-
 }
 
-function getSubmit(){
-    
-    let page = "";
+function getSubmit(decision){
 
-    if(window.localStorage.getItem('admin')){
-        
-        page = JSON.parse(window.localStorage.getItem('admin'));
-        
-        switch(page.pageType){
+    switch(decision){
             case '' : return <Admin />;
             case 'project' : return <Submit buttontext1={"Upload Project"} buttontext2={"Preview"} />;
             case 'article' : return <Submit buttontext1={"Upload Article"} buttontext2={"Preview"} />;
             default : return <Admin/>;
-        }
-
-    }else{
-        return <Admin/>        
     }
 
 }

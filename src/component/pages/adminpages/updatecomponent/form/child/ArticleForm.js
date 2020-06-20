@@ -1,11 +1,12 @@
 import React from 'react'
 import formcss from '../form.module.css'
 import {Four,Para} from '../../../../../reusable/fonts'
-import {useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
+import {storeFormData} from '../../../../../../actions'
 
-const ArticleForm = () => {
+const ArticleForm = ({data}) => {
 
-    const data = useSelector(state => state.storeContent);
+    const dispatch = useDispatch();
 
     const [object,setObject] = React.useState(data)
 
@@ -14,7 +15,9 @@ const ArticleForm = () => {
     function handleInput(e){
         setObject({...object,[e.target.name]:e.target.value});
     }
-    
+
+    dispatch(storeFormData(object))
+
     return (
 
         <div className={formcss.main}>

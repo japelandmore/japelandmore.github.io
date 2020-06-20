@@ -20,3 +20,16 @@ export const storeContent = (nr) => {
     }
 };
 
+export const storeFormData = (nr) => {
+    return {
+        type : 'FORMDATA',
+        payload: nr
+    }
+};
+
+export const storeImageData = (nr) => {
+    return {
+        type : 'IMAGEDATA',
+        payload: nr
+    }
+};

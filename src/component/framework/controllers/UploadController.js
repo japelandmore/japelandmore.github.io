@@ -7,14 +7,6 @@ function handleForm(object,fileType,objectError,setObjectError,setFirstFormValid
     queryDB(object,fileType,objectError,setObjectError,setFirstFormValidated)
 }
 
-function getObjectID(){
-    let item = "";
-    if (!window.localStorage.getItem('upload')){
-        item = Math.floor(Date.now() / 1000);
-        window.localStorage.setItem('upload',JSON.stringify({'id':item.toString()}))
-        return ""+item.id;
-    }return ""+item.id;
-}
 
 function setForm(object){
     window.localStorage.setItem('uploadObject',JSON.stringify({...object}))
@@ -56,27 +48,28 @@ function queryDB(object,fileType,objectError,setObjectError,setFirstFormValidate
 }
 
 function handleUpload(url,objectUpload,object,setObject,setUploadProgress){
-    if(objectUpload.imageurl){
-            var image_name = getObjectID();
+    // if(objectUpload.imageurl){
+        
             
-            const uploadTask = storage.ref(`${url}/images/${image_name}`).put(objectUpload.imageurl);
+
+        //     const uploadTask = storage.ref(`${url}/images/${image_name}`).put(objectUpload.imageurl);
             
-            uploadTask.on('state_changed', 
-            (snapshot)=>{
-                const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
-                setUploadProgress(progress);
-            },
-            (error)=>{
-                console.log(error);
-            },
-            ()=>{
-                storage.ref(`${url}/images`).child(image_name).getDownloadURL().then(url => {
-                    const imageurl = url;
-                    setObject({...object,imageurl})
-                    // setUploadButton(false);
-                });
-            });
-        }
+        //     uploadTask.on('state_changed', 
+        //     (snapshot)=>{
+        //         const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+        //         setUploadProgress(progress);
+        //     },
+        //     (error)=>{
+        //         console.log(error);
+        //     },
+        //     ()=>{
+        //         storage.ref(`${url}/images`).child(image_name).getDownloadURL().then(url => {
+        //             const imageurl = url;
+        //             setObject({...object,imageurl})
+        //             // setUploadButton(false);
+        //         });
+        //     });
+        // }
 }
 
 function uploadData(url,object,setStatus,setUploaded,setUserDetails){
@@ -138,7 +131,6 @@ const ProjectController = {
     handleForm,
     handleUpload,
     uploadData,
-    getObjectID,
     setForm
 }
 

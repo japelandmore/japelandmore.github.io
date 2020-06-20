@@ -1,9 +1,10 @@
 import React from 'react'
 import AdminPageController from '../../../framework/controllers/AdminPageController'
 
-const Main = () =>{
+const Main = (props) =>{
 
-    const [page] = React.useState(AdminPageController.getPage());
+    const pageAction = props.location.state && props.location.state.pageAction
+    const [page] = React.useState(AdminPageController.getPage(pageAction));
 
     return (
 
