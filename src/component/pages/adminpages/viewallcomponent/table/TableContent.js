@@ -1,7 +1,7 @@
 import React from 'react'
 import TableCss from './Table.module.css'
 
-const TableContent = ({sn,title,category,img,editAction,deleteAction}) =>{
+const TableContent = ({sn,title,category,img,editAction,deleteAction,storeEdit,storeDelete}) =>{
     
     return(
 
@@ -18,10 +18,19 @@ const TableContent = ({sn,title,category,img,editAction,deleteAction}) =>{
             </td>
             
             <td>
+                
                 <div className={TableCss.btn_container}>
-                    <button className={TableCss.edit} onClick={editAction} >Edit</button>
-                    <button className={TableCss.delete} onClick={deleteAction} >Delete</button>
+                    
+                    {/* <Alpha > */}
+                        <button className={TableCss.edit} onClick={editAction} onTouchStart={storeEdit}>Edit</button>
+                    {/* </Alpha> */}
+                    
+                    {/* <Alpha  > */}
+                        <button className={TableCss.delete} onClick={deleteAction} onTouchStart={storeDelete} >Delete</button>
+                    {/* </Alpha> */}
+
                 </div>
+
             </td>
 
         </tr>

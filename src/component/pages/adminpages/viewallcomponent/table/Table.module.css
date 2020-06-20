@@ -63,6 +63,15 @@ tbody tr:hover{
 
 .im{display: none;}
 
+.img_container{
+    width: 40px;
+    overflow: hidden;
+}
+
+.img_container img{
+    width: 100%;
+}
+
 button{
     padding: 10px 12px;
     font-family: 'encode_sans_bold';

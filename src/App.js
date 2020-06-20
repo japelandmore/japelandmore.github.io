@@ -2,8 +2,9 @@ import React from 'react';
 import './App.css';
 import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
 import {Articles,Background,Contact,LandingPage,Work} from './component/pages/mainpages';
-// import {ProjectUpload,ArticleUpload,Update,Admin,ControlPanel,Main} from './component/pages/adminpages'
-import {ControlPanel,Main} from './component/pages/adminpages'
+import {ProjectUpload,ArticleUpload,Update,Admin,ControlPanel,Main,UpdatePage,
+        DeletePage,DecisionPage,ViewAllPage} from './component/pages/adminpages'
+// import {ControlPanel,Main} from './component/pages/adminpages'
 import {Header,Footer,Menu,SideMenu} from './component/pages/navigation'
 import pageurl from './component/framework/url/pageurl';
 import {createBrowserHistory} from 'history';
@@ -77,6 +78,12 @@ function App() {
                     {/* <ProtectedRoute exact path={pageurl.ARTICLE_POST_URL} component={ArticleUpload} /> */}
 
                     {/* <ProtectedRoute exact path={pageurl.UPDATE_POST_URL} component={Update} /> */}
+
+                    {/* <ProtectedRoute exact path={pageurl.EDIT_PAGE_URL} component={UpdatePage} /> */}
+
+                    <ProtectedRoute exact path={pageurl.DECISION_PAGE_URL} component={DecisionPage} />
+
+                    <ProtectedRoute exact path={pageurl.VIEWALL_PAGE_URL} component={ViewAllPage} />
 
                     <Route path="*" component={Page404}/>
                   

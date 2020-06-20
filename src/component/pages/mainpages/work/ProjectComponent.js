@@ -48,7 +48,7 @@ const ProjectComponent = ({WorkCss,img,project,project_type,company,year,project
                                             <div className={WorkCss.body_body}>
                                                 
                                                 {props.children}                   
-
+                                                     
                                             </div>
 
                                         </div>

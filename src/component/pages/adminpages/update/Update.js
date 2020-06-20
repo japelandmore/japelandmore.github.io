@@ -413,9 +413,12 @@ const Update = ({...props}) => {
 
                         { 
                             action === 'delete' && filetype === 'article' && formSection && 
-                            <DeleteForm projectObject={articleObject} delete_button_text={"Delete Article"} 
-                                        delete_content={()=>handleDelete()} name_label={"ARTICLE NAME :"} 
-                                        description_label={"ARTICLE DESCRIPTION :"}/>
+                            
+                            <DeleteForm projectObject={articleObject} 
+                                        delete_button_text={"Delete Article"} 
+                                        delete_content={()=>handleDelete()} 
+                                        name_label={"ARTICLE NAME :"} 
+                                        description_label={"ARTICLE DESCRIPTION :"} />
                             
                         }
 

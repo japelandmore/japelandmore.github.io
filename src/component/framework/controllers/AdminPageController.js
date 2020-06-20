@@ -1,8 +1,14 @@
 import React from 'react';
-import {Admin,UploadPage,ViewAllPage} from '../../pages/adminpages'
+import {Admin,UploadPage,ViewAllPage,DecisionPage,UpdatePage,DeletePage} from '../../pages/adminpages'
 
-function setPage(page,action){
-    window.localStorage.setItem('admin',JSON.stringify({'pageType':page,"pageAction": action}))
+
+function setPage(page,action,decision){
+    window.localStorage.setItem('admin',JSON.stringify({'pageType':page,"pageAction": action,
+                                                        "pageDecision" : decision}))
+}
+
+function getPageInfo(){
+    return JSON.parse(window.localStorage.getItem('admin'));
 }
 
 function getPage(){
@@ -17,12 +23,14 @@ function getPage(){
             case '' : return <Admin />;
             case 'add' : return <UploadPage />;
             case 'viewall' : return <ViewAllPage />;
+            case 'decision' : return <DecisionPage />;
             default : return <Admin/>;
         }
 
     }
 
 }
+
 
 function resetPage(){
     window.localStorage.removeItem('admin');
@@ -32,6 +40,7 @@ const AdminPageController = {
     setPage,
     getPage,
     resetPage,
+    getPageInfo
 }
 
 export default AdminPageController;

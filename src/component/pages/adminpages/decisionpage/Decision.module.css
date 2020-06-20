@@ -1,0 +1,24 @@
+.decision{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.decision .container{
+    width: 85%;
+    padding: 50px 0 90px;
+    background: var(--main-color2);
+    margin: 50px 0px;
+    /* border: 1px solid black; */
+}
+
+@media only screen and (min-width: 768px){
+
+    .decision .container{
+        width: 85%;
+    }
+
+}

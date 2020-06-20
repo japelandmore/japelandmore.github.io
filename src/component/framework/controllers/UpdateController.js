@@ -1,6 +1,5 @@
 import firebase,{storage,db} from '../services/DATATRANSFER/FIREBASE'
 
-
 function handleForm(object,setObject,setObjectError,setFirstFormValidated) {
 
     //validate form - UNDONE

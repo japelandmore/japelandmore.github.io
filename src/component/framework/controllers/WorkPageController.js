@@ -2,6 +2,7 @@ import {db} from '../services/DATATRANSFER/FIREBASE';
 // import ProjectComponent from '../../pages/mainpages/work/ProjectComponent';
 import {Para} from '../../reusable/fonts';
 import React from 'react';
+import ReactMarkdown from 'react-markdown';
 
 function handleLoad(setProject,projectCategories,WorkCss,ProjectComponent){
     
@@ -34,10 +35,12 @@ function handleLoad(setProject,projectCategories,WorkCss,ProjectComponent){
                             key={Object.values(arr)[i].id}
                         
                         >
-
-                            <Para fontClass={WorkCss.story}>
-                                {Object.values(arr)[i].paragraph}
-                            </Para>
+                            <ReactMarkdown source={
+                                // <Para fontClass={WorkCss.story}>
+                                Object.values(arr)[i].paragraph
+                                // </Para>
+                            }/>
+                            
 
                         </ProjectComponent>
                         

@@ -7,7 +7,9 @@ import ArticleUpload from './article'
 import Main from './main'
 import UploadPage from './uploadpage'
 import UpdatePage from './updatepage'
+import DeletePage from './deletepage'
 import ViewAllPage from './viewallpage'
+import DecisionPage from './decisionpage'
 
 export {
     Admin,
@@ -19,5 +21,7 @@ export {
     Main,
     UploadPage,
     UpdatePage,
-    ViewAllPage
+    DeletePage,
+    ViewAllPage,
+    DecisionPage
 }

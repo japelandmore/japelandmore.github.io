@@ -3,14 +3,43 @@ import TableCss from './Table.module.css'
 import TableContent from './TableContent'
 import {Three} from '../../../../reusable/fonts'
 import UpdateController from '../../../../framework/controllers/UpdateController'
+import AdminPageController from '../../../../framework/controllers/AdminPageController'
+import { useDispatch } from 'react-redux';
+import {storeContent} from '../../../../../actions'
+import pageurl from '../../../../framework/url/pageurl'
+import {withRouter} from 'react-router-dom'
 
-const Table = () => {
+const Table = (props) => {
 
-    const [content,setContent] = React.useState([]);
+    const dispatch = useDispatch();
+
+    // const [content,setContent] = React.useState([]);
     
-    React.useEffect(()=>{
-        !content[0] && UpdateController.queryData(setContent);
-    })
+    // React.useEffect(()=>{
+    //     !content[0] && UpdateController.queryData(setContent)
+    // })
+
+    const [content,setContent] = React.useState([
+        {   title:'Tales by moon light',
+            category:'Story Telling',
+            imageurl:'',
+        },
+        {   title:'Tales by moon light2',
+            category:'Story Telling2',
+            imageurl:'',
+        }
+    ]);
+
+    function handlePage(decision,num){
+
+        dispatch(storeContent(content[num]))
+        
+        props.history.push(pageurl.DECISION_PAGE_URL,{pageDecision:decision});
+        
+        // let page = AdminPageController.getPageInfo()
+        // AdminPageController.setPage(page.pageType,'decision',decision);
+        // console.log();
+    }
 
     return(
         
@@ -32,10 +61,13 @@ const Table = () => {
                     {
                         content.map((data)=>{
                             return(
-                                <TableContent key={data.id} sn={content.indexOf(data)} title={data.title} 
-                                              category={data.category} img={data.imageurl} 
-                                              editAction={()=>{console.log('edit')}} 
-                                              deleteAction={()=>{console.log('delete')}} />
+                                <TableContent   key={data.id} sn={content.indexOf(data)+1} title={data.title} 
+                                                category={data.category} img={data.imageurl} 
+                                                editAction={()=>{handlePage('edit',content.indexOf(data))}} 
+                                                deleteAction={()=>{handlePage('delete',content.indexOf(data))}} 
+                                                // storeEdit={()=>{handlePage('edit',content.indexOf(data))}}
+                                                // storeDelete={()=>{handlePage('edit',content.indexOf(data))}}
+                                            />
                             )
                         })
                     }
@@ -52,4 +84,4 @@ const Table = () => {
 
 }
 
-export default Table;
+export default withRouter(Table);
