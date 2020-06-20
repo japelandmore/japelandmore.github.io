@@ -22,7 +22,7 @@
 
 body {
   margin: 0;
-  font-family: 'encode_sans';
+  font-family: 'encode_sans',Arial, Helvetica, sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

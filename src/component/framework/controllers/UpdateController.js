@@ -68,13 +68,11 @@ function uploadData(url,object,setStatus,setUploaded){
         
         uploadObject.set({...object},(error)=>{
             if(error){
-                // setStatus(true);
-                // setUploaded(false);
-                console.log('not successful')
+                setStatus(true);
+                setUploaded(false);
             }else{
-                // setStatus(true);
-                // setUploaded(true);
-                console.log('successful')
+                setStatus(true);
+                setUploaded(true);
             }
         });
         
@@ -98,13 +96,12 @@ function deleteData(url,object,status,deleteStatus){
         try{
             db.ref(`${url}`).child(id).remove()
             .then(function() {
-                // status(true);
-                // deleteStatus(true);
-                console.log('successful')
+                status(true);
+                deleteStatus(true);
             })
             .catch(function(error) {
-                // status(true);
-                // deleteStatus(false)
+                status(true);
+                deleteStatus(false)
                 console.log('unsuccessful')
             });
         }catch(error){

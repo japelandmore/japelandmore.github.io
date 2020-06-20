@@ -63,8 +63,9 @@ const Login = ({...props}) => {
                             notBtnText={ logged.serverErrMsg ? "RESET PASSWORD" : logged.errorMsg ? "VERIFY MAIL" : "Try Again"}
                             serverErrMsg={logged.serverErrMsg}
                             serverErrAction={()=>AuthController.resetPass()}
-                            buttonText={logged.sentVerification ?
-                                "ADMIN PAGE" : "RESEND VERIFICATION"
+                            buttonText={
+                                // logged.sentVerification ?
+                                "ADMIN PAGE"
                             }
                             bottomAction={"Back to Home Page"}
                             />}

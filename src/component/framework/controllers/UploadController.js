@@ -74,11 +74,11 @@ function uploadData(url,obj,imgobject,setStatus,setUploaded){
         
         uploadObject.set({...object},(error)=>{
             if(error){
-                // setStatus(true);
-                // setUploaded(false);
+                setStatus(true);
+                setUploaded(false);
             }else{
-                // setStatus(true);
-                // setUploaded(true);
+                setStatus(true);
+                setUploaded(true);
             }
         });
 

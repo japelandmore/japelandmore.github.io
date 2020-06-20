@@ -11,35 +11,58 @@
     padding: 20px 0;
 }
 
-.delete_Section .delete_properties .img_container{
+.delete_Section .img_container{
     width: 100%;
     margin: 15px auto;
 }
 
-.delete_Section .delete_properties .img_container img{
+.delete_Section .img_container img{
     width: 100%;
 }
 
-.delete_Section .delete_properties .other_details span{
+.delete_Section span{
     padding: 10px 0;
     display: block;
 }
 
-.delete_Section .delete_properties .other_details span .para{
+.delete_Section .para{
     font-size: .75em;
     font-family: 'encode_sans_medium';
-    margin-bottom: 5px;
+    /* margin-bottom: 5px; */
+    color: var(--main-color11);
+    
 }
 
-.delete_Section .delete_properties .other_details span .three{
-    font-family: 'encode_sans_bold';
-    color: var(--main-color);
+.delete_Section .three{
+    margin-top: 15px;
+    font-family: 'encode_sans_medium';
+    color: var(--main-color2);
     font-size: .95em;
+}
+
+.delete_Section .two{
+    color: var(--main-color2);
+}
+
+.delete_Section .delete{
+    background: rgb(184, 2, 2);
+    font-family: 'encode_sans_medium';
+    padding: 15px 20px;
+    font-size: .93em;
+    transition: .4s ease-in-out;
+}
+
+.delete_Section .delete:hover{
+    background: rgb(179, 0, 0);
 }
 
 .delete_Section .header{
     width: 100%;
     padding: 30px 0;
+}
+
+.delete_Section .exit{
+    color: var(--main-color11);
 }
 
 .delete_Section .body{

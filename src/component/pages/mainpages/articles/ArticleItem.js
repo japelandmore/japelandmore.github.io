@@ -4,7 +4,8 @@ import {Five,Para} from '../../../reusable/fonts'
 
 const ArticleItem = ({ArticleCss,header,date,article_img,article_title,external_link,...props}) => {
     return(
-        <div className={ArticleCss.article_item}>
+
+    <div className={ArticleCss.article_item}>
 
             <div className={ArticleCss.image_container}>
 

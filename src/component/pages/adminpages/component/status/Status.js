@@ -2,6 +2,7 @@ import React from 'react';
 import {Two,Para,Alpha} from '../../../../reusable/fonts/Font'
 import StatusCss from './Status.module.css';
 import {withRouter} from 'react-router-dom'
+import pageurl from '../../../../framework/url/pageurl/pageurl';
 
 const Status = ({status,success,failure,land,try_again,new_action,buttonText,
                 additional_msg,verifiedUser,sendVerification,notBtnText,bottomAction,
@@ -61,7 +62,7 @@ const Status = ({status,success,failure,land,try_again,new_action,buttonText,
                         </div>
                         
                         <div className={StatusCss.other_option}>
-                            <Alpha ahref={land}>
+                            <Alpha ahref={pageurl.ADMIN_URL}>
                                 <Para fontClass={StatusCss.para} >{bottomAction}</Para>
                             </Alpha>
                         </div>
