@@ -153,6 +153,11 @@
     margin-bottom: 15px;
 }
 
+.cert{
+    width: 90%;
+    margin: 0 auto;
+}
+
 @media only screen and (min-width:768px){
 
     .background .topheader{
