@@ -1,7 +1,6 @@
 import React from 'react';
 import {Admin,UploadPage,ViewAllPage,DecisionPage} from '../../pages/adminpages'
 
-
 function getPage(pageAction){        
         switch(pageAction){
             case '' : return <Admin />;

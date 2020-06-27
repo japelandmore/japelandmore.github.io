@@ -46,10 +46,20 @@ const imagedataReducer = (state="", action) => {
     }
 }
 
+const viewProjectReducer = (state="", action) => {
+    switch(action.type){
+        case 'LOADVIEWPAGE' :
+            return state = action.payload;
+        default :
+            return state;
+    }
+}
+
 export {
     editReducer,
     deleteReducer,
     contentReducer,
     formdataReducer,
-    imagedataReducer
+    imagedataReducer,
+    viewProjectReducer
 };

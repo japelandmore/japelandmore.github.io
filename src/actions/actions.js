@@ -33,3 +33,10 @@ export const storeImageData = (nr) => {
         payload: nr
     }
 };
+
+export const loadView = (nr) => {
+    return{
+        type: 'LOADVIEWPAGE',
+        payload: nr
+    }
+}

@@ -27,6 +27,8 @@ function App() {
           setMenu(true);
         }
 
+        !AuthController.getLoggedStatus() && AuthController.resetLoggedStatus();
+        
     }doit()
 
   },[history.location.pathname])
@@ -62,7 +64,7 @@ function App() {
                     
                     <Route exact path={pageurl.CONTACT_ME_URL} component={Contact} />
 
-                    <Route exact path={pageurl.LOGINURL} component={Login} />
+                    <ProtectedRoute exact path={pageurl.LOGINURL} component={Login} history={history} />
 
                     <ProtectedRoute exact path={pageurl.ADMIN_URL} component={Main} />
 

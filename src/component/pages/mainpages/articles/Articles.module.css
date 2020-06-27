@@ -25,6 +25,20 @@
     /* justify-content: space-between; */
 }
 
+.article .articles .txtContainer{
+    width: 100%;
+    /* border: 1px solid black; */
+    display: flex;
+}
+
+.article .articles .loader_container{
+    margin-left: 20px;
+}
+
+.article .articles .loader_container img{
+    width: 30px;
+}
+
 .article .articles .three{
     font-family: 'encode_sans_medium';
     color: var(--main-color11);
@@ -140,7 +154,7 @@
         display: grid;
         grid-template-columns: auto auto;
         padding: 30px 0;
-        justify-content: center;
+        justify-content: start;
     }
 
     .article .article_item{

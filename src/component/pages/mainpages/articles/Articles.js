@@ -3,7 +3,7 @@ import ArticleCss from './Articles.module.css';
 import {One as HeaderFont,Three} from '../../../reusable/fonts'
 import ArticleItem from './ArticleItem.js';
 import ArticleController from '../../../framework/controllers/ArticleController';
-
+import loader from '../../../assets/image/gif/loader.gif'
 
 const Articles = () => {
 
@@ -38,8 +38,11 @@ const Articles = () => {
                         article[0] ?
                             article.map((s) => {return s;}) 
                         :
-                            <div>
+                            <div className={ArticleCss.txtContainer}>
                                 <Three fontClass={ArticleCss.three}>NO ARTICLE(S)</Three>
+                                <div className={ArticleCss.loader_container}>
+                                    <img src={loader} alt="loader" />
+                                </div>
                             </div>
                         }
 

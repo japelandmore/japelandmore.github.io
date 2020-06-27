@@ -76,43 +76,19 @@ function signIn(values,setStatus,setValuesError){
     if(password && email){
 
         auth.signInWithEmailAndPassword(email, password)
-        .then((cred) => {
-            
-            if(cred.user.emailVerified){
-                //signup successful - email verified
+        .then(() => {
                 setStatus({
                     process : true,
                     status : true,
-                    sentVerification : false,
-                    verifiedUser : cred.user.emailVerified,
                     errorMsg : "",
                     serverErrMsg : ""
                 })
                 setStorageTime(email,true);
-            
-            }else{
-                //signup successful - email not verified
-                setStatus({
-                    process : true,
-                    status : true,
-                    sentVerification : false,
-                    verifiedUser : cred.user.emailVerified,
-                    errorMsg : "user email has not been verified",
-                    serverErrMsg : ""
-                })
-                setStorageTime(email,false);
-
-            }
-            
-            
         }).catch((error)=>{
-            
             //signup not successful
             setStatus({
                 process : true,
                 status : false,
-                sentVerification : false,
-                verifiedUser : false,
                 errorMsg : "",
                 serverErrMsg : error.message
             })
@@ -144,12 +120,16 @@ function setStorageTime(email,status){
 }
 
 function getLoggedStatus(){
-    if(window.localStorage.getItem('loggedIn')){
-        var storedObj = JSON.parse(window.localStorage.getItem('loggedIn'));
-        return storedObj.logTime >= new Date().toString();
-    }
+    // if(window.localStorage.getItem('loggedIn')){
+    //     var storedObj = JSON.parse(window.localStorage.getItem('loggedIn'));
+    //     return storedObj.logTime >= new Date().toString();
+    // }
+    return true
 }
 
+function resetLoggedStatus(){
+    window.localStorage.clear('loggedIn');
+}
 
 function resetPass(values,setStatus,setValuesError){
 
@@ -160,6 +140,7 @@ const AuthController = {
     signIn,
     resetPass,
     getLoggedStatus,
+    resetLoggedStatus,
     verifyEmail
 }
 

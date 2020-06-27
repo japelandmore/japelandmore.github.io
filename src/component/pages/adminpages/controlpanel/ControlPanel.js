@@ -23,7 +23,7 @@ const ControlPanel = ({menu}) => {
 
     return (
         <>
-                
+            {/* HAMBURGER MENU */}
             {menu && <div className={ControlPanelCss.menu}>
                 <div className={ControlPanelCss.container} onClick={()=>handleMenu()}>
                     <span id={ControlPanelCss.one}/>
@@ -32,6 +32,7 @@ const ControlPanel = ({menu}) => {
                 </div>
             </div>}
 
+            {/* SIDE MENU */}
             {menu && <SideMenu sidemenuRef={sidemenuRef} submenuRef={submenuRef} submenuRef2={submenuRef2} 
                 submenuHandler={()=>submenuHandler()} submenuHandler2={()=>submenuHandler2()}/>}
 

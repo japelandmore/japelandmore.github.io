@@ -2,7 +2,7 @@ import React from 'react';
 import RegisterCss from './Register.module.css'
 import {Two,Para} from '../../../reusable/fonts'
 import {withRouter} from 'react-router-dom'
-import Status from '../../adminpages/component/status'
+import Status from '../../adminpages/status'
 import pageurl from '../../../framework/url/pageurl'
 import AuthController from '../../../framework/controllers/AuthController';
 

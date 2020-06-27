@@ -1,0 +1,87 @@
+.modal_background{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5000;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal{
+    width: 80%;
+    padding: 50px 0;
+    background: var(--main-color2);
+    border-radius: 5px;
+}
+
+.modal .container{
+    width: 90%;
+    /* border: 1px solid black; */
+    padding: 20px 0;
+    margin: 0 auto;
+}
+
+.modal .container .header{
+    width: 100%;
+    /* border: 1px solid black; */
+    margin: 0;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.modal .container .header .two{
+    margin-bottom: 15px;
+}
+
+.modal .container .header .para{
+    line-height: 25px;
+}
+
+.modal .container .body{
+    width: 100%;
+    padding: 20px 0;
+}
+
+.modal .container .body .main_option{
+    /* border: 1px solid black; */
+    width: 100%;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+.modal .container .body .main_option button{
+    padding: 10px 17px;
+    border: none;
+    border-radius: 3px;
+    background: var(--main-color);
+    color: var(--main-color2);
+    font-family: 'encode_sans_medium';
+    cursor: pointer;
+}
+
+.modal .container .body .other_option{
+    width: 100%;
+    padding: 20px 0 0;
+    text-align: center;
+    /* cursor: pointer; */
+}
+
+.modal .container .body .other_option .para{
+    font-size: .80em;
+    text-decoration: underline;
+}
+
+
+@media only screen and (min-width:768px){
+
+    .modal{
+        width: 45%;
+    }   
+}

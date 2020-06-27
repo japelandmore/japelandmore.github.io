@@ -39,6 +39,7 @@ function queryData(setContent,decision) {
     switch(decision){
             case 'project' : pageType = 'projects'; break;
             case 'article' : pageType = 'articles'; break;
+            case 'testimony' : pageType = 'testimonies'; break;
             default : pageType='';break;
     }
     
@@ -68,13 +69,15 @@ function uploadData(url,object,setStatus,setUploaded){
         
         uploadObject.set({...object},(error)=>{
             if(error){
-                setStatus(true);
                 setUploaded(false);
-            }else{
                 setStatus(true);
+            }else{
                 setUploaded(true);
+                setStatus(true);
             }
-        });
+        }).catch((error)=>{
+            console.log(error);
+        })
         
     }
 
@@ -96,13 +99,13 @@ function deleteData(url,object,status,deleteStatus){
         try{
             db.ref(`${url}`).child(id).remove()
             .then(function() {
-                status(true);
                 deleteStatus(true);
+                status(true);
+                
             })
             .catch(function(error) {
-                status(true);
                 deleteStatus(false)
-                console.log('unsuccessful')
+                status(true);
             });
         }catch(error){
             console.log(error.message);

@@ -67,18 +67,19 @@ function uploadData(url,obj,imgobject,setStatus,setUploaded){
     if(user !== null){
 
         const object = ({...obj,...imgobject})
-    
+         
         const directoryName = object.id;
         
         const uploadObject = db.ref(`${url}`).child(directoryName);    
         
         uploadObject.set({...object},(error)=>{
             if(error){
-                setStatus(true);
                 setUploaded(false);
-            }else{
                 setStatus(true);
+            }else{
                 setUploaded(true);
+                setStatus(true);
+                
             }
         });
 

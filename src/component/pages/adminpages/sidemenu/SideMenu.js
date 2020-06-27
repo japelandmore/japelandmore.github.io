@@ -5,7 +5,7 @@ import pageurl from '../../../framework/url/pageurl';
 import {withRouter} from 'react-router-dom'
 import SideMenuComponent from './SideMenuComponent'
 
-const SideMenu = ({sidemenuRef,submenuRef,submenuRef2,submenuHandler,submenuHandler2,...props}) => {
+const SideMenu = ({sidemenuRef,...props}) => {
 
     function handlePage(pageAction,pageDecision){
         props.history.push(pageurl.ADMIN_URL,{pageAction:pageAction,pageDecision:pageDecision});
@@ -30,8 +30,7 @@ const SideMenu = ({sidemenuRef,submenuRef,submenuRef2,submenuHandler,submenuHand
                         </div>
 
 
-                        <SideMenuComponent submenuRef={submenuRef} submenuHandler={submenuHandler} 
-                                           title={"Project"} 
+                        <SideMenuComponent title={"Project"} 
                                            subtitle1={"Add Project"} 
                                            subtitle2={"View All Projects"} 
                                            handlePage1={()=>{handlePage('add','project')}} 
@@ -39,13 +38,19 @@ const SideMenu = ({sidemenuRef,submenuRef,submenuRef2,submenuHandler,submenuHand
                                         />
 
 
-                        <SideMenuComponent submenuRef={submenuRef} submenuHandler={submenuHandler} 
-                                           title={"Article"} 
+                        <SideMenuComponent title={"Article"} 
                                            subtitle1={"Add Article"}
                                            subtitle2={"View All Articles"} 
                                            handlePage1={()=>{handlePage('add','article')}} 
                                            handlePage2={()=>{handlePage('viewall','article')}} 
                                         />
+                        <SideMenuComponent title={"Testimony"} 
+                                           subtitle1={"Add Testimony"}
+                                           subtitle2={"View All Testimonies"} 
+                                           handlePage1={()=>{handlePage('add','testimony')}} 
+                                           handlePage2={()=>{handlePage('viewall','testimony')}} 
+                                        />
+                        <SideMenuComponent title={"Settings"} />
                         
 
                         <div className={SideMenuCss.licon}>

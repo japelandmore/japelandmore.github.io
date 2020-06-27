@@ -2,7 +2,7 @@ import React from 'react';
 import {Five,Para} from '../../../../reusable/fonts'
 
 
-const TestimonialComponent = ({WorkCss,OtherCssLeft,OtherCssRight,customer_name,customer_company,...props}) => {
+const TestimonialComponent = ({WorkCss,OtherCssLeft,OtherCssRight,customer_name,customer_company,imgsrc,...props}) => {
     
     return (
         
@@ -13,7 +13,7 @@ const TestimonialComponent = ({WorkCss,OtherCssLeft,OtherCssRight,customer_name,
 
                 <div className={`${WorkCss.left} ${OtherCssLeft}`}>
 
-                    <img src="" alt="" ></img>
+                    <img src={imgsrc} alt="" ></img>
 
                 </div>
 

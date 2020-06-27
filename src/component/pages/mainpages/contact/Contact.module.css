@@ -165,10 +165,13 @@ form input:focus + .label_name::after,
 .contact .container .testimony_container .test_bond{
     /* border: 1px solid black; */
     width: 80%;
+    min-height: 100%;
     margin: 0 auto;
     padding: 40px 0;
     overflow: hidden;
     text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .contact .container .testimony_container .test_bond .headermain_title{
@@ -182,6 +185,7 @@ form input:focus + .label_name::after,
     width: 100%;
     /* margin: 0 auto; */
     padding: 0;
+    margin-top: auto;
 }
 
 .socials .containers{

@@ -45,14 +45,16 @@ const Footer = ({other_click}) => {
         
                             <BodyFont fontClass={FooterCss.credit}>Jeffery Abdulateef &copy; 2020 </BodyFont>                        
                             
-                            {/* <a target="_blank" href="https://www.linkedin.com/in/frank-edekobi-500062129" rel="noopener noreferrer" */}
-                            {/* style={{textDecoration:"none"}}> */}
+                            <a target="_blank" href="https://www.linkedin.com/in/frank-edekobi-500062129" rel="noopener noreferrer" 
+                            style={{textDecoration:"none"}}> 
 
-                                <BodyFont fontClass={FooterCss.credit} fontStyle={{fontSize:".75em",marginTop:"10px",color:"#b39bff",cursor:"pointer"}} clickk={other_click}>
-                                    Coded by Frank
+                                <BodyFont fontClass={FooterCss.credit} fontStyle={{fontSize:".75em",marginTop:"10px",color:"#b39bff",cursor:"pointer"}} 
+                                // clickk={other_click}
+                                >
+                                    Coded by Frank Edekobi
                                 </BodyFont>
 
-                            {/* </a>                         */}
+                            </a>                        
         
                         </div>
         

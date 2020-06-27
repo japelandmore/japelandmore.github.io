@@ -12,7 +12,8 @@ import AreaOfExpertise from './AreaOfExpertise';
 import WorkExperienceRolePoints from './WorkExperienceRolePoints';
 import AreaOfExpertiseRolePoints from './AreaOfExpertiseRolePoints';
 import cv from '../../../assets/document/pdf/Portfolio (Abdulateef Jeffery).pdf';
-import medal from '../../../assets/image/icons/medal.svg';
+// import medal from '../../../assets/image/icons/medal.svg';
+import certificate from '../../../assets/image/background/membership-certificate.jpg'
 
 const Background = () => {
 
@@ -249,7 +250,7 @@ const Background = () => {
 
                         <div className={Backgroundcss.body}>
 
-                            <img src={medal} alt="certification icon" />
+                            <img src={certificate} alt="certification icon" className={Backgroundcss.cert} />
 
                         </div>
 

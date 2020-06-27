@@ -45,6 +45,14 @@ const Admin = ({...props}) => {
                                     handlePage1={()=>{handlePage('add','article')}} 
                                     handlePage2={()=>{handlePage('viewall','article')}} 
                                     />
+
+                    {/* TESTIMONY */}
+                    <AdminComponent title={"Testimony"}  
+                                    buttonText1={"Add Testimony"} 
+                                    buttonText2={"View All Testimonies"} 
+                                    handlePage1={()=>{handlePage('add','testimony')}} 
+                                    handlePage2={()=>{handlePage('viewall','testimony')}} 
+                                    />
                     
                 </div>
 

@@ -18,7 +18,7 @@ const reDirect=(props,page)=> {
     }/> 
 }
 
-const ProtectedRoute = ({component: Component,...rest}) => {
+const ProtectedRoute = ({component: Component,history,...rest}) => {
 
     const [userLogged] = React.useState(AuthController.getLoggedStatus())
 
@@ -28,8 +28,15 @@ const ProtectedRoute = ({component: Component,...rest}) => {
             (props) => {
 
                 if(userLogged){
+                    if(history.location.pathname.includes('login')){
+                        return reDirect(props,pageurl.ADMIN_URL);    
+                    }
                     return renderPage(Component,props);                    
                 }else{
+                    if(history.location.pathname.includes('login')){
+                        return renderPage(Component,props);    
+                    }
+                    AuthController.resetLoggedStatus();
                     return reDirect(props,pageurl.PAGE404);                    
                 }
             }

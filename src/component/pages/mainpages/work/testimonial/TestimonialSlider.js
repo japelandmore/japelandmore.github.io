@@ -2,51 +2,35 @@ import React from 'react';
 import TestimonialComponent from './TestimonialComponent';
 import {Para} from '../../../../reusable/fonts/Font'
 import TCC from './TestimonialSlider.module.css';
-
-
+import TestimonialController from '../../../../framework/controllers/TestimonialController'
+import ReactMarkdown from 'react-markdown';
+import loader from '../../../../assets/image/gif/loader.gif'
+import {Three} from '../../../../reusable/fonts'
 
 const TestimonialSlider = ({OtherCssLeft,OtherCssRight}) => {
+    
+    const [data,setData] = React.useState([]);
 
-    const [sliderCollection] = React.useState([
-        {
-            id: "0",
-            sliderItem: 
-            <TestimonialComponent WorkCss={TCC} OtherCssLeft={OtherCssLeft} OtherCssRight={OtherCssRight} customer_name="Lusayo Bonge" customer_company="Partner, Form Plus">
-                                
-                <Para fontClass={TCC.story}>
-                    udux is music streaming platform that is growing to become the first stop for African music, and with exclusive
-                    partnerships with global players, give access to a robust catalogue of international content in varying media types.
-                </Para>
+    React.useEffect(()=>{
+        !data[0] && TestimonialController.queryData(setData);
+    },[data])
+    
+    const sliderCollection = data.map((da)=>{
 
-                <Para fontClass={TCC.story}>
-                    uduX is a music streaming platform that is growing to become the first stop for African music and with exclusive 
-                    partnerships with global players, give access to a robust catalogue of international content in 
-                    varying media types.
-                </Para>
+        return(
+            {
+                id:             data.indexOf(da),
+                sliderItem :    <TestimonialComponent WorkCss={TCC} OtherCssLeft={OtherCssLeft} 
+                                        OtherCssRight={OtherCssRight} customer_name={da.title} 
+                                        customer_company={da.description} imgsrc={da.imageurl} >
+                                    <Para fontClass={TCC.story}>
+                                        <ReactMarkdown source={da.paragraph} />
+                                    </Para>
+                                </TestimonialComponent>
+            }
+        )
 
-            </TestimonialComponent> 
-
-        },
-        {
-            id: "1",
-            sliderItem: 
-            <TestimonialComponent WorkCss={TCC} OtherCssLeft={OtherCssLeft} OtherCssRight={OtherCssRight} customer_name="Alison Krauss" customer_company="CEO Uduxa" >
-                                
-                <Para fontClass={TCC.story}>
-                    udux is music streaming platform that is growing to become the first stop for African music, and with exclusive
-                    partnerships with global players, give access to a robust catalogue of international content in varying media types.
-                </Para>
-
-                <Para fontClass={TCC.story}>
-                    uduX is a music streaming platform that is growing to become the first stop for African music and with exclusive 
-                    partnerships with global players, give access to a robust catalogue of international content in 
-                    varying media types.
-                </Para>
-
-            </TestimonialComponent> 
-
-        }
-    ]);
+    })
 
     const [shouldSlide,setShouldSlide] = React.useState(false)
     const [id,setId] = React.useState(0)
@@ -55,20 +39,28 @@ const TestimonialSlider = ({OtherCssLeft,OtherCssRight}) => {
         setTimeout(()=>{
             setShouldSlide(!shouldSlide)
             check()
-        },3000)
+        },7000)
     }autoSlider()
 
     function check(){
         let idea = id;
         if(!shouldSlide){
-            idea = idea === sliderCollection.length-1 ? 0 : idea + 1;
+            idea = idea >= sliderCollection.length-1 ? 0 : idea + 1;
             setId(idea)    
         }
     }
 
     return (
-        <div key={id} className={TCC.slide_effect}>
-            {sliderCollection[id].sliderItem}
+        <div key={id} className={`${TCC.slide_effect} ${!sliderCollection[0] && TCC.noslide}`} >
+            {sliderCollection[0] ? 
+                sliderCollection[id].sliderItem 
+            : 
+                
+                <div className={TCC.loader_container}>
+                    <Three fontStyle={{color:"#e4e4e4"}}>NO RESULTS</Three>
+                    <img src={loader} alt="loader icon"/>
+                </div>
+            }
         </div>
     )
 }
