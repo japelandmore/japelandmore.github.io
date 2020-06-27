@@ -27,7 +27,7 @@ const Work = () => {
     }
 
     React.useEffect(()=>{
-        window.scrollTo(0, 0)
+        // window.scrollTo(0, 0)
         function loadProjects(){
             !project[0] && WorkPageController.handleLoad(setProject,projectCategories.category,WorkCss,ProjectComponent,setSubPageInfo);
         }
