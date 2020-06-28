@@ -1,14 +1,20 @@
 import React from 'react';
 import {Five,Para} from '../../../reusable/fonts'
+import Aos from 'aos'
+import 'aos/dist/aos.css'
+
 
 
 const MyServices = ({WorkCss,imgcirc,imgalt,imghov,title,...props}) => {
 
     const [changeImg, setChangeImg] = React.useState(false);
+
+    Aos.init();
     
     return(
 
-        <div className={WorkCss.body} id={WorkCss.boid} onMouseEnter={()=>setChangeImg(true)} onMouseLeave={()=>setChangeImg(false)}>
+        <div className={WorkCss.body} id={WorkCss.boid} onMouseEnter={()=>setChangeImg(true)} onMouseLeave={()=>setChangeImg(false)}
+        data-aos="fade-in" data-aos-duration="2000">
                                 
                 {/* Image container */}
                 <div className={WorkCss.img_container}>
