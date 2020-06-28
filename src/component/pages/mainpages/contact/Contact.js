@@ -28,7 +28,7 @@ const Contact = () => {
 
             <div className={ContactCss.container}>
 
-                <div className={ContactCss.form_container} data-aos="fade-right" data-aos-duration="2000">
+                <div className={ContactCss.form_container} data-aos="fade-in" data-aos-duration="2000">
 
                     <form autoComplete="off">
 
@@ -91,7 +91,7 @@ const Contact = () => {
 
                 </div>
 
-                <div className={ContactCss.testimony_container} data-aos="fade-left" data-aos-duration="2000">
+                <div className={ContactCss.testimony_container} data-aos="fade-in" data-aos-duration="2000">
 
                     <div className={ContactCss.test_bond}>
                     
