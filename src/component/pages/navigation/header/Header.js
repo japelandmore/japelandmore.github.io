@@ -3,6 +3,9 @@ import HeaderCss from './Header.module.css';
 import {Alpha,Five as Fur} from '../../../reusable/fonts';
 import pageurl from '../../../framework/url/pageurl'
 import mainlogo from '../../../assets/image/edited/JXI.png'
+import Aos from 'aos'
+import 'aos/dist/aos.css'
+
 
 const Header = ({url,clickmenu}) => {
 
@@ -14,7 +17,10 @@ const Header = ({url,clickmenu}) => {
         articles : false
     })
 
+    Aos.init();
+
     useEffect(()=>{
+        // Aos.init({duration: 2000});
         function handleUrl(){
             if(url === '/'){
                 setPageUrl({home : true});
@@ -37,7 +43,7 @@ const Header = ({url,clickmenu}) => {
             
             <div className={HeaderCss.container}>
 
-                <div className={HeaderCss.logo}>
+                <div className={HeaderCss.logo} data-aos="flip-left" data-aos-duration="2000">
                     <img src={mainlogo} alt="Company Logo" ></img>
                 </div>
 

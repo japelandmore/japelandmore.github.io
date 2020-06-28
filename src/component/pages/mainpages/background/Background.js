@@ -14,15 +14,21 @@ import AreaOfExpertiseRolePoints from './AreaOfExpertiseRolePoints';
 import cv from '../../../assets/document/pdf/Portfolio (Abdulateef Jeffery).pdf';
 // import medal from '../../../assets/image/icons/medal.svg';
 import certificate from '../../../assets/image/background/membership-certificate.jpg'
+import Aos from 'aos'
+import 'aos/dist/aos.css'
 
 const Background = () => {
+
+    // React.useEffect(()=>{
+        Aos.init();
+    // })
 
     return(
 
         <div className={Backgroundcss.background}>
             
-            <a href={cv} target="_blank" rel="noopener noreferrer" download >
-                <div className={Backgroundcss.printer_section}>
+            <a href={cv} target="_blank" rel="noopener noreferrer" download>
+                <div className={Backgroundcss.printer_section} data-aos="flip" data-aos-duration="2000">
         
                     <div className={Backgroundcss.image_container}>
                         <img src={printer} alt="printer icon" />
@@ -31,7 +37,7 @@ const Background = () => {
                 </div>
             </a>
 
-            <div className={Backgroundcss.topheader}>
+            <div className={Backgroundcss.topheader} data-aos="fade-right" data-aos-duration="2000">
                 
                     <HeaderFont fontClass={Backgroundcss.headfont}>My Background</HeaderFont>
                 
@@ -170,7 +176,7 @@ const Background = () => {
                 <section className={Backgroundcss.education}>
 
                     {/* header */}
-                    <div className={Backgroundcss.header}>
+                    <div className={Backgroundcss.header} data-aos="fade-in" data-aos-duration="2000">
                         <Five fontClass={Backgroundcss.header_font}>EDUCATION</Five>
                     </div>
 
@@ -179,14 +185,14 @@ const Background = () => {
 
                         <div className={Backgroundcss.body}>
 
-                            <div className={Backgroundcss.work_header}>
+                            <div className={Backgroundcss.work_header} data-aos="fade-in" data-aos-duration="2000">
                                     
                                 {/* main header */}
                                 <Fur fontClass={Backgroundcss.work_title}>BSC Computer Science</Fur>
 
                             </div>
 
-                            <div className={Backgroundcss.others}>
+                            <div className={Backgroundcss.others} data-aos="fade-in" data-aos-duration="2000">
 
                                 {/* company header*/}
                                 <Para fontClass={Backgroundcss.company_title}>Second Class (Upper Division)</Para>
@@ -207,14 +213,14 @@ const Background = () => {
 
                         <div className={Backgroundcss.body}>
 
-                            <div className={Backgroundcss.work_header}>
+                            <div className={Backgroundcss.work_header} data-aos="fade-in" data-aos-duration="2000">
                                     
                                 {/* main header */}
                                 <Fur fontClass={Backgroundcss.work_title}>High School Diploma</Fur>
     
                             </div>
 
-                            <div className={Backgroundcss.others}>
+                            <div className={Backgroundcss.others} data-aos="fade-in" data-aos-duration="2000">
             
                                     {/* company header*/}
                                     <Para fontClass={Backgroundcss.company_title}>WAEC Certification</Para>
@@ -241,20 +247,20 @@ const Background = () => {
                 <section className={Backgroundcss.certification}>
 
                     {/* header */}
-                    <div className={Backgroundcss.header}>
+                    <div className={Backgroundcss.header} data-aos="fade-in" data-aos-duration="2000">
                         <Five fontClass={Backgroundcss.header_font}>CERTIFICATIONS</Five>
                     </div>
 
                     {/* body */}
                     <div className={Backgroundcss.body_item}>
 
-                        <div className={Backgroundcss.body}>
+                        <div className={Backgroundcss.body} data-aos="flip-left" data-aos-duration="2000">
 
                             <img src={certificate} alt="certification icon" className={Backgroundcss.cert} />
 
                         </div>
 
-                        <div className={`${Backgroundcss.body} ${Backgroundcss.body2}`}>
+                        <div className={`${Backgroundcss.body} ${Backgroundcss.body2}`} data-aos="fade-in" data-aos-duration="2000">
 
                             <div className={Backgroundcss.work_header}>
                                     

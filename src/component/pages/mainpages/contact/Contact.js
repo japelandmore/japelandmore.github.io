@@ -8,14 +8,19 @@ import social_image3 from '../../../assets/image/contact/Icons-2.svg';
 import social_image3b from '../../../assets/image/contact/Icons-4.svg';
 import social_image4 from '../../../assets/image/contact/Icons-3.svg';
 import socialmediaurl from '../../../framework/url/socialmediaurl';
+import Aos from 'aos'
+import 'aos/dist/aos.css'
+
 
 const Contact = () => {
+
+    Aos.init();
 
     return(
 
         <div className={ContactCss.contact}>
             
-            <div className={ContactCss.topheader}>
+            <div className={ContactCss.topheader} data-aos="fade-right" data-aos-duration="2000">
                 
                     <HeaderFont fontClass={ContactCss.headfont}>Get In Touch</HeaderFont>
                 
@@ -23,12 +28,12 @@ const Contact = () => {
 
             <div className={ContactCss.container}>
 
-                <div className={ContactCss.form_container}>
+                <div className={ContactCss.form_container} data-aos="fade-right" data-aos-duration="2000">
 
                     <form autoComplete="off">
 
                         {/* left */}
-                        <section className={ContactCss.left}>
+                        <section className={ContactCss.left} data-aos="fade-in" data-aos-duration="2000">
                             
                             <span className={ContactCss.holder}>
                                 <input type="text" name="fullname" required autoComplete="off"></input>
@@ -61,7 +66,7 @@ const Contact = () => {
                         </section>
 
                         {/* right */}
-                        <section className={ContactCss.right}>
+                        <section className={ContactCss.right} data-aos="fade-in" data-aos-duration="2000">
 
                             <label for="Subject" className={ContactCss.other_label}>Subject</label>
                             <select name="subject">
@@ -86,7 +91,7 @@ const Contact = () => {
 
                 </div>
 
-                <div className={ContactCss.testimony_container}>
+                <div className={ContactCss.testimony_container} data-aos="fade-left" data-aos-duration="2000">
 
                     <div className={ContactCss.test_bond}>
                     

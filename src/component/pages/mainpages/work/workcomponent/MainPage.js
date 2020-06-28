@@ -14,8 +14,13 @@ import brandhov from '../../../../assets/image/work/new/hover/artistic.svg';
 import MyServicesRole from '../MyServicesRole';
 import loader from '../../../../assets/image/gif/loader.gif'
 import TestimonialSlider from '../testimonial/TestimonialSlider';
+import Aos from 'aos'
+import 'aos/dist/aos.css'
 
 const MainPage = ({ProjectTab,project}) => {
+
+    Aos.init();
+
     return (
         
         <>
@@ -23,13 +28,13 @@ const MainPage = ({ProjectTab,project}) => {
             <section className={WorkCss.my_services}>
 
                 {/* header */}
-                <div className={WorkCss.header}>
+                <div className={WorkCss.header} data-aos="fade-in" data-aos-duration="2000">
 
                     <Five fontClass={WorkCss.header_font}>MY SERVICES</Five>
 
                 </div>
 
-                <div className={WorkCss.body_item}>
+                <div className={WorkCss.body_item} data-aos="fade-in" data-aos-duration="2000">
 
                     {/* body */}
                     <MyServices WorkCss={WorkCss} imgcirc={businessanalysysimg} imghov={bahov}
@@ -69,13 +74,13 @@ const MainPage = ({ProjectTab,project}) => {
                 <section className={WorkCss.my_projects}>
 
                 {/* header */}
-                <div className={WorkCss.header}>
+                <div className={WorkCss.header} data-aos="fade-in" data-aos-duration="2000">
 
                     <Five fontClass={WorkCss.header_font}>MY PROJECTS</Five>
 
                 </div>
 
-                <div className={WorkCss.nav_sect}>
+                <div className={WorkCss.nav_sect} data-aos="fade-in" data-aos-duration="2000">
 
                     <div className={WorkCss.nav_left}>
                         <span className={WorkCss.nav_arrow}>&#60;</span>
@@ -93,7 +98,7 @@ const MainPage = ({ProjectTab,project}) => {
 
                 </div>
 
-                <div className={WorkCss.body_item}>
+                <div className={WorkCss.body_item} data-aos="fade-in" data-aos-duration="2000">
 
                         {/* NO RESULTS */}
                         {!project[0] ?
@@ -126,7 +131,7 @@ const MainPage = ({ProjectTab,project}) => {
                 <section className={WorkCss.testimonials}>
 
                 {/* header */}
-                <div className={WorkCss.header}>
+                <div className={WorkCss.header} data-aos="fade-in" data-aos-duration="2000">
 
                     <Five fontClass={WorkCss.header_font}>TESTIMONIALS</Five>
 
@@ -134,7 +139,7 @@ const MainPage = ({ProjectTab,project}) => {
 
                 <div className={WorkCss.boundary}>
 
-                    <div className={WorkCss.body_item}>
+                    <div className={WorkCss.body_item} data-aos="fade-in" data-aos-duration="2000">
 
                         {/* body */}
                         <TestimonialSlider WorkCss={WorkCss}/>

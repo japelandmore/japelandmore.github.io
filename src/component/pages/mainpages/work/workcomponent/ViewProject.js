@@ -4,6 +4,8 @@ import {Three,Four,Para} from '../../../../reusable/fonts'
 import {useSelector} from 'react-redux'
 import {loadView} from '../../../../../actions'
 import {useDispatch} from 'react-redux'
+import Aos from 'aos'
+import 'aos/dist/aos.css'
 
 const ViewProject = ({info}) => {
     
@@ -19,11 +21,13 @@ const ViewProject = ({info}) => {
         window.scrollTo(0, 0)
     })
 
+    Aos.init();
+
     return(
         
         <div className={ViewProjectCss.viewproject}>
         
-            <div className={ViewProjectCss.imagecontainer}>
+            <div className={ViewProjectCss.imagecontainer} data-aos="fade-in" data-aos-duration="2000">
 
                 <img src={info[index].imageurl} alt="" />
 
@@ -35,11 +39,11 @@ const ViewProject = ({info}) => {
 
                     <div className={`${ViewProjectCss.summary} ${ViewProjectCss.column}`}>
                     
-                        <div className={ViewProjectCss.header}>
+                        <div className={ViewProjectCss.header} data-aos="fade-in" data-aos-duration="2000">
                             <Three fontClass={ViewProjectCss.three}>Summary</Three>
                         </div>
 
-                        <div className={ViewProjectCss.body}>
+                        <div className={ViewProjectCss.body} data-aos="fade-in" data-aos-duration="2000">
                             <Para fontClass={ViewProjectCss.para}>
                                 {info[index].summary}
                             </Para>
@@ -49,11 +53,11 @@ const ViewProject = ({info}) => {
 
                     <div className={`${ViewProjectCss.deed} ${ViewProjectCss.column}`}>
                     
-                        <div className={ViewProjectCss.header}>
+                        <div className={ViewProjectCss.header} data-aos="fade-in" data-aos-duration="2000">
                             <Three fontClass={ViewProjectCss.three}>What I did</Three>
                         </div>
 
-                        <div className={ViewProjectCss.body}>
+                        <div className={ViewProjectCss.body} data-aos="fade-in" data-aos-duration="2000">
                             <Para fontClass={ViewProjectCss.para}>
                                 {info[index].deed}
                             </Para>
@@ -63,11 +67,11 @@ const ViewProject = ({info}) => {
 
                     <div className={`${ViewProjectCss.outcome} ${ViewProjectCss.column}`}>
                     
-                        <div className={ViewProjectCss.header}>
+                        <div className={ViewProjectCss.header} data-aos="fade-in" data-aos-duration="2000">
                             <Three fontClass={ViewProjectCss.three}>Outcomes</Three>
                         </div>
 
-                        <div className={ViewProjectCss.body}>
+                        <div className={ViewProjectCss.body} data-aos="fade-in" data-aos-duration="2000">
                             {info[index].outcome && info[index].outcome[0] && 
                             info[index].outcome.map((a,index)=>{
                                 return(
@@ -83,18 +87,18 @@ const ViewProject = ({info}) => {
                 <section className={ViewProjectCss.right}>
 
                     <div className={`${ViewProjectCss.projectdate} ${ViewProjectCss.column}`}>
-                        <div className={ViewProjectCss.header}>
+                        <div className={ViewProjectCss.header} data-aos="fade-in" data-aos-duration="2000">
                             <Four fontClass={ViewProjectCss.four}>PROJECT DATE - &nbsp;{info[index].year}</Four>
                         </div>
                     </div>
 
                     <div className={`${ViewProjectCss.tools} ${ViewProjectCss.column}`}>
                         
-                        <div className={ViewProjectCss.header}>
+                        <div className={ViewProjectCss.header} data-aos="fade-in" data-aos-duration="2000">
                             <Three fontClass={ViewProjectCss.three}>Tools</Three>
                         </div>
 
-                        <div className={ViewProjectCss.body}>
+                        <div className={ViewProjectCss.body} data-aos="fade-in" data-aos-duration="2000">
                             {info[index].tools && info[index].tools[0] && 
                              info[index].tools.map((a,index)=>{
                                 return(
@@ -106,11 +110,11 @@ const ViewProject = ({info}) => {
                     </div>
 
                     <div className={`${ViewProjectCss.projectstatus} ${ViewProjectCss.column}`}>
-                        <div className={ViewProjectCss.header}>
+                        <div className={ViewProjectCss.header} data-aos="fade-in" data-aos-duration="2000">
                             <Three fontClass={ViewProjectCss.three}>Status</Three>
                         </div>
 
-                        <div className={ViewProjectCss.body}>
+                        <div className={ViewProjectCss.body} data-aos="fade-in" data-aos-duration="2000">
                             <Para fontClass={`${ViewProjectCss.para} ${info[index].status ? ViewProjectCss.ok : ViewProjectCss.fail}`}>
                                 {info[index].status ? 'Completed' : 'Ongoing'}
                             </Para>
@@ -118,11 +122,11 @@ const ViewProject = ({info}) => {
                     </div>
 
                     <div className={`${ViewProjectCss.projectlink} ${ViewProjectCss.column}`}>
-                        <div className={ViewProjectCss.header}>
+                        <div className={ViewProjectCss.header} data-aos="fade-in" data-aos-duration="2000">
                             <Three fontClass={ViewProjectCss.three}>Link</Three>
                         </div>
 
-                        <div className={ViewProjectCss.body}>
+                        <div className={ViewProjectCss.body} data-aos="fade-in" data-aos-duration="2000">
                             <a target="_blank" href={`http://${info[index].url}`} rel="noopener noreferrer" style={{cursor:"pointer",textDecoration:"none"}}>
                                 <Para fontClass={`${ViewProjectCss.para} ${ViewProjectCss.link}`}>
                                     {info[index].url}
@@ -142,7 +146,7 @@ const ViewProject = ({info}) => {
                 </div>
 
             </div> */}
-            <div className={ViewProjectCss.prev}>
+            <div className={ViewProjectCss.prev} data-aos="flip-left" data-aos-duration="2000">
                 <Para fontClass={ViewProjectCss.paraback} clickk={()=>handlePrev()}>
                     Back to Previous Page
                 </Para>

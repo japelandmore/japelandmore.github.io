@@ -3,8 +3,16 @@ import LandingPageCss from './LandingPage.module.css';
 import {One as HeaderFont,Four as BodyFont,Alpha} from '../../../reusable/fonts';
 import profile_image from '../../../assets/image/introduction/avatar@2x.png';
 import pageurl from '../../../framework/url/pageurl'
+import Aos from 'aos'
+import 'aos/dist/aos.css'
 
 const LandingPage = () => {
+
+    React.useEffect(()=>{
+        
+    })
+
+    Aos.init();
 
     return(
 
@@ -17,7 +25,7 @@ const LandingPage = () => {
                     
                     <div className={LandingPageCss.container}>
 
-                        <div className={LandingPageCss.img_container}>
+                        <div className={LandingPageCss.img_container} data-aos="fade-down" data-aos-duration="2000">
 
                             <img src={profile_image} alt="michevious open-mouthed happy vibrant face gesture"></img>
 
@@ -38,7 +46,7 @@ const LandingPage = () => {
                         </div>
 
                         {/* Body */}
-                        <div className={LandingPageCss.body}>
+                        <div className={LandingPageCss.body} data-aos="fade-left" data-aos-duration="2000">
                             <BodyFont fontClass={LandingPageCss.bodyfont}>
                                 My name is Jeffery Abdulateef, I'm a <span style={{fontFamily:"encode_sans_bold"}}>UI/UX Developer</span> 
                                 (last 4 years), and I now double as a software <span style={{fontFamily:"encode_sans_bold"}}>Business Analyst</span>.
@@ -64,7 +72,7 @@ const LandingPage = () => {
                     </div>
 
                     {/* call to action section*/}
-                    <section className={LandingPageCss.call_to_action}>
+                    <section className={LandingPageCss.call_to_action} data-aos="fade-up" data-aos-duration="2000">
 
                         <div className={LandingPageCss.container}>
 

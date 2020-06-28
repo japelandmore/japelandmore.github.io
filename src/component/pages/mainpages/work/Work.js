@@ -9,6 +9,8 @@ import MainPage from './workcomponent/MainPage'
 import ViewProject from './workcomponent/ViewProject'
 import {useSelector,useDispatch} from 'react-redux'
 import {loadView} from '../../../../actions'
+import Aos from 'aos'
+import 'aos/dist/aos.css'
 
 const Work = () => {
 
@@ -27,6 +29,7 @@ const Work = () => {
     }
 
     React.useEffect(()=>{
+        Aos.init();
         // window.scrollTo(0, 0)
         function loadProjects(){
             !project[0] && WorkPageController.handleLoad(setProject,projectCategories.category,WorkCss,ProjectComponent,setSubPageInfo);
@@ -51,7 +54,7 @@ const Work = () => {
 
         <div className={WorkCss.work}>
 
-            <div className={WorkCss.topheader}>
+            <div className={WorkCss.topheader} data-aos="fade-right" data-aos-duration="2000">
                 {
                     !useSelector(state=>state.ProjectView.view) ?
                         <HeaderFont fontClass={WorkCss.headfont}>My Work</HeaderFont>

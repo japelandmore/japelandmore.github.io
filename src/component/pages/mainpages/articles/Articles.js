@@ -4,8 +4,12 @@ import {One as HeaderFont,Three} from '../../../reusable/fonts'
 import ArticleItem from './ArticleItem.js';
 import ArticleController from '../../../framework/controllers/ArticleController';
 import loader from '../../../assets/image/gif/loader.gif'
+import Aos from 'aos'
+import 'aos/dist/aos.css'
 
 const Articles = () => {
+
+    Aos.init();
 
     const [article,setArticle] = React.useState([]);
 
@@ -23,7 +27,7 @@ const Articles = () => {
 
         <div className={ArticleCss.article}>
             
-            <div className={ArticleCss.topheader}>
+            <div className={ArticleCss.topheader} data-aos="fade-right" data-aos-duration="2000">
                 
                     <HeaderFont fontClass={ArticleCss.headfont}>My Articles</HeaderFont>
                 
@@ -31,7 +35,7 @@ const Articles = () => {
 
             <div className={ArticleCss.container}>
 
-                <div className={ArticleCss.articles}>
+                <div className={ArticleCss.articles} data-aos="fade-in" data-aos-duration="2000">
 
                      {/* body */}
                      { 
