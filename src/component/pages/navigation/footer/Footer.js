@@ -45,7 +45,12 @@ const Footer = ({other_click}) => {
         
                             <BodyFont fontClass={FooterCss.credit}>Jeffery Abdulateef &copy; 2020 </BodyFont>                        
                             
-                            <a target="_blank" href="https://www.linkedin.com/in/frank-edekobi-500062129" rel="noopener noreferrer" 
+                            <a 
+                            target="_blank" 
+                            // href="https://www.linkedin.com/in/frank-edekobi-500062129"
+                            // href={encodeURI(`mailto:?subject=I have a project for you &to=edekobifrank@gmail.com&body=Hello Frank,\r\n\r\nI'm interested in your services as a web developer.\r\n\r\nHere is my Contact Information:\r\n\r\n`)} 
+                            href="https://edekobi.com"
+                            rel="noopener noreferrer" 
                             style={{textDecoration:"none"}}> 
 
                                 <BodyFont fontClass={FooterCss.credit} fontStyle={{fontSize:".75em",marginTop:"10px",color:"#b39bff",cursor:"pointer"}} 

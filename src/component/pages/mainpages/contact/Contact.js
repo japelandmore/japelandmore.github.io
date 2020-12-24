@@ -10,15 +10,80 @@ import social_image4 from '../../../assets/image/contact/Icons-3.svg';
 import socialmediaurl from '../../../framework/url/socialmediaurl';
 import Aos from 'aos'
 import 'aos/dist/aos.css'
+import HandleSubmit from './handleSubmit'
 
 
 const Contact = () => {
 
     Aos.init();
 
+    const [ formData, setFormData ] = React.useState({
+        name : "", email : "", phone : "", company : "", subject : "", message : "",
+        nameErr : "", emailErr : "", phoneErr : "", companyErr : "", subjectErr : "", messageErr : ""
+    })
+
+    const [ click, setClick ] = React.useState(false)
+
+    const handleOnChange = (e) => {
+        setFormData( { ...formData, [e.target.id] : e.target.value } );
+    }
+
+    const handleSubmit = () => {
+        return e => {
+            e.preventDefault();
+            setClick( false );
+            setTimeout(()=>{
+                if(validateForm()){
+                    setClick( true );
+                }
+            },500) 
+        }
+    }
+
+    // eslint-disable-next-line
+    const mailformat = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    // eslint-disable-next-line
+    const phoneformat = /^\d{7,}$/;
+    const errormsg = (msg,status) => (<p className={`${ status ? "text-success" : "text-danger" }`} style={{fontSize:"12px"}}>
+                    { msg || "Error" }</p>)
+
+    //const checkPhone = (data) => {
+    //     // eslint-disable-next-line
+    //     return phoneformat.test(data.replace(/[\s()+\-\.]|ext/gi, ''))
+    // }
+
+    const checkLength = (data) => {
+        return data > 3;
+    }
+
+    const validateForm = () => {
+        const { name, email, 
+            // phone, company, 
+            subject, message } = formData;
+        setFormData({...formData, nameErr : checkLength(name) ? "" : errormsg(), 
+                       emailErr : mailformat.test(email) ? "" : errormsg("Invalid email"),
+                    //    phoneErr : checkPhone(phone) ? "" : errormsg("Invalid Phone Number"), 
+                    //    companyErr : checkLength(company) ? "" : errormsg("Lenght should be more than 2"),
+                       subjecterr : checkLength(subject) ? "" : errormsg, 
+                       messageerr : message.length >= 10 ? "" : errormsg("Length of message should be 10 or more") })
+        
+        return  checkLength(name) && 
+                mailformat.test(email) && 
+                // checkPhone(phone) && 
+                // checkLength(company) &&
+                // checkLength(subject) && 
+                message.length >= 10;
+    }
+
+    const clearInputData = () => {
+        setFormData({name : "", email : "", phone : "", company : "", subject : "", message : ""})
+    }
+
     return(
 
         <div className={ContactCss.contact}>
+
+            <HandleSubmit click={ click } contactformprop={formData} clearInputData={clearInputData} />  
             
             <div className={ContactCss.topheader} data-aos="fade-right" data-aos-duration="2000">
                 
@@ -30,35 +95,40 @@ const Contact = () => {
 
                 <div className={ContactCss.form_container} data-aos="fade-in" data-aos-duration="2000">
 
-                    <form autoComplete="off">
+                    <form autoComplete="off" onSubmit={handleSubmit()} >
 
-                        {/* left */}
                         <section className={ContactCss.left} data-aos="fade-in" data-aos-duration="2000">
                             
                             <span className={ContactCss.holder}>
-                                <input type="text" name="fullname" required autoComplete="off"></input>
-                                <label for="fullname" className={ContactCss.label_name}>
-                                    <span className={ContactCss.content_name}>Full Name</span>
+                                <input type="text" name="fullname" required autoComplete="off"
+                                 id="name" onChange={handleOnChange} value={formData.name} />
+                                <label htmlFor="fullname" className={ContactCss.label_name}>
+                                    <span className={ContactCss.content_name}>Full Name *</span>
                                 </label>
                             </span>
+                            {formData.nameErr}
                             
                             <span className={ContactCss.holder}>
-                                <input type="text" name="email" required autoComplete="off"></input>
-                                <label for="email" className={ContactCss.label_name}>
-                                    <span className={ContactCss.content_name}>Email</span>
+                                <input type="text" name="email" required autoComplete="off" 
+                                 id="email" onChange={handleOnChange} value={formData.email} />
+                                <label htmlFor="email" className={ContactCss.label_name}>
+                                    <span className={ContactCss.content_name}>Email *</span>
                                 </label>
                             </span>
+                            {formData.emailErr}
                             
                             <span className={ContactCss.holder}>
-                                <input type="text" name="phone" required autoComplete="off"></input>
-                                <label for="phone" className={ContactCss.label_name}>
+                                <input type="text" name="phone" required autoComplete="off" 
+                                 id="phone" onChange={handleOnChange} value={formData.phone} />
+                                <label htmlFor="phone" className={ContactCss.label_name}>
                                     <span className={ContactCss.content_name}>Phone</span>
                                 </label>
                             </span>
                             
                             <span className={ContactCss.holder}>
-                                <input type="text" name="company" required autoComplete="off"></input>
-                                <label for="company" className={ContactCss.label_name}>
+                                <input type="text" name="company" required autoComplete="off" 
+                                 id="company" onChange={handleOnChange} value={formData.company} />
+                                <label htmlFor="company" className={ContactCss.label_name}>
                                     <span className={ContactCss.content_name}>Company / Organization</span>
                                 </label>
                             </span>
@@ -68,8 +138,9 @@ const Contact = () => {
                         {/* right */}
                         <section className={ContactCss.right} data-aos="fade-in" data-aos-duration="2000">
 
-                            <label for="Subject" className={ContactCss.other_label}>Subject</label>
-                            <select name="subject">
+                            <label htmlFor="Subject" className={ContactCss.other_label}>Subject</label>
+
+                            <select name="subject" id="subject" onChange={handleOnChange} value={formData.subject}>
                                 <option>Select Option</option>
                                 <option>Business Analysis</option>
                                 <option>UI/UX Design</option>
@@ -77,13 +148,13 @@ const Contact = () => {
                                 <option>I just want to say Hi!</option>
                             </select>
                             
-
-                            <label for="" className={ContactCss.other_label}>Message</label>
-                            <textarea>
+                            <label htmlFor="" className={ContactCss.other_label}>Message *</label>
+                            <textarea id="message" onChange={handleOnChange} value={formData.message}>
 
                             </textarea>
+                            {formData.messageErr}
 
-                            <button>Get In Touch</button>
+                            <button type="submit" >Get In Touch</button>
 
                         </section>
 

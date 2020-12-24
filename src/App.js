@@ -12,6 +12,7 @@ import ProtectedRoute from './component/pages/navigation/protectedroute'
 import Page404 from './component/pages/page404';
 import {Login} from './component/pages/authpages'
 import AuthController from './component/framework/controllers/AuthController'
+import './component/assets/bootstrap-css/bootstrap.css'
 
 
 function App() {
@@ -70,7 +71,7 @@ function App() {
 
                     <Route path="*" component={Page404}/>
                   
-                    <Route component={Page404}/>
+                    {/* <Route component={Page404}/> */}
 
                 </Switch>
 
