@@ -94,7 +94,7 @@ export const titleJson = (color,othercolor) => ({
         className: "m-0",
         style : {
             fontSize : "14px",
-            color : color,
+            color : "#000",
             cursor : "pointer",
             transition : "all 0.3s ease",
         }  

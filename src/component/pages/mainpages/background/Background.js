@@ -65,7 +65,7 @@ const Background = () => {
                             real-life user actions.
                             Additionally, in these roles, I have become familiar with illustrating Business 
                             processes and recommending digital automation processes that enable businesses become more 
-                            customer-focused, responsive, and also take more.
+                            customer-focused, responsive, and also take more risk.
                         </Para>
                     </div>
 
@@ -130,8 +130,18 @@ const Background = () => {
 
                             {/* Business Analyst (UI/UX Designer) */}
                             <WorkExperienceComponent Backgroundcss={Backgroundcss} 
+                                title={"Product Designer"}
+                                workdate={"SEPT 2020 - PRESENT"}
+                                companytitle={"RelianceHMO"}
+                                // companydescription={CompanyDescription.Business_analyst()}
+                                roleheader={"In this role I equally work as a Product Designer to:"}>
+                                    {WorkExperienceRolePoints.ProductDesigner()}
+                            </WorkExperienceComponent>
+
+                            {/* Business Analyst (UI/UX Designer) */}
+                            <WorkExperienceComponent Backgroundcss={Backgroundcss} 
                                 title={"Business Analyst (UI/UX Designer)"}
-                                workdate={"JAN 2018 - PRESENT"}
+                                workdate={"JAN 2018 - AUG 2020"}
                                 companytitle={"Flexip Group Technologies & Solutions"}
                                 companydescription={CompanyDescription.Business_analyst()}
                                 roleheader={"In this role I equally work as a UX Designer to:"}>

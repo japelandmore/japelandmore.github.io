@@ -46,3 +46,7 @@ code {
   --main-color12 : #DDDAE6;
   --main-color13 : #000;
 }
+
+.modal-backdrop{
+  z-index: 0 !important;
+}

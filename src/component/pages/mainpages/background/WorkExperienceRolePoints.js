@@ -101,11 +101,55 @@ function WebDev(){
     )
 }
 
+function ProductDesigner(){
+    return(
+        <>
+            <li>
+                Set design requirements based on information from internal teams and user research.
+            </li>
+
+            <li>
+                Identify new product improvement opportunities.
+            </li>
+
+            <li>
+                Work with product managers to analyze how a new product satisfies market needs and consumer preferences.
+            </li>
+                                        
+            <li>
+                Stay up to date on current industry trends and market conditions.
+            </li>
+
+            <li>
+                Coordinate with other design team members to ensure consistent design guidelines, standards, and best practices are followed.
+            </li>
+
+            <li>
+                Modify and revise existing designs to meet changing customer preferences.
+            </li>
+
+            <li>
+                Work closely with product managers to suggest improvements for products and processes.
+            </li>
+
+            <li>
+                Present product design ideas to cross-functional teams and senior leadership.
+            </li>
+
+            <li>
+                Communicate design ideas using user flows, process flows, site maps, and wireframes.
+            </li>
+
+        </>
+    )
+}
+
 const WorkExperienceRolePoints = {
     BusinessAnalystRoles,
     UIUX,
     UIIX2,
-    WebDev
+    WebDev,
+    ProductDesigner
 }
 
 export default WorkExperienceRolePoints;

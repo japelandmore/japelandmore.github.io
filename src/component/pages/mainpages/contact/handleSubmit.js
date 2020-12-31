@@ -19,7 +19,9 @@ class HandleSubmit extends React.Component {
             
         const { name, email, phone, company, subject, message } = this.props.contactformprop;
 
-        const { clearInputData, messageResponse } = this.props;
+        const { clearInputData, 
+            // messageResponse
+         } = this.props;
 
         const templateParams = {
             from_client : "JAPELANDMORE : " + name, 
@@ -31,19 +33,23 @@ class HandleSubmit extends React.Component {
             from_subject : subject, 
             from_message: message
         };
+
+        console.log(templateParams, this.state.loading, 'juju')
         
         this.setState({loading : true})
 
         emailjs
-        .send(process.env.REACT_APP_EMAIL_JS_SERVICE_ID,process.env.REACT_APP_EMAIL_JS_TEMPLATE_ID_CONTACT, templateParams,process.env.REACT_APP_EMAIL_JS_USER_ID)
+        .send( process.env.REACT_APP_EMAIL_JS_SERVICE_ID,process.env.REACT_APP_EMAIL_JS_TEMPLATE_ID_CONTACT, templateParams,process.env.REACT_APP_EMAIL_JS_USER_ID )
         .then((response)=>{
             this.setState({loading : false, message: response.status });
-            messageResponse(response.status);
+            // messageResponse(response.status);
             clearInputData();
+            console.log( response.status, 'juju' )
         }).catch((err)=>{
             this.setState({loading : false, message: err })
-            messageResponse(err);
+            console.log( err, 'juju' )
         })
+
     }
 
     componentDidUpdate(prevProps){
@@ -67,7 +73,7 @@ class HandleSubmit extends React.Component {
         return(
             <>
             <span id="validay" data-toggle="modal" data-target="#exampleModalCenter" className="d-flex position-relative" 
-                style={{zIndex:40000000000000000000000000000000}}/>
+                style={ { zIndex : 40000000000000000000000000000000000000000000000 } } />
             
             <div className={`${modalContainer.className}`} style={{...modalContainer.style}} id="exampleModalCenter" 
                 tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" >

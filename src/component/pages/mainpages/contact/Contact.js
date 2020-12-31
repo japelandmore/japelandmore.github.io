@@ -53,14 +53,16 @@ const Contact = () => {
     // }
 
     const checkLength = (data) => {
-        return data > 3;
+        return data.length > 3;
     }
 
     const validateForm = () => {
+
         const { name, email, 
             // phone, company, 
             subject, message } = formData;
-        setFormData({...formData, nameErr : checkLength(name) ? "" : errormsg(), 
+
+        setFormData({...formData, nameErr : checkLength(name) ? "" : errormsg(name.length), 
                        emailErr : mailformat.test(email) ? "" : errormsg("Invalid email"),
                     //    phoneErr : checkPhone(phone) ? "" : errormsg("Invalid Phone Number"), 
                     //    companyErr : checkLength(company) ? "" : errormsg("Lenght should be more than 2"),
@@ -100,7 +102,7 @@ const Contact = () => {
                         <section className={ContactCss.left} data-aos="fade-in" data-aos-duration="2000">
                             
                             <span className={ContactCss.holder}>
-                                <input type="text" name="fullname" required autoComplete="off"
+                                <input type="text" name="name" required autoComplete="off"
                                  id="name" onChange={handleOnChange} value={formData.name} />
                                 <label htmlFor="fullname" className={ContactCss.label_name}>
                                     <span className={ContactCss.content_name}>Full Name *</span>
